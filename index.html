@@ -33,7 +33,7 @@
 
     @keyframes shimmer-spin {
       to {
-        --angle: 260deg;
+        --angle: 160deg;
       }
     }
   </style>
@@ -44,7 +44,7 @@
 
     <!-- Navbar -->
     <!-- Header -->
-    <header class="w-full bg-blackGlass backdrop-blur-md sticky top-0 z-50">
+    <header class=w-full bg-blackGlass backdrop-blur-md sticky top-0 z-50">
       <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-4">
 
         <!-- Desktop: All in one row | Mobile: Stacked layout -->
@@ -140,7 +140,9 @@
       </div>
     </div>
   </div>
-
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+  </div>
 
   <!-- Footer Socials -->
   <!-- Dock Footer -->
@@ -209,42 +211,128 @@
 
 
   <!-- About Us Section -->
-<section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-  <!-- Background Image -->
-  <img src="assets/about-bg.jpg" alt="About background"
-       class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
+  <section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
+    <!-- Background Image -->
+    <img src="assets/about-bg.jpg" alt="About background"
+      class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are?</h2>
-    <p class="text-sm md:text-base leading-relaxed text-gray-200">
-      We’re a team of forward-thinkers, designers, and developers passionate about transforming communication through screens. 
-      At the core of our digital signage system is a belief in clarity, control, and creativity — helping businesses speak to their audiences with impact. 
-      From smart technology to minimalist design, we combine function and form to create signage solutions that feel effortless and look stunning.
-    </p>
-  </div>
-   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-</section>
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-<section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-  <!-- Background Image -->
-  <img src="assets/about-bg.jpg" alt="About background"
-       class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
+    <!-- Content -->
+    <div class="relative z-10 max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are?</h2>
+      <p class="text-sm md:text-base leading-relaxed text-gray-200">
+        We’re a team of forward-thinkers, designers, and developers passionate about transforming communication through
+        screens.
+        At the core of our digital signage system is a belief in clarity, control, and creativity — helping businesses
+        speak to their audiences with impact.
+        From smart technology to minimalist design, we combine function and form to create signage solutions that feel
+        effortless and look stunning.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+    </div>
+  </section>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl text-center">
-   
-  </div>
-   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-</section>
+
+  <!-- What we do Section -->
+  <section class="relative min-h-screen z-10 bg-black text-white w-full px-4" id="what-we-do">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">What We Do?</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+        We design digital signage systems that simplify communication in any environment. From retail stores to office
+        spaces, our solution empowers you to control screens with ease, showcase real-time content, and keep your
+        audience engaged.
+      </p>
+
+      <!-- Cards Grid -->
+
+      <div class="mt-10 flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6">
+        <!-- Card 1 -->
+        <div
+          class="relative group rounded-2xl overflow-hidden border border-gray-700 hover:border-primary transition duration-300 cursor-pointer ring-2 ring-transparent hover:ring-primary hover:scale-[1.02] min-w-[250px] max-w-[250px] mx-auto">
+          <img src="assets/ai-cloud.jpg" alt="AI Cloud" class="w-full h-[340px] object-cover" />
+          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
+            <p class="text-sm leading-snug text-white">
+              Displays campus news, events, and maps via digital signage, enhancing student engagement and navigation.
+            </p>
+            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          </div>
+        </div>
+
+        <!-- Card 2 (Selected) -->
+        <div
+          class="relative group rounded-2xl overflow-hidden border-2 border-primary scale-[1.03] shadow-xl transition duration-300 cursor-pointer min-w-[250px] max-w-[250px] mx-auto">
+          <img src="assets/working-top.jpg" alt="Work Top" class="w-full h-[340px] object-cover" />
+          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
+            <p class="text-sm leading-snug text-white">
+              Schedule promotions, videos, and urgent updates. Perfect for restaurants, shops, and service providers.
+            </p>
+            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="relative group rounded-2xl overflow-hidden border border-gray-700 hover:border-primary transition duration-300 cursor-pointer ring-2 ring-transparent hover:ring-primary hover:scale-[1.02] min-w-[250px] max-w-[250px] mx-auto">
+          <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-[340px] object-cover" />
+          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
+            <p class="text-sm leading-snug text-white">
+              Showcase product features, live data, or social media feeds at trade shows or internal dashboards.
+            </p>
+            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          </div>
+        </div>
+
+      </div>
+      <div
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+      </div>
+  </section>
+
+
+
+
+  <!-- Hero Section for  -->
+
+  <!-- Working Hero Section -->
+  <section class="relative w-full min-h-screen bg-black text-white overflow-hidden">
+    <!-- Background Image -->
+    <img src="assets/businessman-presenting.jpg" alt="Businessman with tablet"
+      class="absolute top-0 left-0 w-full h-full object-contain md:object-cover opacity-60 z-10" />
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/40 md:bg-black/70 z-10"></div>
+
+    <!-- Content -->
+    <div class="relative z-20 flex flex-col items-center justify-center min-h-screen text-center">
+      <!-- Subheading -->
+      <p class="text-sm sm:text-base text-white/80 leading-tight">
+        <span class="font-semibold text-white">Your message</span> deserves more than static screens.
+      </p>
+      <p class="text-sm sm:text-base mt-1 text-white/80">
+        Connect With Pagon Now.
+      </p>
+
+      <!-- Heading -->
+      <h1 class="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+        Your Content,<br class="sm:hidden" />
+        Everywhere.
+      </h1>
+
+      <!-- CTA Button -->
+      <button
+        class="mt-6 px-12 py-1  rounded-full border border-white/30 bg-white/20 text-white font-semibold hover:bg-white/30 transition-all text-sm sm:text-base backdrop-blur-md shadow">
+        Buy
+      </button>
+    </div>
+  </section>
+
+
 
 </body>
 
