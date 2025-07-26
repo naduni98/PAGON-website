@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./assets/logo.png">
   <title>PAGON | Smart Displays</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,10 +25,11 @@
         }
       }
     }
-    </script>
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
-      background-color: #060607;
+      background-color: #000;
     }
      .swiper-slide {
       transition: transform 0.4s ease, filter 0.4s ease;
@@ -45,36 +47,150 @@
 
     @keyframes shimmer-spin {
       to {
-        --angle: 160deg;
+        --angle: 360deg;
+      }
+    }
+
+    .animate-gradient {
+      background-size: 300% 300%;
+      animation: gradient-move 6s ease infinite;
+    }
+
+    @keyframes gradient-move {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
   </style>
 </head>
 
 <body class="text-white font-sans">
-  <div class="w-full max-w-[1280px] mx-auto px-4">
+  <div class="w-full max-w-[1280px] mx-auto px-4 h-screen">
 
-    <!-- Navbar -->
-    <div id="header-placeholder"></div>
+    <!-- Header -->
+    <header class="w-full fixed top-4 z-50"
+    >
+      <div class="m-0 max-w-screen-xl px-4 md:px-0 py-4">
+
+        <!-- Desktop: All in one row | Mobile: Stacked layout -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
+
+          <!-- Logo -->
+          <div class="flex items-center gap-2"
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1300">
+            <img src="assets/logo.png" alt="PAGON logo" class="w-8 h-8" />
+            <span class="text-lg font-bold tracking-wide">PAGON</span>
+          </div>
+
+          <!-- NavBar -->
+          <div class="relative flex justify-center items-center"
+   >
+
+
+            <!-- Nav Menu -->
+            <nav class="relative z-10 flex items-center justify-center gap-8 border-t border-primary/40
+            px-12 py-3 bg-[#060607]/70 rounded-full backdrop-blur-md shadow-md 
+            text-gray-300 text-sm 
+            whitespace-nowrap overflow-x-auto no-scrollbar w-full max-w-full"
+                      data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800">
+              <a href="#" class="shrink-0 relative text-white font-semibold">
+                Home
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#D9D9D9] rounded-full"></span>
+              </a>
+              <a href="#" class="shrink-0 hover:text-white transition">Product</a>
+              <a href="#" class="shrink-0 hover:text-white transition">Software</a>
+              <a href="#" class="shrink-0 hover:text-white transition">Team</a>
+              <a href="#about" class="shrink-0 hover:text-white transition">About</a>
+              <a href="#" class="shrink-0 hover:text-white transition">Contact Us</a>
+            </nav>
+
+          </div>
+
+          <!-- Watch Demo Button -->
+          <div class="flex-shrink-0" 
+                    data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1300">
+            <button
+              class="relative inline-flex items-center justify-center w-[130px] md:w-auto p-[1.5px] rounded-full overflow-hidden group">
+              <div class="absolute inset-0 z-0 rounded-full" style="background: conic-gradient(from var(--angle), transparent 25%, #4361EE, transparent 50%);
+                   animation: shimmer-spin 5s linear infinite;">
+              </div>
+              <span class="relative z-10 px-4 py-2 text-sm font-medium text-white bg-[#060607] rounded-full">
+                Watch Demo
+              </span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
 
 
 
     <!-- Hero Section -->
-    <section class="w-full flex flex-col items-center justify-center text-center pt-10 md:pt-16 pb-12">
-      <h1 class="text-xl sm:text-2xl md:text-5xl font-bold leading-tight">
+    <section class="w-full flex flex-col items-center justify-center text-center pt-10 md:pt-40 pb-12">
+
+
+      <div>
+        
+      </div>
+      <!-- Elliptical Gradient Glow (Desktop only) -->
+      <div class="absolute 
+                  top-[-200px] sm:top-[-400px] md:top-[-700px] 
+                  left-24
+                  w-[400px] sm:w-[600px] md:w-[800px] 
+                  h-[300px] sm:h-[400px] md:h-[500px] 
+                  rounded-full blur-[120px] sm:blur-[160px] md:blur-[200px] 
+                  opacity-40 sm:opacity-50 md:opacity-100 
+                  z-0 pointer-events-none 
+                  bg-[radial-gradient(circle_at_center,_#4361EE,_#00B4D8,_transparent)]"
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="500" >
+      </div>
+
+
+
+      <h1 class="text-xl sm:text-2xl md:text-6xl font-bold leading-tight 
+      bg-[radial-gradient(circle_at_center,_#fff,_#000)] bg-clip-text text-transparent pb-2" 
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-delay="1200"
+     data-aos-duration="1400">
         Transform How You Inform.<br />
-        <span class="text-gray-300">Smarter Displays, Better Engagement.</span>
+        Smarter <span class="bg-gradient-to-r from-primary via-teal-400 to-cyanish 
+                 bg-clip-text text-transparent animate-gradient italic">Displays</span>, Better Engagement.
       </h1>
-      <p class="text-mediumGray text-sm mt-4 max-w-md">
+      <p class="text-gray-500 text-md mt-4 max-w-md italic"
+      data-aos="flip-down"
+      data-aos-delay="1600"
+      data-aos-duration="1500">
         “Your content, everywhere. Digital signage made simple.”
       </p>
-      <img src="assets/hero-device.png" alt="Pagon Device" class="w-64 sm:w-72 md:w-[400px] mt-10" />
+      <img src="assets/hero-device.png" alt="Pagon Device" class="w-64 sm:w-72 md:w-[450px] mt-10"
+      data-aos="zoom-out-up"
+      data-aos-delay="2000"
+      data-aos-duration="1500" />
     </section>
   </div>
 
   <!-- Scroll Down Indicator -->
   <!-- Scroll Indicator Aligned to Right (Desktop Only) -->
-  <div class="hidden md:block fixed bottom-4 right-0 w-full z-50">
+  <div class="hidden md:block fixed bottom-4 right-0 w-full z-50"
+            data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800">
     <div class="max-w-screen-xl mx-auto px-4 md:px-8 flex justify-end">
       <div class="flex flex-col items-center text-white text-xs space-y-1">
         <p>Scroll Down</p>
@@ -318,4 +434,8 @@
 
 </body>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </html>
