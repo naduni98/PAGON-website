@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PAGON | Smart Displays</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -19,12 +24,19 @@
         }
       }
     }
-  </script>
+    </script>
   <style>
     body {
       background-color: #060607;
     }
-
+     .swiper-slide {
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .swiper-slide:not(.swiper-slide-active) {
+      transform: scale(0.9);
+      filter: blur(1px);
+      opacity: 0.6;
+    }
     @property --angle {
       syntax: '<angle>';
       initial-value: 0deg;
@@ -43,67 +55,7 @@
   <div class="w-full max-w-[1280px] mx-auto px-4">
 
     <!-- Navbar -->
-    <!-- Header -->
-    <header class=w-full bg-blackGlass backdrop-blur-md sticky top-0 z-50">
-      <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-4">
-
-        <!-- Desktop: All in one row | Mobile: Stacked layout -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
-
-          <!-- Logo -->
-          <div class="flex items-center gap-2">
-            <img src="assets/logo.png" alt="PAGON logo" class="w-8 h-8" />
-            <span class="text-lg font-bold tracking-wide">PAGON</span>
-          </div>
-
-          <!-- NavBar -->
-          <div class="relative flex justify-center items-center">
-            <!-- Elliptical Gradient Glow (Desktop only) -->
-            <div class="absolute 
-         top-[-200px] sm:top-[-400px] md:top-[-600px] 
-         left-1/2 -translate-x-1/2 
-         w-[400px] sm:w-[600px] md:w-[800px] 
-         h-[300px] sm:h-[400px] md:h-[500px] 
-         rounded-full blur-[120px] sm:blur-[160px] md:blur-[200px] 
-         opacity-40 sm:opacity-50 md:opacity-60 
-         z-0 pointer-events-none 
-         bg-[radial-gradient(circle_at_center,_#00B4D8,_#4361EE,_transparent)]">
-            </div>
-
-            <!-- Nav Menu -->
-            <nav class="relative z-10 flex items-center justify-center gap-4 
-            px-4 py-3 bg-[#060607]/90 rounded-full backdrop-blur-md shadow-md 
-            text-gray-300 text-sm 
-            whitespace-nowrap overflow-x-auto no-scrollbar w-full max-w-full">
-              <a href="#" class="shrink-0 relative text-white font-semibold">
-                Home
-                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#D9D9D9] rounded-full"></span>
-              </a>
-              <a href="#" class="shrink-0 hover:text-white transition">Product</a>
-              <a href="#" class="shrink-0 hover:text-white transition">Software</a>
-              <a href="#" class="shrink-0 hover:text-white transition">Team</a>
-              <a href="#about" class="shrink-0 hover:text-white transition">About</a>
-              <a href="#" class="shrink-0 hover:text-white transition">Contact Us</a>
-            </nav>
-
-          </div>
-
-          <!-- Watch Demo Button -->
-          <div class="flex-shrink-0">
-            <button
-              class="relative inline-flex items-center justify-center w-[130px] md:w-auto p-[1.5px] rounded-full overflow-hidden group border border-primary">
-              <div class="absolute inset-0 z-0 rounded-full" style="background: conic-gradient(from var(--angle), transparent 25%, #4361EE, transparent 50%);
-                   animation: shimmer-spin 2.5s linear infinite;">
-              </div>
-              <span class="relative z-10 px-4 py-2 text-sm font-medium text-white bg-[#060607] rounded-full">
-                Watch Demo
-              </span>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </header>
+    <div id="header-placeholder"></div>
 
 
 
@@ -144,8 +96,6 @@
     class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
   </div>
 
-  <!-- Footer Socials -->
-  <!-- Dock Footer -->
   <!-- Footer Icons -->
   <footer class="fixed bottom-4 z-50 w-full">
     <div class="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -240,58 +190,54 @@
 
 
   <!-- What we do Section -->
-  <section class="relative min-h-screen z-10 bg-black text-white w-full px-4" id="what-we-do">
+
+  <section id="what-we-do" class="bg-black text-white w-full px-4 py-16">
     <div class="max-w-screen-xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">What We Do?</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-        We design digital signage systems that simplify communication in any environment. From retail stores to office
-        spaces, our solution empowers you to control screens with ease, showcase real-time content, and keep your
-        audience engaged.
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">What We Do?</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-10">
+        We design digital signage systems that simplify communication in any environment.
       </p>
 
-      <!-- Cards Grid -->
+      <!-- Swiper Carousel -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
 
-      <div class="mt-10 flex md:grid md:grid-cols-3 gap-6 md:gap-0 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6">
-        <!-- Card 1 -->
-        <div
-          class="relative group rounded-2xl overflow-hidden border border-gray-700 hover:border-primary transition duration-300 cursor-pointer ring-2 ring-transparent hover:ring-primary hover:scale-[1.02] min-w-[250px] max-w-[250px] mx-auto">
-          <img src="assets/ai-cloud.jpg" alt="AI Cloud" class="w-full h-[340px] object-cover" />
-          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
-            <p class="text-sm leading-snug text-white">
-              Displays campus news, events, and maps via digital signage, enhancing student engagement and navigation.
-            </p>
-            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/ai-cloud.jpg" alt="AI Cloud" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Displays campus news and maps via signage for student engagement.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Card 2 (Selected) -->
-        <div
-          class="relative group rounded-2xl overflow-hidden border-2 border-primary scale-[1.03] shadow-xl transition duration-300 cursor-pointer min-w-[250px] max-w-[250px] mx-auto">
-          <img src="assets/working-top.jpg" alt="Work Top" class="w-full h-[340px] object-cover" />
-          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
-            <p class="text-sm leading-snug text-white">
-              Schedule promotions, videos, and urgent updates. Perfect for restaurants, shops, and service providers.
-            </p>
-            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative w-[260px] h-[400px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/working-top.jpg" alt="Working" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Schedule promotions and urgent updates for restaurants and shops.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div
-          class="relative group rounded-2xl overflow-hidden border border-gray-700 hover:border-primary transition duration-300 cursor-pointer ring-2 ring-transparent hover:ring-primary hover:scale-[1.02] min-w-[250px] max-w-[250px] mx-auto">
-          <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-[340px] object-cover" />
-          <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 w-full">
-            <p class="text-sm leading-snug text-white">
-              Showcase product features, live data, or social media feeds at trade shows or internal dashboards.
-            </p>
-            <span class="text-sm font-semibold mt-3 inline-block">More</span>
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-      <div
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
-      </div>
+    </div>
   </section>
 
 
@@ -330,11 +276,45 @@
 
 
   <!-- Footer -->
-  <footer class="w-full bg-blackGlass backdrop-blur-md py-6 mt-16">
-    <div class="max-w-screen-xl mx-auto px-4 text-center text-gray-400 text-sm">
-      &copy; 2025 PAGON. All rights reserved.
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
+
+
+
+
+  <script>
+    fetch("components/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header-placeholder").innerHTML = data);
+
+    fetch("components/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer-placeholder").innerHTML = data);
+  </script>
+ <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 120,
+          modifier: 2.5,
+          slideShadows: false,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    });
+  </script>
+
+
 
 </body>
 
