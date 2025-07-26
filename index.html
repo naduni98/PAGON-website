@@ -7,6 +7,11 @@
   <link rel="icon" type="image/x-icon" href="./assets/logo.png">
   <title>PAGON | Smart Displays</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -26,7 +31,14 @@
     body {
       background-color: #000;
     }
-
+     .swiper-slide {
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .swiper-slide:not(.swiper-slide-active) {
+      transform: scale(0.9);
+      filter: blur(1px);
+      opacity: 0.6;
+    }
     @property --angle {
       syntax: '<angle>';
       initial-value: 0deg;
@@ -196,10 +208,10 @@
       </div>
     </div>
   </div>
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+  </div>
 
-
-  <!-- Footer Socials -->
-  <!-- Dock Footer -->
   <!-- Footer Icons -->
   <footer class="fixed bottom-4 z-50 w-full">
     <div class="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -265,42 +277,160 @@
 
 
   <!-- About Us Section -->
-<section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-  <!-- Background Image -->
-  <img src="assets/about-bg.jpg" alt="About background"
-       class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
+  <section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
+    <!-- Background Image -->
+    <img src="assets/about-bg.jpg" alt="About background"
+      class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are?</h2>
-    <p class="text-sm md:text-base leading-relaxed text-gray-200">
-      We’re a team of forward-thinkers, designers, and developers passionate about transforming communication through screens. 
-      At the core of our digital signage system is a belief in clarity, control, and creativity — helping businesses speak to their audiences with impact. 
-      From smart technology to minimalist design, we combine function and form to create signage solutions that feel effortless and look stunning.
-    </p>
-  </div>
-   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-</section>
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-<section id="about" class="relative min-h-screen flex items-center justify-center text-white px-4 md:px-8 py-24">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-  <!-- Background Image -->
-  <img src="assets/about-bg.jpg" alt="About background"
-       class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" />
+    <!-- Content -->
+    <div class="relative z-10 max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are?</h2>
+      <p class="text-sm md:text-base leading-relaxed text-gray-200">
+        We’re a team of forward-thinkers, designers, and developers passionate about transforming communication through
+        screens.
+        At the core of our digital signage system is a belief in clarity, control, and creativity — helping businesses
+        speak to their audiences with impact.
+        From smart technology to minimalist design, we combine function and form to create signage solutions that feel
+        effortless and look stunning.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+    </div>
+  </section>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl text-center">
-   
-  </div>
-   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10"></div>
-</section>
+
+  <!-- What we do Section -->
+
+  <section id="what-we-do" class="bg-black text-white w-full px-4 py-16">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">What We Do?</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-10">
+        We design digital signage systems that simplify communication in any environment.
+      </p>
+
+      <!-- Swiper Carousel -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/ai-cloud.jpg" alt="AI Cloud" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Displays campus news and maps via signage for student engagement.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative w-[260px] h-[400px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/working-top.jpg" alt="Working" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Schedule promotions and urgent updates for restaurants and shops.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Working Hero Section -->
+  <section class="relative w-full min-h-screen bg-black text-white overflow-hidden">
+    <!-- Background Image -->
+    <img src="assets/businessman-presenting.jpg" alt="Businessman with tablet"
+      class="absolute top-0 left-0 w-full h-full object-contain md:object-cover opacity-60 z-10" />
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/40 md:bg-black/70 z-10"></div>
+
+    <!-- Content -->
+    <div class="relative z-20 flex flex-col items-center justify-center min-h-screen text-center">
+      <!-- Subheading -->
+      <p class="text-sm sm:text-base text-white/80 leading-tight">
+        <span class="font-semibold text-white">Your message</span> deserves more than static screens.
+      </p>
+      <p class="text-sm sm:text-base mt-1 text-white/80">
+        Connect With Pagon Now.
+      </p>
+
+      <!-- Heading -->
+      <h1 class="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+        Your Content,<br class="sm:hidden" />
+        Everywhere.
+      </h1>
+
+      <!-- CTA Button -->
+      <button
+        class="mt-6 px-12 py-1  rounded-full border border-white/30 bg-white/20 text-white font-semibold hover:bg-white/30 transition-all text-sm sm:text-base backdrop-blur-md shadow">
+        Buy
+      </button>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+
+
+
+  <script>
+    fetch("components/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header-placeholder").innerHTML = data);
+
+    fetch("components/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer-placeholder").innerHTML = data);
+  </script>
+ <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 120,
+          modifier: 2.5,
+          slideShadows: false,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    });
+  </script>
+
+
 
 </body>
 
