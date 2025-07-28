@@ -26,6 +26,50 @@
             height: 100%;
             object-fit: cover;
         }
+         @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoom-in {
+    0% {
+      transform: scale(1.05);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out both;
+  }
+
+  .animate-zoom-in {
+    animation: zoom-in 1s ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out both;
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+    .scroll-zoom {
+    transition: transform 2s ease;
+  }
+  .scroll-zoom.in-view {
+    transform: scale(1.05);
+  }
     </style>
 </head>
 
@@ -66,14 +110,11 @@
 
             <!-- Device Image -->
             <div class="flex-1 flex justify-center">
-                <img src="assets/device-1.png" alt="PAGON Device" class="w-[300px] md:w-[400px] object-contain" />
+                <img src="/assets/device-1.png" alt="PAGON Device" class="w-[300px] md:w-[400px] object-contain" />
             </div>
 
         </div>
     </section>
-
-
-
 
     <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
     <section class="relative w-full h-[calc(100vh-64px)]">
@@ -81,19 +122,13 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <img src="assets/hero-19.png" alt="Hero Image 1" />
+                    <img src="/assets/hero-20.png" alt="Hero Image 2" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="assets/hero-20.png" alt="Hero Image 2" />
+                    <img src="/assets/collage.png" alt="Hero Image 4" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="assets/hero-19.png" alt="Hero Image 4" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/hero-21.png" alt="Hero Image 3" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/hero-19.png" alt="Hero Image 5" />
+                    <img src="/assets/school.jpg" alt="Hero Image 3" />
                 </div>
             </div>
         </div>
@@ -111,38 +146,30 @@
             </h2>
 
             <!-- Features -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
 
                 <!-- Feature 1 -->
                 <div class="flex flex-col items-center text-center space-y-4">
                     <div class="bg-gray-200 p-6 rounded-full">
-                        <img src="assets/icon-compact.png" alt="Compact Icon" class="w-8 h-8" />
+                        <img src="/assets/icon-compact.png" alt="Compact Icon" class="w-8 h-8" />
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800">Compact</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Uses in Schools</h3>
                     <p class="text-gray-600 max-w-xs">
-                        A quarter of the size compared to our previous generation device.
+                       Display timetables, alerts, news, and event updates in classrooms, libraries, and reception areas. 
+                    </p>
+                    <p class="text-gray-600 max-w-xs">
+                       Schedule bell times or emergency messages from one dashboard. 
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
                 <div class="flex flex-col items-center text-center space-y-4">
                     <div class="bg-gray-200 p-6 rounded-full">
-                        <img src="assets/icon-efficient.png" alt="Efficient Icon" class="w-8 h-8" />
+                        <img src="/assets/icon-efficient.png" alt="Efficient Icon" class="w-8 h-8" />
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800">Efficient</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Uses in Offices</h3>
                     <p class="text-gray-600 max-w-xs">
-                        Uses less power while providing the same exceptional performance.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="flex flex-col items-center text-center space-y-4">
-                    <div class="bg-gray-200 p-6 rounded-full">
-                        <img src="assets/icon-optimized.png" alt="Optimized Icon" class="w-8 h-8" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800">Optimized</h3>
-                    <p class="text-gray-600 max-w-xs">
-                        Full hardware acceleration delivers multiple low-latency screen mirroring and media sessions.
+                       Update meeting room signage, welcome messages, or corporate announcements across multiple office locations instantly. 
                     </p>
                 </div>
 
@@ -150,12 +177,10 @@
 
             <!-- Connect 3 Description + CTA -->
             <div class="max-w-3xl mx-auto text-center">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pagon v.01</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Signage System</h3>
                 <p class="text-gray-700 text-lg mb-8">
-                    Featuring triple <strong>4K displays</strong>, low-latency screen mirroring, and robust security,
-                    Pagon v.01 is the ultimate tool for effortless content sharing.
+                    Discover how PAGON Connect<strong> bridges devices and displays</strong>, with unmatched simplicity and versatility
                 </p>
-
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#"
                         class="bg-gray-800 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-900 transition">
@@ -168,45 +193,75 @@
     </section>
 
 
+<section class="bg-gray-100 py-20 overflow-hidden">
+  <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+    
+    <div class="w-full md:w-1/2 text-center md:text-left py-16 px-4 md:px-16 animate-fade-in">
+      <div class="flex items-center mb-4">
+        <img src="/assets/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
+        <span class="text-xl font-medium text-gray-800">YourAppOS</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+        Imagined and built from the ground up.
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Block ads on your entire network. Automate your home. And more with YourAppOS —
+        a light, elegant home cloud OS that puts your privacy first.
+      </p>
+    </div>
+   
+    <div class="w-full relative">
+    
+        <img
+          src="/assets/site-2.png"
+          alt="Dashboard Screenshot"
+          class="w-[950px] h-[450px] object-contain transform -translate-x-1/4 transition-transform duration-700 ease-in-out scroll-zoom absolute top-0 -right-40"
+        />
+    
+    </div>
+
+    <!-- Right: Text Content -->
+
+  </div>
+
+</section>
+
+
     <section class="bg-gray-100 text-gray-800 py-24">
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
 
             <!-- 2x2 Image Grid -->
             <div class="grid grid-cols-2 gap-2 w-full lg:w-1/2">
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/device-2.avif" alt="Feature 1" class="w-full h-full object-cover" />
+                    <img src="/assets/device-2.avif" alt="Feature 1" class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/device-3.avif" alt="Feature 2" class="w-full h-full object-cover" />
+                    <img src="/assets/device-3.avif" alt="Feature 2" class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/device-4.avif" alt="Feature 3" class="w-full h-full object-cover" />
+                    <img src="/assets/device-4.avif" alt="Feature 3" class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/device-5.avif" alt="Feature 4" class="w-full h-full object-cover" />
+                    <img src="/assets/device-5.avif" alt="Feature 4" class="w-full h-full object-cover" />
                 </div>
             </div>
 
             <!-- Right Content -->
             <div class="w-full lg:w-1/2 space-y-6">
-                <h2 class="text-4xl  font-bold">
-                    The Next Evolution<br />
-                    <span class="text-gray-800">of Smart Performance</span>
+                <h2 class="text-4xl  font-bold uppercase">
+                     Digital Signage System<br />
+                    <span class="text-gray-800">Engage, inform, and inspire. </span>
                 </h2>
                 <p class="text-gray-700 text-lg">
-                    Whether you're accessing media, running apps, or sharing content seamlessly — this system handles it
-                    all with precision and power. Designed to be compact, intuitive, and instantly ready.
+                    PAGON’s Digital Signage System is a reliable solution designed to deliver scheduled multimedia content across multiple displays.
                 </p>
                 <p class="text-gray-700 text-lg">
-                    With its sleek design and advanced features, it’s the perfect companion for any modern workspace or
-                    home entertainment setup.
+                     Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one central system.
             </div>
 
         </div>
     </section>
 
-
-    <!-- Sweeper -->
 
     <!-- Swiper Container -->
     <section class="bg-gray-100 py-16">
@@ -214,16 +269,40 @@
             <div class="swiper featureSwiper">
                 <div class="swiper-wrapper">
 
+                             <div
+                        class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl p-6 w-[300px] shadow-md">
+                        <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
+                            <use href="#svg1676987305_798" />
+                        </svg>
+                        <h3 class="text-lg font-bold mb-2">Centralised content scheduling.</h3>
+                        <!-- <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
+                            smart home.</p> -->
+                        <img src="/assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
+                    </div>
+
+
                     <!-- Slide 1 -->
                     <div
                         class="swiper-slide e bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl p-6 w-[300px] shadow-md">
                         <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
                             <use href="#svg1676987305_798" />
                         </svg>
-                        <h3 class="text-lg font-bold mb-2">Stream your movies & shows.</h3>
-                        <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
-                            to your TV, computer, and phone.</p>
-                        <img src="assets/device-1.png" alt="Plex UI" class="rounded-lg shadow-lg w-full">
+                        <h3 class="text-lg font-bold mb-2">Real-time device status (online/offline) .</h3>
+                        <!-- <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
+                            to your TV, computer, and phone.</p> -->
+                        <img src="/assets/device-1.png" alt="Plex UI" class="rounded-lg shadow-lg w-full">
+                    </div>
+
+
+                             <div
+                        class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl p-6 w-[300px] shadow-md">
+                        <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
+                            <use href="#svg1676987305_798" />
+                        </svg>
+                        <h3 class="text-lg font-bold mb-2">Device diagnostics and alerts.</h3>
+                        <!-- <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
+                            smart home.</p> -->
+                        <img src="/assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
                     </div>
 
                     <!-- Slide 2 -->
@@ -232,10 +311,10 @@
                         <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
                             <use href="#svg1676987305_798" />
                         </svg>
-                        <h3 class="text-lg font-bold mb-2">Block ads on your entire network.</h3>
-                        <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
-                            to your TV, computer, and phone.</p>
-                        <img src="assets/device-1.png" alt="Pi-hole UI" class="rounded-lg shadow-lg w-full">
+                        <h3 class="text-lg font-bold mb-2">User-friendly interface and dashboard.</h3>
+                        <!-- <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
+                            to your TV, computer, and phone.</p> -->
+                        <img src="/assets/device-1.png" alt="Pi-hole UI" class="rounded-lg shadow-lg w-full">
                     </div>
 
                     <!-- Slide 3 -->
@@ -244,10 +323,10 @@
                         <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
                             <use href="#svg1676987305_798" />
                         </svg>
-                        <h3 class="text-lg font-bold mb-2">Automate your home and appliances.</h3>
-                        <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
-                            smart home.</p>
-                        <img src="assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
+                        <h3 class="text-lg font-bold mb-2">Date, Time and Weather Widgets.</h3>
+                        <!-- <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
+                            smart home.</p> -->
+                        <img src="/assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
                     </div>
 
                     <!-- Slide 4 -->
@@ -256,10 +335,10 @@
                         <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
                             <use href="#svg1676987305_798" />
                         </svg>
-                        <h3 class="text-lg font-bold mb-2">Automate your home and appliances.</h3>
-                        <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
-                            smart home.</p>
-                        <img src="assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
+                        <h3 class="text-lg font-bold mb-2">Display resolution 1080p and 720p.</h3>
+                        <!-- <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
+                            smart home.</p> -->
+                        <img src="/assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
                     </div>
 
                 </div>
@@ -270,69 +349,6 @@
             </div>
         </div>
     </section>
-
-
-
-    <!-- Specification -->
-    <section class="bg-gray-100 py-16">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <!-- Title -->
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900">Specification</h2>
-                <p class="mt-2 text-lg text-gray-600">No apps or dongles required.</p>
-            </div>
-
-            <!-- Spec List -->
-            <div class="space-y-10 divide-y divide-gray-300">
-
-                <!-- Item -->
-                <div class="grid sm:grid-cols-3 gap-6 pt-6">
-                    <dt class="font-semibold text-gray-800">Test 01</dt>
-                    <dd class="sm:col-span-2 text-gray-700 space-y-1">
-                        <p>iOS, iPadOS and macOS</p>
-                        <p>Screen mirroring and content sharing</p>
-                        <p>Extend macOS display</p>
-                        <p>Code and password security</p>
-                    </dd>
-                </div>
-
-                <!-- Item -->
-                <div class="grid sm:grid-cols-3 gap-6 pt-6">
-                    <dt class="font-semibold text-gray-800">Test 02</dt>
-                    <dd class="sm:col-span-2 text-gray-700 space-y-1">
-                        <p>Android, Chrome OS and Google Chrome</p>
-                        <p>Screen mirroring and cast from apps with DRM</p>
-                        <p>Prompt security</p>
-                    </dd>
-                </div>
-
-                <!-- Item -->
-                <div class="grid sm:grid-cols-3 gap-6 pt-6">
-                    <dt class="font-semibold text-gray-800">Test 03</dt>
-                    <dd class="sm:col-span-2 text-gray-700 space-y-1">
-                        <p>Android and Windows</p>
-                        <p>Screen mirroring</p>
-                        <p>Wi-Fi Direct and Miracast over infrastructure</p>
-                        <p>Extend Windows 10 desktop</p>
-                        <p>Touchback and pen support</p>
-                        <p>Code security</p>
-                    </dd>
-                </div>
-
-                <!-- Item -->
-                <div class="grid sm:grid-cols-3 gap-6 pt-6">
-                    <dt class="font-semibold text-gray-800">Test 04</dt>
-                    <dd class="sm:col-span-2 text-gray-700 space-y-1">
-                        <p>Wi-Fi Hotspot</p>
-                        <p>2.4 and 5 GHz channel selection</p>
-                    </dd>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
 
 
     <section
@@ -352,19 +368,19 @@
 
             <!-- Left Tilted Image -->
             <div class="z-0 transform">
-                <img src="assets/site-2.png" alt="Side App 1"
+                <img src="/assets/site-2.png" alt="Side App 1"
                     class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
             </div>
 
             <!-- Center Main Image -->
             <div class="z-10 -mt-10 lg:-mt-0 lg:-ml-12 lg:-mr-12">
-                <img src="assets/site-3.png" alt="Main App"
+                <img src="/assets/site-3.png" alt="Main App"
                     class="w-[320px] sm:w-[500px] lg:w-[600px] shadow-2xl rounded-2xl border border-gray-700" />
             </div>
 
             <!-- Right Tilted Image -->
             <div class="z-0 transform">
-                <img src="assets/site-4.png" alt="Side App 2"
+                <img src="/assets/site-4.png" alt="Side App 2"
                     class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
             </div>
 
@@ -372,16 +388,20 @@
     </section>
 
 
+
+
+
+
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
     <!-- Dynamic Content Loader -->
     <script>
-        fetch("components/header.html")
+        fetch("../header.html")
             .then(res => res.text())
             .then(data => document.getElementById("header-placeholder").innerHTML = data);
 
-        fetch("components/footer.html")
+        fetch("../footer.html")
             .then(res => res.text())
             .then(data => document.getElementById("footer-placeholder").innerHTML = data);
     </script>
@@ -429,6 +449,19 @@
             });
         });
     </script>
+    <script>
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const img = entry.target;
+      img.classList.toggle("in-view", entry.isIntersecting);
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
+</script>
+
+
 
 </body>
 
