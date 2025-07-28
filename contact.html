@@ -50,7 +50,7 @@
 
     <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
       <div class="w-full h-[500px] rounded-[3rem] overflow-hidden">
-        <img src="assets/hero-19.png" alt="Promo" class="w-full h-full object-cover" />
+        <img src="assets/device-8.webp" alt="Promo" class="w-full h-full object-cover" />
       </div>
     </div>
   </section>
@@ -103,11 +103,11 @@
 
   <!-- JS Includes -->
   <script>
-    fetch("components/header.html")
+    fetch("/header.html")
       .then(res => res.text())
       .then(data => document.getElementById("header-placeholder").innerHTML = data);
 
-    fetch("components/footer.html")
+    fetch("/footer.html")
       .then(res => res.text())
       .then(data => document.getElementById("footer-placeholder").innerHTML = data);
 
