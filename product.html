@@ -26,6 +26,60 @@
             height: 100%;
             object-fit: cover;
         }
+
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoom-in {
+            0% {
+                transform: scale(1.05);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out both;
+        }
+
+        .animate-zoom-in {
+            animation: zoom-in 1s ease-out both;
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out both;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .scroll-zoom {
+            transition: transform 2s ease;
+        }
+
+        .scroll-zoom.in-view {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -49,24 +103,23 @@
     <section class="relative w-full h-screen bg-gray-100 flex items-center px-4 md:px-10">
         <div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200"></div>
 
-        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between w-full h-full">
+        <div class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between w-full h-full">
 
             <!-- Text Column -->
-            <div class="flex-1 text-center md:text-left space-y-6">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                    The future of <br />
-                    screen mirroring <br />
-                    and content sharing
+            <div class="flex-1 text-center md:text-left top-0 ">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight animate-fade-in-up">
+                    The future of screen mirroring and content sharing
                 </h2>
-                <p class="text-lg text-gray-700 max-w-md mx-auto md:mx-0">
+                <p class="text-lg text-gray-700 max-w-md mx-auto md:mx-0 mt-8">
                     Discover how <strong class="font-semibold">PAGON Connect</strong> bridges devices and displays
                     with unmatched simplicity and versatility.
                 </p>
             </div>
 
             <!-- Device Image -->
-            <div class="flex-1 flex justify-center">
-                <img src="assets/device-1.png" alt="PAGON Device" class="w-[300px] md:w-[400px] object-contain" />
+            <div class="flex justify-center">
+                <img src="/assets/device-6.jpg" alt="PAGON Device"
+                    class="w-[300px] md:w-[700px] object-contain rounded-xl" />
             </div>
 
         </div>
@@ -120,7 +173,8 @@
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800">Compact</h3>
                     <p class="text-gray-600 max-w-xs">
-                        A quarter of the size compared to our previous generation device.
+                        Display timetables, alerts, news, and event updates in classrooms, libraries, and reception
+                        areas.
                     </p>
                 </div>
 
@@ -131,7 +185,7 @@
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800">Efficient</h3>
                     <p class="text-gray-600 max-w-xs">
-                        Uses less power while providing the same exceptional performance.
+                        Schedule bell times or emergency messages from one dashboard.
                     </p>
                 </div>
 
@@ -142,7 +196,8 @@
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800">Optimized</h3>
                     <p class="text-gray-600 max-w-xs">
-                        Full hardware acceleration delivers multiple low-latency screen mirroring and media sessions.
+                        Update meeting room signage, welcome messages, or corporate announcements across multiple office
+                        locations instantly.
                     </p>
                 </div>
 
@@ -152,8 +207,8 @@
             <div class="max-w-3xl mx-auto text-center">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pagon v.01</h3>
                 <p class="text-gray-700 text-lg mb-8">
-                    Featuring triple <strong>4K displays</strong>, low-latency screen mirroring, and robust security,
-                    Pagon v.01 is the ultimate tool for effortless content sharing.
+                    Discover how PAGON Connect<strong> bridges devices and displays</strong>, with unmatched simplicity
+                    and versatility
                 </p>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -166,6 +221,47 @@
 
         </div>
     </section>
+
+
+
+    <div class="overflow-x-hidden">
+        <section class="bg-gray-100 py-20">
+            <div
+                class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
+
+                <!-- Left Content -->
+                <div class="w-full md:w-1/2 animate-fade-in z-10">
+                    <div class="flex items-center mb-4">
+                        <img src="/assets/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
+                        <span class="text-xl font-medium text-gray-800">PAGON</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                        Imagined and built from the ground up.
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Block ads on your entire network. Automate your home. And more with YourAppOS —
+                        a light, elegant home cloud OS that puts your privacy first.
+                    </p>
+                </div>
+
+                <!-- Right Image -->
+                <div class="w-full md:w-1/2 h-[450px] relative">
+                    <img src="/assets/school.jpg" alt="Dashboard Screenshot"
+                        class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0 -right-40" />
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
 
 
     <section class="bg-gray-100 text-gray-800 py-24">
@@ -189,17 +285,17 @@
 
             <!-- Right Content -->
             <div class="w-full lg:w-1/2 space-y-6">
-                <h2 class="text-4xl  font-bold">
-                    The Next Evolution<br />
-                    <span class="text-gray-800">of Smart Performance</span>
+                <h2 class="text-4xl  font-bold uppercase">
+                    Digital Signage System<br />
+                    <span class="text-gray-800">Engage, inform, and inspire. </span>
                 </h2>
                 <p class="text-gray-700 text-lg">
-                    Whether you're accessing media, running apps, or sharing content seamlessly — this system handles it
-                    all with precision and power. Designed to be compact, intuitive, and instantly ready.
+                    PAGON’s Digital Signage System is a reliable solution designed to deliver scheduled multimedia
+                    content across multiple displays.
                 </p>
                 <p class="text-gray-700 text-lg">
-                    With its sleek design and advanced features, it’s the perfect companion for any modern workspace or
-                    home entertainment setup.
+                    Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one
+                    central system.
             </div>
 
         </div>
@@ -209,58 +305,99 @@
     <!-- Sweeper -->
 
     <!-- Swiper Container -->
-    <section class="bg-gray-100 py-16">
-        <div class="container mx-auto px-4">
+    <section class="bg-neutral-900/80 backdrop-blur-2xl py-16 min-h-screen">
+        <div class="container mx-auto px-24">
             <div class="swiper featureSwiper">
                 <div class="swiper-wrapper">
 
+
+
+
+
+                    <div class="swiper-slide bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+                        <div class="p-6">
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                            <h3 class="text-lg font-bold mb-2">Centralised content scheduling.</h3>
+                            <p class="text-sm mb-8 mt-8">Easily plan and manage content across multiple screens from one
+                            central dashboard. Schedule images, videos, or messages to play at specific times for
+                            maximum impact.</p>
+                        </div>
+                        
+                    
+                        <div>
+                        <img src="/assets/site-6.png" alt="Home Assistant UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                        </div>
+                    </div>
+
                     <!-- Slide 1 -->
-                    <div
-                        class="swiper-slide e bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl p-6 w-[300px] shadow-md">
-                        <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
-                            <use href="#svg1676987305_798" />
-                        </svg>
-                        <h3 class="text-lg font-bold mb-2">Stream your movies & shows.</h3>
-                        <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
-                            to your TV, computer, and phone.</p>
-                        <img src="assets/device-1.png" alt="Plex UI" class="rounded-lg shadow-lg w-full">
+                    <div class="swiper-slide e bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                        <div class="p-6">
+                         <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                        <h3 class="text-lg font-bold mb-2">Real-time device status (online/offline) .</h3>
+                        <p class="text-sm mb-8 mt-8">Instantly see whether your connected devices are online or offline.
+                            Stay in control with live updates to ensure all screens are functioning as expected.</p>
+                        </div>
+                        
+                        <div>
+                           <img src="/assets/site-6.png" alt="Plex UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24 mb-0">
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl  w-[300px] h-[600px] shadow-md">
+                        <div class="p-6">
+                           <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                        <h3 class="text-lg font-bold mb-2">Device diagnostics and alerts.</h3>
+                        <p class="text-sm mb-8 mt-8">Get notified about any device issues such as disconnections or
+                            hardware faults. Diagnostic tools help you troubleshoot and maintain system health remotely.
+                        </p>
+                        </div>
+                        <div>
+                            <img src="/assets/site-6.png" alt="Home Assistant UI"class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                        </div>
+                        
                     </div>
 
                     <!-- Slide 2 -->
-                    <div
-                        class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl p-6 w-[300px] shadow-md">
-                        <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
-                            <use href="#svg1676987305_798" />
-                        </svg>
-                        <h3 class="text-lg font-bold mb-2">Block ads on your entire network.</h3>
-                        <p class="text-sm mb-3">Stream movies and TV shows from your UmbrelOS home server effortlessly
-                            to your TV, computer, and phone.</p>
-                        <img src="assets/device-1.png" alt="Pi-hole UI" class="rounded-lg shadow-lg w-full">
+                    <div class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                        <div class="p-6">
+                          <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                        <h3 class="text-lg font-bold mb-2">User-friendly interface and dashboard.</h3>
+                        <p class="text-sm mb-8 mt-8">The intuitive dashboard is designed for all users—no technical
+                            skills required. Navigate, monitor, and manage everything with just a few clicks.</p>
+                        </div>
+                        <div>
+                             <img src="/assets/site-6.png" alt="Pi-hole UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                        </div>
+                       
                     </div>
 
                     <!-- Slide 3 -->
-                    <div
-                        class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl p-6 w-[300px] shadow-md">
-                        <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
-                            <use href="#svg1676987305_798" />
-                        </svg>
-                        <h3 class="text-lg font-bold mb-2">Automate your home and appliances.</h3>
-                        <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
-                            smart home.</p>
-                        <img src="assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
+                    <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                        <div class="p-6">
+                          <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                        <h3 class="text-lg font-bold mb-2">Date, Time and Weather Widgets.</h3>
+                        <p class="text-sm mb-8 mt-8">Enhance screen utility with dynamic widgets showing current time,
+                            date, and local weather. These auto-update to keep your content informative and timely.</p>
+                        </div>
+                        <div>
+                           <img src="/assets/site-6.png" alt="Home Assistant UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                        </div>
+                       
                     </div>
 
                     <!-- Slide 4 -->
-                    <div
+                    <!-- <div
                         class="swiper-slide bg-gradient-to-b from-orange-600 to-purple-900  text-white rounded-2xl p-6 w-[300px] shadow-md">
                         <svg class="w-14 h-14 bg-black p-1 rounded-xl  mb-4 text-white">
                             <use href="#svg1676987305_798" />
                         </svg>
-                        <h3 class="text-lg font-bold mb-2">Automate your home and appliances.</h3>
+                        <h3 class="text-lg font-bold mb-2">Display resolution 1080p and 720p.</h3>
                         <p class="text-sm mb-3">Home Assistant integrates with thousands of devices to automate your
                             smart home.</p>
-                        <img src="assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
-                    </div>
+                        <img src="/assets/device-1.png" alt="Home Assistant UI" class="rounded-lg shadow-lg w-full">
+                    </div> -->
 
                 </div>
 
@@ -429,6 +566,19 @@
             });
         });
     </script>
+    <script>
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                const img = entry.target;
+                img.classList.toggle("in-view", entry.isIntersecting);
+            },
+            { threshold: 0.5 }
+        );
+
+        document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
+    </script>
+
+
 
 </body>
 
