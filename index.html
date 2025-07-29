@@ -5,18 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
   <link rel="icon" type="image/x-icon" href="./assets/logo.png">
   <title>PAGON | Smart Displays</title>
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="./assets/js/tailwind.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
- <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
-
   <script>
     tailwind.config = {
       theme: {
@@ -31,7 +29,7 @@
       }
     }
   </script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     body {
       background-color: #000;
@@ -76,78 +74,13 @@
 </head>
 
 <body class="text-white font-sans">
+  <!-- Header -->
+  <div data-include="./components/header.html"></div>
   <div class="w-full max-w-[1280px] mx-auto px-4 h-screen">
-
-    <!-- Header -->
-    <header class="w-full fixed top-4 z-50"
-    >
-      <div class="m-0 max-w-screen-xl px-4 md:px-0 py-4">
-
-        <!-- Desktop: All in one row | Mobile: Stacked layout -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
-
-          <!-- Logo -->
-          <div class="flex items-center gap-2"
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1300">
-            <img src="assets/logo.png" alt="PAGON logo" class="w-8 h-8" />
-            <span class="text-lg font-bold tracking-wide">PAGON</span>
-          </div>
-
-          <!-- NavBar -->
-          <div class="relative flex justify-center items-center"
-   >
-
-
-            <!-- Nav Menu -->
-            <nav class="relative z-10 flex items-center justify-center gap-8 border-t border-primary/40
-            px-12 py-3 bg-[#060607]/70 rounded-full backdrop-blur-md shadow-md 
-            text-gray-300 text-sm 
-            whitespace-nowrap overflow-x-auto no-scrollbar w-full max-w-full"
-                      data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="800">
-              <a href="#" class="shrink-0 relative text-white font-semibold">
-                Home
-                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#D9D9D9] rounded-full"></span>
-              </a>
-              <a href="/screen.html" class="shrink-0 hover:text-white transition">Product</a>
-              <a href="/sinage.html" class="shrink-0 hover:text-white transition">About</a>
-              <a href="contact.html" class="shrink-0 hover:text-white transition">Contact Us</a>
-            </nav>
-
-          </div>
-
-          <!-- Watch Demo Button -->
-          <div class="flex-shrink-0" 
-                    data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1300">
-            <button
-              class="relative inline-flex items-center justify-center w-[130px] md:w-auto p-[1.5px] rounded-full overflow-hidden group">
-              <div class="absolute inset-0 z-0 rounded-full" style="background: conic-gradient(from var(--angle), transparent 25%, #4361EE, transparent 50%);
-                   animation: shimmer-spin 5s linear infinite;">
-              </div>
-              <span class="relative z-10 px-4 py-2 text-sm font-medium text-white bg-[#060607] rounded-full">
-                Watch Demo
-              </span>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </header>
-
-
 
     <!-- Hero Section -->
     <section class="w-full flex flex-col items-center justify-center text-center pt-10 md:pt-40 pb-12">
 
-
-      <div>
-        
-      </div>
       <!-- Elliptical Gradient Glow (Desktop only) -->
       <div class="absolute 
                   top-[-200px] sm:top-[-400px] md:top-[-700px] 
@@ -396,6 +329,10 @@
 
 
 
+
+
+
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       new Swiper(".mySwiper", {
@@ -422,6 +359,29 @@
 
 <script>
   AOS.init();
+</script>
+
+  <script>
+  async function includeHTML() {
+    const includes = document.querySelectorAll('[data-include]');
+    for (const el of includes) {
+      const file = el.getAttribute('data-include');
+      try {
+        const res = await fetch(file);
+        if (res.ok) {
+          el.innerHTML = await res.text();
+
+          AOS.refresh();
+
+        } else {
+          el.innerHTML = "Error loading " + file;
+        }
+      } catch (e) {
+        el.innerHTML = "Error loading " + file;
+      }
+    }
+  }
+  document.addEventListener("DOMContentLoaded", includeHTML);
 </script>
 
 </body>
