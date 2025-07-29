@@ -12,9 +12,12 @@
   <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.png">
   <title>PAGON | Smart Displays</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -276,6 +279,26 @@
             </div>
           </div>
 
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="assets/control-room.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -325,30 +348,34 @@
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        loop: true,
-        slidesPerView: "auto",
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 120,
-          modifier: 2.5,
-          slideShadows: false,
-        },
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-      });
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    // grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    // coverflowEffect: {
+    //   rotate: 0,
+    //   stretch: 0,
+    //   depth: 120,
+    //   modifier: 2.5,
+    //   slideShadows: false,
+    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+      },
+  });
+});
+
   </script>
 
 
