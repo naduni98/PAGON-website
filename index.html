@@ -14,6 +14,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <script src="./assets/js/tailwind.js"></script>
   <script>
     tailwind.config = {
@@ -42,17 +43,7 @@
       filter: blur(1px);
       opacity: 0.6;
     }
-    @property --angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
-    }
 
-    @keyframes shimmer-spin {
-      to {
-        --angle: 360deg;
-      }
-    }
 
     .animate-gradient {
       background-size: 300% 300%;
@@ -113,7 +104,7 @@
       data-aos-duration="1500">
         “Your content, everywhere. Digital signage made simple.”
       </p>
-      <img src="assets/hero-device.png" alt="Pagon Device" class="w-64 sm:w-72 md:w-[450px] mt-10"
+      <img src="./assets/images/device/hero-device.png" alt="Pagon Device" class="w-64 sm:w-72 md:w-[450px] mt-10"
       data-aos="zoom-out-up"
       data-aos-delay="2000"
       data-aos-duration="1500" />
@@ -322,7 +313,7 @@
 
 
   <!-- Footer -->
- 
+  <div data-include="./components/footer.html"></div>
 
 
 
@@ -361,28 +352,7 @@
   AOS.init();
 </script>
 
-  <script>
-  async function includeHTML() {
-    const includes = document.querySelectorAll('[data-include]');
-    for (const el of includes) {
-      const file = el.getAttribute('data-include');
-      try {
-        const res = await fetch(file);
-        if (res.ok) {
-          el.innerHTML = await res.text();
-
-          AOS.refresh();
-
-        } else {
-          el.innerHTML = "Error loading " + file;
-        }
-      } catch (e) {
-        el.innerHTML = "Error loading " + file;
-      }
-    }
-  }
-  document.addEventListener("DOMContentLoaded", includeHTML);
-</script>
+  <script src="./assets/js/injecting.js"></script>
 
 </body>
 

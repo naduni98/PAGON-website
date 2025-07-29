@@ -5,7 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product | PAGON</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blackGlass: '#060607C9',
+            primary: '#4361EE',
+            cyanish: '#00B4D8',
+            mediumGray: '#999999'
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     emailjs.init('9iOriDUDhV9k0WUT4'); // Replace with your actual public key
@@ -34,10 +49,10 @@
 </head>
 
 <body class="text-white font-sans">
-  <div id="header-placeholder"></div>
+      <div data-include="./components/header.html"></div>
 
   <!-- Contact Hero -->
-  <section class="bg-gray-100 py-20 px-6">
+  <section class="bg-gray-100 pb-20 pt-40 px-6 ">
     <div class="max-w-7xl mx-auto text-center mb-12">
       <h3 class="text-xl sm:text-3xl md:text-4xl font-semibold text-gray-800 tracking-widest mb-2">Your message deserves more than static screens.</h3>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -99,17 +114,11 @@
   </div>
 
   <!-- Footer -->
-  <div id="footer-placeholder"></div>
+      <div data-include="./components/footer.html"></div>
+
 
   <!-- JS Includes -->
   <script>
-    fetch("/header.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("header-placeholder").innerHTML = data);
-
-    fetch("/footer.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("footer-placeholder").innerHTML = data);
 
     const form = document.getElementById("contact-form");
     const toast = document.getElementById("toast-success");
@@ -128,6 +137,7 @@
         });
     });
   </script>
+  <script src="./assets/js/injecting.js"></script>
 </body>
 
 </html>
