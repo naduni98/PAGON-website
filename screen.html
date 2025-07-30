@@ -13,16 +13,16 @@
     <script src="./assets/js/tailwind.js"></script>
     <script>
         tailwind.config = {
-        theme: {
-            extend: {
-            colors: {
-                blackGlass: '#060607C9',
-                primary: '#4361EE',
-                cyanish: '#00B4D8',
-                mediumGray: '#999999'
+            theme: {
+                extend: {
+                    colors: {
+                        blackGlass: '#060607C9',
+                        primary: '#4361EE',
+                        cyanish: '#00B4D8',
+                        mediumGray: '#999999'
+                    }
+                }
             }
-            }
-        }
         }
     </script>
 
@@ -114,10 +114,12 @@
 
     <!-- Hero Section: Fullscreen and responsive -->
     <!-- Fullscreen Hero Section with Overlapping Navbar -->
-    <section class="relative w-full h-screen bg-gray-100 flex items-center px-4 md:px-10 bg-gradient-to-r from-[#dfdee3] to-[#f4f4f4] ">
+    <section
+        class="relative w-full h-screen bg-gray-100 flex items-center px-4 md:px-10 bg-gradient-to-r from-[#dfdee3] to-[#f4f4f4] ">
         <div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200"></div>
 
-        <div class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12">
+        <div
+            class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:mt-0 mt-72">
 
             <!-- Text Column -->
             <div class="flex-1 text-center md:text-left top-0 ">
@@ -172,9 +174,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
 
                 <!-- Feature 1 -->
-                <div class="flex flex-col items-center text-center space-y-4">
-                    <div class="bg-gray-200 p-6 rounded-full">
-                        <img src="assets/images/screen-page-img/icon-compact.png" alt="Compact Icon" class="w-8 h-8" />
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div
+                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
+                        <img src="assets/ctp-8.png" alt="Compact Icon" class="w-64 h-64 rounded-full" />
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800">Uses in Schools</h3>
                     <p class="text-gray-600 max-w-xs">
@@ -187,9 +190,10 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="flex flex-col items-center text-center space-y-4">
-                    <div class="bg-gray-200 p-6 rounded-full">
-                        <img src="assets/images/screen-page-img/icon-efficient.png" alt="Efficient Icon" class="w-8 h-8" />
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div
+                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
+                        <img src="assets/new-11.jpeg" alt="Efficient Icon" class="w-64 h-64 rounded-full" />
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800">Uses in Offices</h3>
                     <p class="text-gray-600 max-w-xs">
@@ -266,16 +270,20 @@
             <!-- 2x2 Image Grid -->
             <div class="grid grid-cols-2 gap-2 w-full lg:w-1/2">
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/screen-page-img/device-2.avif" alt="Feature 1" class="w-full h-full object-cover" />
+                    <img src="assets/images/screen-page-img/device-2.avif" alt="Feature 1"
+                        class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/screen-page-img/device-3.avif" alt="Feature 2" class="w-full h-full object-cover" />
+                    <img src="assets/images/screen-page-img/device-3.avif" alt="Feature 2"
+                        class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/screen-page-img/device-4.avif" alt="Feature 3" class="w-full h-full object-cover" />
+                    <img src="assets/images/screen-page-img/device-4.avif" alt="Feature 3"
+                        class="w-full h-full object-cover" />
                 </div>
                 <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/screen-page-img/device-5.avif" alt="Feature 4" class="w-full h-full object-cover" />
+                    <img src="assets/images/screen-page-img/device-5.avif" alt="Feature 4"
+                        class="w-full h-full object-cover" />
                 </div>
             </div>
 
@@ -298,6 +306,17 @@
     </section>
 
 
+    <section class="bg-gray-100 pb-20 pt-40 px-6 ">
+
+
+        <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+            <div class="w-full h-[700px] rounded-[3rem] overflow-hidden">
+                <img src="assets/ctp-4.png" alt="Promo" class="w-full h-full object-center" />
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Swiper Container -->
     <section class="bg-neutral-900/80 backdrop-blur-2xl py-16 min-h-screen">
@@ -309,77 +328,141 @@
 
 
 
-                    <div class="swiper-slide bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+                    <div
+                        class="swiper-slide bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
                         <div class="p-6">
-                            <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span
+                                    class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.5s"></span><span
+                                    class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.4s"></span><span
+                                    class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.3s"></span></div>
                             <h3 class="text-lg font-bold mb-2">Centralised content scheduling.</h3>
                             <p class="text-sm mb-8 mt-8">Easily plan and manage content across multiple screens from one
-                            central dashboard. Schedule images, videos, or messages to play at specific times for
-                            maximum impact.</p>
+                                central dashboard. Schedule images, videos, or messages to play at specific times for
+                                maximum impact.</p>
                         </div>
-                        
-                    
+
+
                         <div>
-                        <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                            <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"
+                                class="rounded-2xl shadow-lg w-full mt-40 pl-24">
                         </div>
                     </div>
 
                     <!-- Slide 1 -->
-                    <div class="swiper-slide e bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                    <div
+                        class="swiper-slide e bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
                         <div class="p-6">
-                         <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
-                        <h3 class="text-lg font-bold mb-2">Real-time device status (online/offline) .</h3>
-                        <p class="text-sm mb-8 mt-8">Instantly see whether your connected devices are online or offline.
-                            Stay in control with live updates to ensure all screens are functioning as expected.</p>
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span
+                                    class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.5s"></span><span
+                                    class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.4s"></span><span
+                                    class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.3s"></span></div>
+                            <h3 class="text-lg font-bold mb-2">Real-time device status (online/offline) .</h3>
+                            <p class="text-sm mb-8 mt-8">Instantly see whether your connected devices are online or
+                                offline.
+                                Stay in control with live updates to ensure all screens are functioning as expected.</p>
                         </div>
-                        
+
                         <div>
-                           <img src="./assets/images/screen-page-img/site-6.png" alt="Plex UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24 mb-0">
+                            <img src="./assets/images/screen-page-img/site-6.png" alt="Plex UI"
+                                class="rounded-2xl shadow-lg w-full mt-40 pl-24 mb-0">
                         </div>
-                        
+
                     </div>
 
 
-                    <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl  w-[300px] h-[600px] shadow-md">
+                    <div
+                        class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl  w-[300px] h-[600px] shadow-md">
                         <div class="p-6">
-                           <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
-                        <h3 class="text-lg font-bold mb-2">Device diagnostics and alerts.</h3>
-                        <p class="text-sm mb-8 mt-8">Get notified about any device issues such as disconnections or
-                            hardware faults. Diagnostic tools help you troubleshoot and maintain system health remotely.
-                        </p>
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span
+                                    class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.5s"></span><span
+                                    class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.4s"></span><span
+                                    class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.3s"></span></div>
+                            <h3 class="text-lg font-bold mb-2">Device diagnostics and alerts.</h3>
+                            <p class="text-sm mb-8 mt-8">Get notified about any device issues such as disconnections or
+                                hardware faults. Diagnostic tools help you troubleshoot and maintain system health
+                                remotely.
+                            </p>
                         </div>
                         <div>
-                            <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                            <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"
+                                class="rounded-2xl shadow-lg w-full mt-40 pl-24">
                         </div>
-                        
+
                     </div>
 
                     <!-- Slide 2 -->
-                    <div class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                    <div
+                        class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl w-[300px] h-[600px] shadow-md">
                         <div class="p-6">
-                          <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
-                        <h3 class="text-lg font-bold mb-2">User-friendly interface and dashboard.</h3>
-                        <p class="text-sm mb-8 mt-8">The intuitive dashboard is designed for all users—no technical
-                            skills required. Navigate, monitor, and manage everything with just a few clicks.</p>
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span
+                                    class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.5s"></span><span
+                                    class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.4s"></span><span
+                                    class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.3s"></span></div>
+                            <h3 class="text-lg font-bold mb-2">User-friendly interface and dashboard.</h3>
+                            <p class="text-sm mb-8 mt-8">The intuitive dashboard is designed for all users—no technical
+                                skills required. Navigate, monitor, and manage everything with just a few clicks.</p>
                         </div>
                         <div>
-                             <img src="./assets/images/screen-page-img/site-6.png" alt="Pi-hole UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                            <img src="./assets/images/screen-page-img/site-6.png" alt="Pi-hole UI"
+                                class="rounded-2xl shadow-lg w-full mt-40 pl-24">
                         </div>
-                       
+
                     </div>
 
                     <!-- Slide 3 -->
-                    <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl w-[300px] h-[600px] shadow-md">
+                    <div
+                        class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl w-[300px] h-[600px] shadow-md">
                         <div class="p-6">
-                          <div class="flex space-x-0.5 items-end justify-end h-8"><span class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.6s"></span><span class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.5s"></span><span class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.4s"></span><span class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse" style="animation-delay:-0.3s"></span></div>
-                        <h3 class="text-lg font-bold mb-2">Date, Time and Weather Widgets.</h3>
-                        <p class="text-sm mb-8 mt-8">Enhance screen utility with dynamic widgets showing current time,
-                            date, and local weather. These auto-update to keep your content informative and timely.</p>
+                            <div class="flex space-x-0.5 items-end justify-end h-8"><span
+                                    class="w-1.5 h-1 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-2 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.6s"></span><span
+                                    class="w-1.5 h-4 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.5s"></span><span
+                                    class="w-1.5 h-6 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.4s"></span><span
+                                    class="w-1.5 h-8 bg-orange-900 rounded-full animate-pulse"
+                                    style="animation-delay:-0.3s"></span></div>
+                            <h3 class="text-lg font-bold mb-2">Date, Time and Weather Widgets.</h3>
+                            <p class="text-sm mb-8 mt-8">Enhance screen utility with dynamic widgets showing current
+                                time,
+                                date, and local weather. These auto-update to keep your content informative and timely.
+                            </p>
                         </div>
                         <div>
-                           <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI" class="rounded-2xl shadow-lg w-full mt-40 pl-24">
+                            <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"
+                                class="rounded-2xl shadow-lg w-full mt-40 pl-24">
                         </div>
-                       
+
                     </div>
 
                     <!-- Slide 4 -->
@@ -446,7 +529,7 @@
 
 
 
-    
+
     <!-- Footer -->
     <div data-include="./components/footer.html"></div>
 
@@ -475,23 +558,23 @@
         });
     </script> -->
     <script>
-  if (window.innerWidth >= 320) {
-    const swiper = new Swiper('.featureSwiper', {
-      slidesPerView: 1.2,
-        loop: true,
-      spaceBetween: 20,
-                  autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      slidesPerView: 3,
-    });
-  }
-</script>
+        if (window.innerWidth >= 320) {
+            const swiper = new Swiper('.featureSwiper', {
+                slidesPerView: 1.2,
+                loop: true,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 3,
+            });
+        }
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -528,7 +611,7 @@
     </script>
 
 
-<script src="./assets/js/injecting.js"></script>
+    <script src="./assets/js/injecting.js"></script>
 
 
 </body>
