@@ -110,7 +110,8 @@
     </symbol>
   </svg>
   <!-- Navbar -->
-  <div id="header-placeholder"></div>
+ <!-- Header -->
+    <div data-include="./components/header.html"></div>
 
 
   <section class="relative w-full h-screen bg-gray-100 flex items-center px-4  md:px-10 py-20">
@@ -133,7 +134,7 @@
 
       <!-- Device Image -->
       <div class="flex justify-center">
-        <img src="./assets/images/screen-page-img/device-6.jpg" alt="PAGON Device" class="w-[300px] md:w-[700px] object-contain rounded-xl shadow-md" />
+        <img src="./assets/images/screen-page-img/hero-7.jpeg" alt="PAGON Device" class="w-[300px] md:w-[700px] object-contain rounded-xl shadow-md" />
       </div>
 
     </div>
@@ -163,46 +164,6 @@
   <section class="bg-gray-100 py-16 px-4 md:px-8">
     <div class="max-w-7xl mx-auto text-center">
 
-      <!-- Section Title -->
-      <h2 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-12">
-        The Universal Screen Mirroring Solution
-      </h2>
-
-      <!-- Features -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-
-        <!-- Feature 1 -->
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="bg-gray-200 p-6 rounded-full">
-            <img src="/assets/icon-compact.png" alt="Compact Icon" class="w-8 h-8" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800">Uses in Schools</h3>
-          <p class="text-gray-600 max-w-xs">
-            Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
-          </p>
-          <p class="text-gray-600 max-w-xs">
-            Use whiteboard mode to write or draw interactively during lessons
-          </p>
-          <p class="text-gray-600 max-w-xs">
-            Use Clock for classroom activities, Exams and Classroom Tests
-          </p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="bg-gray-200 p-6 rounded-full">
-            <img src="/assets/icon-efficient.png" alt="Efficient Icon" class="w-8 h-8" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800">Uses in Offices</h3>
-          <p class="text-gray-600 max-w-xs">
-            Seamless presentations during meetings.
-          </p>
-          <p class="text-gray-600 max-w-xs">
-            Collaborative whiteboard for brainstorming sessions.
-          </p>
-        </div>
-
-      </div>
 
       <!-- Connect 3 Description + CTA -->
       <div class="max-w-3xl mx-auto text-center">
@@ -518,19 +479,19 @@
 
       <!-- Left Tilted Image -->
       <div class="z-0 transform">
-        <img src="/assets/site-2.png" alt="Side App 1"
+        <img src="./assets/images/screen-page-img/site-2.png" alt="Side App 1"
           class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
       </div>
 
       <!-- Center Main Image -->
       <div class="z-10 -mt-10 lg:-mt-0 lg:-ml-12 lg:-mr-12">
-        <img src="/assets/site-3.png" alt="Main App"
+        <img src="./assets/images/screen-page-img/site-3.png" alt="Main App"
           class="w-[320px] sm:w-[500px] lg:w-[600px] shadow-2xl rounded-2xl border border-gray-700" />
       </div>
 
       <!-- Right Tilted Image -->
       <div class="z-0 transform">
-        <img src="/assets/site-4.png" alt="Side App 2"
+        <img src="./assets/images/screen-page-img/site-4.png" alt="Side App 2"
           class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
       </div>
 
@@ -541,19 +502,7 @@
 
 
 
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Dynamic Content Loader -->
-  <script>
-    fetch("../header.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("header-placeholder").innerHTML = data);
-
-    fetch("../footer.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("footer-placeholder").innerHTML = data);
-  </script>
+  <div data-include="./components/footer.html"></div>
 
   <!-- Swiper Init -->
   <script>
@@ -609,6 +558,7 @@
 
         document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
     </script>
+        <script src="./assets/js/injecting.js"></script>
 </body>
 
 </html>
