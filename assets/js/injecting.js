@@ -54,7 +54,6 @@
     navLinks.forEach(link => {
       let href = link.getAttribute('href');
 
-      // Normalize href by removing leading './' or '/' and trailing slashes
       href = href.replace(/^\.\//, '').replace(/^\//, '').replace(/\/$/, '');
       const normalizedPath = currentPath.replace(/^\//, '').replace(/\/$/, '');
 
