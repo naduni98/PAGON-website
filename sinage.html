@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product | PAGON</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/tailwind.js"></script>
-    <script>
-        tailwind.config = {
-        theme: {
-            extend: {
-            colors: {
-                blackGlass: '#060607C9',
-                primary: '#4361EE',
-                cyanish: '#00B4D8',
-                mediumGray: '#999999'
-            }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product | PAGON</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blackGlass: '#060607C9',
+            primary: '#4361EE',
+            cyanish: '#00B4D8',
+            mediumGray: '#999999'
+          }
         }
-        }
-    </script>
+      }
+    }
+  </script>
 
   <style>
     body {
@@ -88,13 +88,13 @@
       }
     }
 
-        .scroll-zoom {
-            transition: transform 2s ease;
-        }
+    .scroll-zoom {
+      transition: transform 2s ease;
+    }
 
-        .scroll-zoom.in-view {
-            transform: scale(1.05);
-        }
+    .scroll-zoom.in-view {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -110,14 +110,16 @@
     </symbol>
   </svg>
   <!-- Navbar -->
- <!-- Header -->
-    <div data-include="./components/header.html"></div>
+  <!-- Header -->
+  <div data-include="./components/header.html"></div>
 
 
-  <section class="relative w-full h-screen bg-gradient-to-r from-white/90 via-white/70 to-white/60 backdrop-blur-lg flex items-center px-4  md:px-10 py-20">
+  <section
+    class="relative w-full h-screen bg-gradient-to-r from-white/90 via-white/70 to-white/60 backdrop-blur-lg flex items-center px-4  md:px-10 py-20">
     <div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200"></div>
 
-    <div class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:mt-0 mt-72">
+    <div
+      class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:mt-0 mt-72">
 
       <!-- Text Column -->
       <div class="flex-1 text-center md:text-left top-0 ">
@@ -134,13 +136,14 @@
 
       <!-- Device Image -->
       <div class="flex justify-center">
-        <img src="./assets/ctp-7.png" alt="PAGON Device" class="w-[300px] md:w-[700px] object-contain rounded-xl shadow-md" />
+        <img src="./assets/ctp-7.png" alt="PAGON Device"
+          class="w-[300px] md:w-[700px] object-contain rounded-xl shadow-md" />
       </div>
 
     </div>
   </section>
 
-  
+
 
   <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
   <section class="relative w-full h-[calc(100vh-64px)]">
@@ -186,77 +189,77 @@
   </section>
 
 
-      <div class="overflow-x-hidden">
-        <section class="bg-gray-100 py-20">
-            <div
-                class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
+  <div class="overflow-x-hidden">
+    <section class="bg-gray-100 py-20">
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
 
-                <!-- Left Content -->
-                <div class="w-full md:w-1/2 animate-fade-in z-10">
-                    <div class="flex items-center mb-4">
-                        <img src="assets/images/logo/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
-                        <span class="text-xl font-medium text-gray-800">PAGON</span>
-                    </div>
-                    <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
-                        Uses in Schools
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
-                    </p>
-                    <p class="text-gray-600 text-lg mt-4">
-                        Use whiteboard mode to write or draw interactively during lessons.
-                    </p>
-                    <p class="text-gray-600 text-lg mt-4">
-                       Use Clock for classroom activities, Exams and Classroom Tests.
-
-
-                    </p>
-                </div>
-
-                <!-- Right Image -->
-                <div class="w-full md:w-1/2 h-[450px] relative">
-                    <img src="/assets/new-1.jpg" alt="Dashboard Screenshot"
-                        class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0 -right-40 rounded-2xl" />
-                </div>
-
-            </div>
-        </section>
-    </div>
+        <!-- Left Content -->
+        <div class="w-full md:w-1/2 animate-fade-in z-10">
+          <div class="flex items-center mb-4">
+            <img src="assets/images/logo/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
+            <span class="text-xl font-medium text-gray-800">PAGON</span>
+          </div>
+          <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+            Uses in Schools
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
+          </p>
+          <p class="text-gray-600 text-lg mt-4">
+            Use whiteboard mode to write or draw interactively during lessons.
+          </p>
+          <p class="text-gray-600 text-lg mt-4">
+            Use Clock for classroom activities, Exams and Classroom Tests.
 
 
+          </p>
+        </div>
 
-          <div class="overflow-x-hidden">
-        <section class="bg-gray-100 border-2 md:border-2 border-gray-200 shadow-2xl py-20">
-            <div
-                class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
+        <!-- Right Image -->
+        <div class="w-full md:w-1/2 h-[450px] relative">
+          <img src="/assets/new-1.jpg" alt="Dashboard Screenshot"
+            class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0 -right-40 rounded-2xl" />
+        </div>
 
-                 <!-- Right Image -->
-                <div class="w-full h-[450px] relative">
-                    <img src="/assets/ctp-5.png" alt="Dashboard Screenshot"
-                        class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0  rounded-2xl " />
-                </div>
-                <!-- Left Content -->
-                <div class="w-full md:w-1/2 animate-fade-in z-10 ">
-                    <div class="flex items-center mb-4">
-                        <img src="assets/images/logo/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
-                        <span class="text-xl font-medium text-gray-800">PAGON</span>
-                    </div>
-                    <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4 border">
-                        Uses in Offices
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        Seamless presentations during meetings.
-                    </p>
-                     <p class="text-gray-600 text-lg mt-4">
-                        Collaborative whiteboard for brainstorming sessions.
-                    </p>
-                </div>
+      </div>
+    </section>
+  </div>
 
-               
 
-            </div>
-        </section>
-    </div>
+
+  <div class="overflow-x-hidden">
+    <section class="bg-gray-100 border-2 md:border-2 border-gray-200 shadow-2xl py-20">
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
+
+        <!-- Right Image -->
+        <div class="w-full h-[450px] relative">
+          <img src="/assets/ctp-5.png" alt="Dashboard Screenshot"
+            class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0  rounded-2xl " />
+        </div>
+        <!-- Left Content -->
+        <div class="w-full md:w-1/2 animate-fade-in z-10 ">
+          <div class="flex items-center mb-4">
+            <img src="assets/images/logo/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
+            <span class="text-xl font-medium text-gray-800">PAGON</span>
+          </div>
+          <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4 border">
+            Uses in Offices
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Seamless presentations during meetings.
+          </p>
+          <p class="text-gray-600 text-lg mt-4">
+            Collaborative whiteboard for brainstorming sessions.
+          </p>
+        </div>
+
+
+
+      </div>
+    </section>
+  </div>
 
   <section class="bg-gray-100 text-gray-800 py-24">
     <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
@@ -293,8 +296,8 @@
 
 
 
-      <section class="bg-gray-100 pb-20 pt-40 px-6 ">
-   
+  <section class="bg-gray-100 pb-20 pt-40 px-6 ">
+
 
     <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
       <div class="w-full h-[700px] rounded-[3rem] overflow-hidden">
@@ -558,18 +561,18 @@
       });
     });
   </script>
- <script>
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                const img = entry.target;
-                img.classList.toggle("in-view", entry.isIntersecting);
-            },
-            { threshold: 0.5 }
-        );
+  <script>
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const img = entry.target;
+        img.classList.toggle("in-view", entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
 
-        document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
-    </script>
-        <script src="./assets/js/injecting.js"></script>
+    document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
+  </script>
+  <script src="./assets/js/injecting.js"></script>
 </body>
 
 </html>
