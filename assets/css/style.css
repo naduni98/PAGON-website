@@ -9,3 +9,11 @@
         --angle: 360deg;
       }
     }
+
+    .swiper-pagination-bullet {
+      background: #fff;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #ff0000;
+    }
