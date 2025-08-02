@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product | PAGON</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blackGlass: '#060607C9',
+                        primary: '#4361EE',
+                        cyanish: '#00B4D8',
+                        mediumGray: '#999999'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060607;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoom-in {
+            0% {
+                transform: scale(1.05);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out both;
+        }
+
+        .animate-zoom-in {
+            animation: zoom-in 1s ease-out both;
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out both;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .scroll-zoom {
+            transition: transform 2s ease;
+        }
+
+        .scroll-zoom.in-view {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="text-white font-sans">
+    <svg class="hidden">
+        <symbol id="svg1676987305_798" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10
+      10-4.48 10-10S17.52 2 12 2zm-1 
+      17.07c-2.83-.48-5.08-2.73-5.56-5.56H5v-2h1.44c.48-2.83
+      2.73-5.08 5.56-5.56V5h2v1.44c2.83.48 
+      5.08 2.73 5.56 5.56H19v2h-1.44c-.48 2.83-2.73
+      5.08-5.56 5.56V19h-2v-1.93z" />
+        </symbol>
+    </svg>
+    <!-- Header -->
+    <div data-include="./components/header.html"></div>
+
+    <!-- Hero Section: Fullscreen and responsive -->
+    <!-- Fullscreen Hero Section with Overlapping Navbar -->
+    <section
+        class="relative w-full h-screen bg-gray-100 flex items-center px-4 md:px-10 bg-gradient-to-r from-[#dfdee3] to-[#f4f4f4] ">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200"></div>
+
+        <div
+            class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:mt-0 mt-72">
+
+            <!-- Text Column -->
+            <div class="flex-1 text-center md:text-left top-0 ">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight animate-fade-in-up">
+                    The future of screen mirroring
+                </h2>
+                <p class="text-lg text-gray-700 max-w-md mx-auto md:mx-0 mt-8">
+                    Discover how <strong class="font-semibold">PAGON Connect</strong> bridges devices and displays
+                    with unmatched simplicity and versatility.
+                </p>
+            </div>
+
+            <!-- Device Image -->
+            <div class="flex justify-center">
+                <img src="./assets/images/screen-page-img/device-6.jpg" alt="PAGON Device"
+                    class="w-[300px] md:w-[700px] object-contain rounded-xl" />
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
+    <section class="relative w-full h-[calc(100vh-64px)]">
+        <div class="swiper heroSwiper w-full h-full">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/hero-20.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/collage.png" alt="Hero Image 4" />
+                </div>
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 3" />
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features Section -->
+    <!-- Features Section with Connect 3 CTA -->
+    <section class="bg-gray-100 py-16 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+
+            <!-- Section Title -->
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-12">
+                The Universal Screen Mirroring Solution
+            </h2>
+
+            <!-- Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div
+                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
+                        <img src="./assets/images/screen-page-img/ctp-8.png" alt="Compact Icon" class="w-64 h-64 rounded-full" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Uses in Schools</h3>
+                    <p class="text-gray-600 max-w-xs">
+                        Display timetables, alerts, news, and event updates in classrooms, libraries, and reception
+                        areas.
+                    </p>
+                    <p class="text-gray-600 max-w-xs">
+                        Schedule bell times or emergency messages from one dashboard.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div
+                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
+                        <img src="./assets/images/screen-page-img/new-11.jpeg" alt="Efficient Icon" class="w-64 h-64 rounded-full" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Uses in Offices</h3>
+                    <p class="text-gray-600 max-w-xs">
+                        Update meeting room signage, welcome messages, or corporate announcements across multiple office
+                        locations instantly.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Connect 3 Description + CTA -->
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Signage System</h3>
+                <p class="text-gray-700 text-lg mb-8">
+                    Discover how PAGON Connect<strong> bridges devices and displays</strong>, with unmatched simplicity
+                    and versatility
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#"
+                        class="bg-gray-800 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-900 transition">
+                        Buy a Demo Unit
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <div class="overflow-x-hidden">
+        <section class="bg-gray-100 py-20">
+            <div
+                class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
+
+                <!-- Left Content -->
+                <div class="w-full md:w-1/2 animate-fade-in z-10">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/logo/logo.png" alt="Logo" class="w-12 h-12 rounded-xl mr-3">
+                        <span class="text-xl font-medium text-gray-800">PAGON</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
+                        Imagined and built from the ground up.
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Block ads on your entire network. Automate your home. And more with YourAppOS —
+                        a light, elegant home cloud OS that puts your privacy first.
+                    </p>
+                </div>
+
+                <!-- Right Image -->
+                <!-- <div class="w-full md:w-1/2 h-[450px] relative">
+                    <img src="./assets/images/screen-page-img/school.jpg" alt="Dashboard Screenshot"
+                        class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0 -right-40" />
+                </div> -->
+
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="bg-gray-100 text-gray-800 py-24">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+
+            <!-- 2x2 Image Grid -->
+            <div class="grid grid-cols-2 gap-2 w-full lg:w-1/2">
+                <div class="bg-gray-800 rounded-xl overflow-hidden">
+                    <img src="assets/images/screen-page-img/device-2.avif" alt="Feature 1"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden">
+                    <img src="assets/images/screen-page-img/device-3.avif" alt="Feature 2"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden">
+                    <img src="assets/images/screen-page-img/device-4.avif" alt="Feature 3"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden">
+                    <img src="assets/images/screen-page-img/device-5.avif" alt="Feature 4"
+                        class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl  font-bold uppercase">
+                    Digital Signage System<br />
+                    <span class="text-gray-800">Engage, inform, and inspire. </span>
+                </h2>
+                <p class="text-gray-700 text-lg">
+                    PAGON’s Digital Signage System is a reliable solution designed to deliver scheduled multimedia
+                    content across multiple displays.
+                </p>
+                <p class="text-gray-700 text-lg">
+                    Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one
+                    central system.
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="bg-gray-100 pb-20 pt-40 px-6 ">
+
+
+        <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+            <div class="w-full h-[700px] rounded-[3rem] overflow-hidden">
+                <img src="./assets/images/screen-page-img/ctp-4.png" alt="Promo" class="w-full h-full object-center" />
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Swiper Container -->
+    <section class="bg-neutral-900/80 backdrop-blur-2xl py-16 min-h-screen">
+  <div class="container mx-auto px-4 md:px-24">
+    
+    <!-- ✅ Mobile Grid View -->
+    <div class="grid gap-6 md:hidden">
+      <!-- Slide 1 -->
+      <div class="bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl p-8 h-[500px]">
+        <h3 class="text-lg font-bold mb-2 mt-4">Centralised content scheduling.</h3>
+        <p class="text-sm mb-4 mt-8">
+          Easily plan and manage content across multiple screens from one central dashboard.
+          Schedule images, videos, or messages to play at specific times for maximum impact.
+        </p>
+        <img src="./assets/images/screen-page-img/site-6.png"
+             alt="Home Assistant UI"
+             class="rounded-2xl shadow-lg w-full mt-24">
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl shadow-xl p-8 h-[500px]">
+        <h3 class="text-lg font-bold mb-2 mt-4">Real-time device status (online/offline).</h3>
+        <p class="text-sm mb-4 mt-8">
+          Instantly see whether your connected devices are online or offline.
+          Stay in control with live updates to ensure all screens are functioning as expected.
+        </p>
+        <img src="./assets/images/device11.jpg"
+             alt="Plex UI"
+             class="rounded-2xl shadow-lg w-full mt-24">
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl p-8 h-[450px]">
+        <h3 class="text-lg font-bold mb-2 mt-4">Device diagnostics and alerts.</h3>
+        <p class="text-sm mb-4 mt-8">
+          Get notified about any device issues such as disconnections or hardware faults.
+          Diagnostic tools help you troubleshoot and maintain system health remotely.
+        </p>
+        <img src="./assets/images/screen-page-img/device10.png"
+             alt="Device UI"
+             class="rounded-2xl shadow-lg w-full mt-24">
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl shadow-xl p-8 h-[500px]">
+        <h3 class="text-lg font-bold mb-2 mt-4">User-friendly interface and dashboard.</h3>
+        <p class="text-sm mb-4 mt-8">
+          The intuitive dashboard is designed for all users—no technical skills required.
+          Navigate, monitor, and manage everything with just a few clicks.
+        </p>
+        <img src="./assets/images/screen-page-img/site-3.png"
+             alt="Pi-hole UI"
+             class="rounded-2xl shadow-lg w-full mt-24">
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl p-8 h-[500px]">
+        <h3 class="text-lg font-bold mb-2 mt-8">Date, Time and Weather Widgets.</h3>
+        <p class="text-sm mb-4 mt-4">
+          Enhance screen utility with dynamic widgets showing current time, date, and local weather.
+          These auto-update to keep your content informative and timely.
+        </p>
+        <img src="./assets/images/screen-page-img/new-15.jpeg"
+             alt="Weather UI"
+             class="rounded-2xl shadow-lg w-full mt-24">
+      </div>
+    </div>
+
+    <!-- ✅ Desktop Swiper View -->
+    <div class="hidden md:block">
+      <div class="swiper featureSwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+            <div class="p-16">
+              <h3 class="text-lg font-bold mb-2 mt-8">Centralised content scheduling.</h3>
+              <p class="text-sm mb-8 mt-16">Easily plan and manage content across multiple screens from one
+                central dashboard. Schedule images, videos, or messages to play at specific times for
+                maximum impact.</p>
+            </div>
+            <div>
+              <img src="./assets/images/screen-page-img/site-6.png"
+                   alt="Home Assistant UI"
+                   class="rounded-2xl shadow-lg w-full mt-20 pl-24">
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+            <div class="p-16">
+              <h3 class="text-lg font-bold mb-2 mt-8">Real-time device status (online/offline).</h3>
+              <p class="text-sm mb-8 mt-16">Instantly see whether your connected devices are online or offline.
+                Stay in control with live updates to ensure all screens are functioning as expected.</p>
+            </div>
+            <div>
+              <img src="./assets/images/screen-page-img/device-11.png"
+                   alt="Plex UI"
+                   class="rounded-2xl shadow-lg w-full mt-16 pl-24 mb-0">
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+            <div class="p-16">
+              <h3 class="text-lg font-bold mb-2 mt-8">Device diagnostics and alerts.</h3>
+              <p class="text-sm mb-8 mt-16">Get notified about any device issues such as disconnections or
+                hardware faults. Diagnostic tools help you troubleshoot and maintain system health
+                remotely.</p>
+            </div>
+            <div>
+              <img src="./assets/images/screen-page-img/device10.png"
+                   alt="Device UI"
+                   class="rounded-2xl shadow-lg w-full mt-24 pl-24">
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+            <div class="p-16">
+              <h3 class="text-lg font-bold mb-2 mt-8">User-friendly interface and dashboard.</h3>
+              <p class="text-sm mb-8 mt-16">The intuitive dashboard is designed for all users—no technical
+                skills required. Navigate, monitor, and manage everything with just a few clicks.</p>
+            </div>
+            <div>
+              <img src="./assets/images/screen-page-img/site-3.png"
+                   alt="Pi-hole UI"
+                   class="rounded-2xl shadow-lg w-full mt-16 pl-24">
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
+            <div class="p-16">
+              <h3 class="text-lg font-bold mb-2 mt-8">Date, Time and Weather Widgets.</h3>
+              <p class="text-sm mb-8 mt-16">Enhance screen utility with dynamic widgets showing current
+                time, date, and local weather. These auto-update to keep your content informative and timely.</p>
+            </div>
+            <div>
+              <img src="./assets/images/screen-page-img/new-15.jpeg"
+                   alt="Weather UI"
+                   class="rounded-2xl shadow-lg w-full mt-20 pl-24">
+            </div>
+          </div>
+        </div>
+
+        <!-- Swiper Arrows -->
+        <div class="swiper-button-prev !text-gray-700"></div>
+        <div class="swiper-button-next !text-gray-700"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section
+        class="relative w-full bg-gradient-to-br from-[#111827] via-[#302b63] to-[#24243e] text-white py-24 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-sm text-gray-300 mb-2">That's all. Except not.</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+                There’s an entire <span class="text-purple-400">app store</span><span class="text-pink-400">.</span>
+            </h2>
+            <p class="text-lg text-gray-300">
+                Discover amazing self-hosted apps in the Umbrel App Store and install them in one click on umbrelOS.
+            </p>
+        </div>
+
+        <!-- Image Layer -->
+        <div class="relative mt-20 flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8">
+
+            <!-- Left Tilted Image -->
+            <div class="z-0 transform">
+                <img src="./assets/images/screen-page-img/site-2.png" alt="Side App 1"
+                    class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
+            </div>
+
+            <!-- Center Main Image -->
+            <div class="z-10 -mt-10 lg:-mt-0 lg:-ml-12 lg:-mr-12">
+                <img src="./assets/images/screen-page-img/site-3.png" alt="Main App"
+                    class="w-[320px] sm:w-[500px] lg:w-[600px] shadow-2xl rounded-2xl border border-gray-700" />
+            </div>
+
+            <!-- Right Tilted Image -->
+            <div class="z-0 transform">
+                <img src="./assets/images/screen-page-img/site-4.png" alt="Side App 2"
+                    class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <div data-include="./components/footer.html"></div>
+
+    <!-- Dynamic Content Loader -->
+
+
+    <!-- Swiper Init -->
+    <!-- <script>
+        const swiper = new Swiper(".featureSwiper", {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: { slidesPerView: 1.5 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+    </script> -->
+    <script>
+        if (window.innerWidth >= 320) {
+            const swiper = new Swiper('.featureSwiper', {
+                slidesPerView: 1.2,
+                loop: true,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 3,
+            });
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".heroSwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: 1,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false,
+                },
+            });
+        });
+    </script>
+    <script>
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                const img = entry.target;
+                img.classList.toggle("in-view", entry.isIntersecting);
+            },
+            { threshold: 0.5 }
+        );
+
+        document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
+    </script>
+
+
+    <script src="./assets/js/injecting.js"></script>
+
+
+</body>
+
+</html>

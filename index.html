@@ -1,123 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <script>
+      const base = document.createElement('base');
+      base.href = window.location.hostname === '127.0.0.1' ? '/' : '/PAGON-website/';
+      document.head.appendChild(base);
+  </script> -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.png">
   <title>PAGON | Smart Displays</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          blackGlass: '#060607C9',
-          primary: '#4361EE',
-          cyanish: '#00B4D8',
-          mediumGray: '#999999'
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blackGlass: '#060607C9',
+            primary: '#4361EE',
+            cyanish: '#00B4D8',
+            mediumGray: '#999999'
+          }
         }
       }
     }
-  }
-</script>
+  </script>
+
   <style>
-    body {
-      background-color: #060607;
+     .swiper-slide {
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .swiper-slide:not(.swiper-slide-active) {
+      transform: scale(0.9);
+      filter: blur(1px);
+      opacity: 0.6;
+    }
+
+
+    .animate-gradient {
+      background-size: 300% 300%;
+      animation: gradient-move 6s ease infinite;
+    }
+
+    @keyframes gradient-move {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
   </style>
 </head>
-<body class="text-white font-sans">
 
-  <!-- Navbar -->
-  <header class="flex justify-between items-center px-6 py-4 md:px-12 bg-blackGlass backdrop-blur-md sticky top-0 z-50">
-    <div class="flex items-center gap-2">
-      <img src="assets/logo.png" alt="PAGON logo" class="w-8 h-8" />
-      <span class="text-lg font-bold tracking-wide">PAGON</span>
-    </div>
+<body class="text-white font-sans bg-black">
+  <!-- Header -->
+  <div data-include="./components/header.html"></div>
+  <div class="w-full mx-auto px-4 min-h-screen relative">
 
-    <!-- <nav class="hidden md:flex space-x-6 text-gray-300">
-      <a href="#" class="border-b-2 border-white pb-1">Home</a>
-      <a href="#">Product</a>
-      <a href="#">Software</a>
-      <a href="#">Team</a>
-      <a href="#">About</a>
-      <a href="#">Contact Us</a>
-    </nav> -->
-<div class="relative flex justify-center items-center pt-12 pb-4">
-  <!-- Elliptical Gradient Background -->
-<!-- Centered glow from Figma spec -->
-<div class="absolute top-[-651px] left-1/2 -translate-x-1/2 w-[781px] h-[500px] rounded-full blur-[200px] opacity-60 z-0 pointer-events-none 
-  bg-[radial-gradient(circle_at_center,_#00B4D8,_#4361EE,_transparent)]">
+  <div class="absolute inset-0 bg-[url('https://jooinn.com/images/blue-light-effect-1.png')] bg-center bg-cover z-0" 
+  data-aos="fade-down"
+  data-aos-easing="linear" 
+  data-aos-duration="2000">
 </div>
 
+  <!-- Blur overlay -->
+    <div class="absolute inset-0 backdrop-blur-sm bg-transparent/70 z-10"></div>
 
+    <!-- Hero Section -->
+    <section class="relative w-full flex flex-col items-center justify-center text-center pt-60 md:pt-36 pb-12 z-20 ">
 
+      <div class="absolute top-[-360px] sm:top-[-400px] md:top-[-700px] left-0 flex items-center justify-center w-full z-0 pointer-events-none ">
+      <!-- Elliptical Gradient Glow (Desktop only) -->
+        <div class="                            
+                              w-[400px] sm:w-[600px] md:w-[800px] 
+                              h-[300px] sm:h-[400px] md:h-[500px] 
+                              rounded-full blur-[120px] sm:blur-[160px] md:blur-[200px] 
+                              opacity-40 sm:opacity-50 md:opacity-100                           
+                              bg-[radial-gradient(circle_at_center,_#4361EE,_#00B4D8,_transparent)]" data-aos="fade-down"
+          data-aos-easing="linear" data-aos-duration="1000">
+        </div>
+      </div>
 
-  <!-- Actual Navigation -->
-  <nav class="relative z-10 flex items-center gap-6 px-8 py-3 bg-[#060607]/90 rounded-full backdrop-blur-md shadow-md text-gray-300">
-    <a href="#" class="relative text-white font-semibold">
-      Home
-      <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#D9D9D9] rounded-full"></span>
-    </a>
-    <a href="#" class="hover:text-white transition">Product</a>
-    <a href="#" class="hover:text-white transition">Software</a>
-    <a href="#" class="hover:text-white transition">Team</a>
-    <a href="#" class="hover:text-white transition">About</a>
-    <a href="#" class="hover:text-white transition">Contact Us</a>
-  </nav>
-</div>
+      <h1 class="text-3xl sm:text-4xl md:text-8xl font-thin leading-tight 
+            bg-[radial-gradient(circle_at_center,_#fff,_#000)] bg-clip-text text-transparent pb-2">
+        Pagon <span class="bg-gradient-to-r from-primary via-teal-400 to-cyanish 
+                       bg-clip-text text-transparent animate-gradient italic">Display</span>, Technology,<br> Elevated.
+      </h1>
+      <p class="text-gray-500 text-md mt-2 max-w-md italic">
+        “Your content, everywhere. Digital signage made simple.”
+      </p>
+      <img src="./assets/images/device/device-show.png " alt="Pagon Device" class="w-64 sm:w-72 md:w-[380px] mt-4"/>
 
+      <label class="mt-20">We deliver edge-ready hardware across the globe. Don’t see what you need? We’ll design it just for you.</label>
+      <div class="flex items-center flex-col md:flex-row gap-6 mt-6">
+        <a class="text-blue-600" href="./sinage.html">Chekout Our Signage Product <i class="fa-solid fa-arrow-right fa-fade ms-3"></i></a>
+        <a class="text-blue-600" href="./screen.html">Chekout Our Pagon Connect <i class="fa-solid fa-arrow-right fa-fade ms-3"></i></a>
+      </div>
 
-
-
-
-    <button class="hidden md:inline-block px-5 py-2 border rounded-full text-sm border-primary hover:bg-primary hover:text-white">
-      Watch Demo
-    </button>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center text-center px-4 md:px-20 pt-16 pb-12">
-    <h1 class="text-3xl md:text-5xl font-bold leading-tight">
-      Transform How You Inform.<br />
-      <span class="text-gray-300">Smarter Displays, Better Engagement.</span>
-    </h1>
-    <p class="text-mediumGray text-sm mt-4">
-      “Your content, everywhere. Digital signage made simple.”
-    </p>
-
-    <img src="assets/hero-device.png" alt="Pagon Device" class="w-72 md:w-[400px] mt-10"/>
-
-<!-- Scroll Down Indicator -->
-<!-- Scroll Down Indicator -->
-<div class="fixed bottom-6 right-6 flex flex-col items-center text-white text-xs z-50">
-  <p class="mb-1">Scroll Down</p>
-
-  <!-- Mouse Icon -->
-  <div class="w-3 h-6 border border-white rounded-full flex justify-center items-start relative">
-    <div class="w-1 h-1 bg-white rounded-full mt-1 animate-bounce"></div>
+      
+      <div class="mt-14 border-t border-b border-gray-900 w-full px-28 hidden lg:block">
+        <div class="grid grid-cols-1 lg:grid-cols-3 py-8 gap-6">
+      
+          <div class="flex items-start gap-3 border-e border-gray-900 px-2">
+            <img src="./assets/images/centralized.png" class="w-12" />
+            <div class="flex flex-col">
+              <label class="text-start">Centerlized Sytem</label>
+              <label class="text-xs font-thin text-start mt-2 text-gray-400">Centralized Command. Simplified Operations. Control Every Display from a Single Dashboard</label>
+            </div>
+          </div>
+      
+          <div class="flex items-start gap-3 border-e border-gray-900 px-2">
+            <img src="./assets/images/customer-support.png" class="w-12" />
+            <div class="flex flex-col">
+              <label class="text-start">Support Center</label>
+              <label class="text-xs font-thin text-start mt-2 text-gray-400">End-to-end support with a personal touch. Get the help you need—on time, every time</label>
+            </div>
+          </div>
+      
+          <div class="flex items-start gap-3">
+            <img src="./assets/images/centralized.png" class="w-12" />
+            <div class="flex flex-col">
+              <label class="text-start">Trusted</label>
+              <label class="text-xs font-thin text-start mt-2 text-gray-400">Backed by Trust. Powered by Technology. Proven Solutions for Mission-Critical Environments</label>
+            </div>
+          </div>
+      
+      
+        </div>
+      </div>
+      
+    </section>
   </div>
 
-  <!-- Down Arrow with Line (SVG) -->
-    <svg class="mt-1 -6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-  </svg>
-      <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-  </svg>
-</div>
+  <!-- Scroll Down Indicator -->
+  <!-- Scroll Indicator Aligned to Right (Desktop Only) -->
+  <!-- <div class="hidden md:block fixed bottom-4 right-0 w-full z-50"
+            data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8 flex justify-end">
+      <div class="flex flex-col items-center text-white text-xs space-y-1">
+        <p>Scroll Down</p>
+        <div class="w-3 h-5 border border-white rounded-full flex justify-center items-start relative">
+          <div class="w-1 h-1 bg-white rounded-full mt-1 animate-bounce"></div>
+        </div>
+        <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="1"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+        <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="1"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+  </div> -->
 
 
+  <!-- <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] rounded-full bg-gradient-to-r from-black via-[#515151] to-black opacity-80 z-10">
+  </div> -->
+
+  <!-- Footer Icons -->
+  <footer class="fixed bottom-4 z-50 w-full">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+      <div class="flex justify-center md:justify-start px-4">
+        <div
+          class="flex gap-3 items-center px-3 py-2 rounded-2xl backdrop-blur-md border border-white/10 bg-white/80 dark:bg-black/50 shadow-md">
+
+          <!-- Home -->
+          <a href="#"
+            class="h-9 w-9 flex items-center justify-center text-gray-800 dark:text-white hover:text-primary transition"
+            aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.76-1.61 1.54v1.85h2.74l-.44 2.89h-2.3v6.99C18.34 21.13 22 17 22 12z" />
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a href="#"
+            class="h-9 w-9 flex items-center justify-center text-gray-800 dark:text-white hover:text-primary transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                d="M15 22v-4a4.8 4.8 0 00-1-3.5c3 0 6-2 6-5.5a5.5 5.5 0 00-1-3.5c.3-1.2.3-2.3 0-3.5 0 0-1 0-3 1.5-2.6-.5-5.4-.5-8 0C6 2 5 2 5 2c-.3 1.2-.3 2.3 0 3.5A5.4 5.4 0 004 9c0 3.5 3 5.5 6 5.5a5.1 5.1 0 00-.8 5v4" />
+              <path d="M9 18c-4.5 2-5-2-7-2" />
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="#"
+            class="h-9 w-9 flex items-center justify-center text-gray-800 dark:text-white hover:text-primary transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+            </svg>
+          </a>
+
+          <!-- X (Twitter) -->
+          <a href="#"
+            class="h-9 w-9 flex items-center justify-center text-gray-800 dark:text-white hover:text-primary transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="#"
+            class="h-9 w-9 flex items-center justify-center text-gray-800 dark:text-white hover:text-primary transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M22 7l-9 6-9-6" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- About Us Section -->
+  <!-- <section id="about" class="relative min-h-screen flex  justify-center text-gray-950 px-4 md:px-8 py-20 bg-[#f7f7f8]"> -->
+
+    <!-- Background Image -->
+    <!-- <img src="/assets/about-bg.jpg" alt="About background"
+      class="absolute inset-0 w-full h-full object-cover opacity-10 z-0" /> -->
+
+    <!-- Overlay -->
+    <!-- <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div> -->
+
+    <!-- Content -->
+    <!-- <div class="relative z-10 max-w-[1280px] text-center">
+
+      <div class="flex items-center justify-between gap-28 mt-8">
+        <img class="w-[450px]" src="./assets/images/device/device.png" />
+        <div class="flex flex-col">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-start">Who We Are?</h2>
+          <p class="text-sm md:text-base leading-relaxed text-gray-800 text-start">
+            PAGON is a technology company focused on creating smart, reliable hardware solutions that simplify connectivity and
+            performance. We specialise in compact embedded systems and edge computing, delivering products that are intuitive,
+            scalable, and built to last. Our mission is to make advanced technology more accessible and practical for real-world
+            applications in education, business, and everyday innovation.
+          </p>
+          <div class="flex items-center gap-8 mt-10">
+            <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+              <img class="" src="./assets/images/device/device.png"/>
+            </div>
+            <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+              <img class="" src="./assets/images/device/device-show.png"/>
+            </div>
+            <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+              <img class="" src="./assets/images/device/device.png"/>
+            </div>
+          </div>
+          <label class="mt-16 text-3xl text-start font-semibold">Your Trusted Digital Display Partner</label>
+          <label class="mt-3 text-xs text-gray-400 text-start">Discover how PAGON Connect bridges devices and displays with unmatched simplicity and versatility.
+            Digital Signage System is a reliable solution designed to deliver scheduled multimedia content across multiple displays.
+          </label>
+        </div>
+      </div>
+
+      <!-- <img class="rounded-3xl w-[800px] mt-16 m-auto" src="./assets/images/screen-page-img/hero-21.png" -->
+
+    <!-- </div> --> 
+
+  <!-- </section> -->
+
+
+  <section id="about" class="relative min-h-screen flex justify-center text-gray-950 px-4 md:px-8 py-20 bg-[#f7f7f8]">
+  <!-- Content -->
+  <div class="relative z-10 max-w-[1280px] w-full">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-28 mt-8 text-center lg:text-left">
+      
+      <!-- Device Image -->
+      <img class="w-full max-w-[450px]" src="./assets/images/device/device.png" alt="Main Device" />
+
+      <!-- Text Content -->
+      <div class="flex flex-col mt-8 lg:mt-0">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-start">Who We Are?</h2>
+        <p class="text-sm md:text-base leading-relaxed text-gray-800 text-start">
+          PAGON is a technology company focused on creating smart, reliable hardware solutions that simplify connectivity and
+          performance. We specialise in compact embedded systems and edge computing, delivering products that are intuitive,
+          scalable, and built to last. Our mission is to make advanced technology more accessible and practical for real-world
+          applications in education, business, and everyday innovation.
+        </p>
+
+        <!-- Device Gallery -->
+        <div class="flex flex-col sm:flex-row items-center gap-6 mt-10">
+          <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+            <img src="./assets/images/device/device.png" alt="Device 1"/>
+          </div>
+          <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+            <img src="./assets/images/device/device-show.png" alt="Device 2"/>
+          </div>
+          <div class="w-[150px] h-[160px] rounded-2xl px-4 object-cover flex justify-center items-center shadow hover:-translate-y-2 duration-500 ease-in-out">
+            <img src="./assets/images/device/device.png" alt="Device 3"/>
+          </div>
+        </div>
+
+        <!-- Footer Text -->
+        <label class="mt-16 text-2xl md:text-3xl font-semibold text-start">Your Trusted Digital Display Partner</label>
+        <label class="mt-3 text-xs text-gray-400 text-start">
+          Discover how PAGON Connect bridges devices and displays with unmatched simplicity and versatility.
+          Digital Signage System is a reliable solution designed to deliver scheduled multimedia content across multiple displays.
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- What we do Section -->
+
+  <section id="what-we-do" class="bg-black text-white w-full px-4 py-16">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">What We Do?</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-10">
+     PAGON delivers smart, affordable digital signage solutions. We're also launching a wireless screen sharing system designed for classrooms and meetings—making it easier to connect, present, and collaborate.
+      </p>
+
+      <!-- Swiper Carousel -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="./assets/images/screen-page-img/site-6.png" alt="AI Cloud" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Displays campus news and maps via signage for student engagement.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative w-[260px] h-[400px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="https://datacom.com/content/dam/images/admin/solution-landing-pages/customer-experience/digital-signage-page/DigitalSignage_PromoImage_624x400px@2x.jpg" alt="Working" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Schedule promotions and urgent updates for restaurants and shops.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="https://www.risevision.com/hs-fs/hubfs/small-business-digital-signage-plan.jpg?width=730&height=450&name=small-business-digital-signage-plan.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="https://www.crowntv-us.com/wp-content/uploads/2025/05/AD_4nXfA5WlbzHK2yR6s7yj5-5CFOf0s5KhqGVeFL8pFA_WZMHHnmk1DThV6RAsOaECb8hJrILeLxkbkBVeOtGS8qUtcqNwuMlI1K4tCfpmZNB3yY4f3XDwWqXbtnkttIs_kULrpjI-Hkg.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+          <div class="swiper-slide relative w-[260px] h-[380px] rounded-3xl overflow-hidden bg-white/5 shadow-lg">
+            <img src="/assets/control-room.jpg" alt="Control Room" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-5 w-full">
+              <p class="text-sm leading-snug text-white">
+                Showcase product features or live data for internal displays.
+              </p>
+              <span class="text-sm font-semibold mt-3 inline-block">More</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer Socials -->
-<footer class="fixed bottom-8 left-14 flex items-center gap-4 z-50">
-  <img src="assets/social-icons/facebook.svg" alt="Facebook" class="w-6 h-6" />
-  <img src="assets/social-icons/x.svg" alt="X" class="w-6 h-6" />
-  <img src="assets/social-icons/instagram.svg" alt="Instagram" class="w-6 h-6" />
-  <img src="assets/social-icons/linkdine.svg" alt="LinkedIn" class="w-6 h-6" />
-  <img src="assets/social-icons/google.svg" alt="Google" class="w-6 h-6" />
-</footer>
 
+  <!-- Working Hero Section -->
+  <!-- <section class="relative w-full min-h-screen bg-black text-white overflow-hidden mt-16"> -->
+    <!-- Background Image -->
+    <!-- <img src="https://images.unsplash.com/photo-1542211183455-2afe6f173cdd?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlnaXRhbCUyMHNpZ25hZ2V8ZW58MHx8MHx8fDA%3D" alt="Businessman with tablet"
+      class="absolute top-0 left-0 w-full h-full object-contain md:object-cover opacity-60 z-10" /> -->
+
+      <!-- <div class="absolute top-0 left-0 w-full h-full object-contain md:object-cover opacity-100 z-20 bg-gradient-to-b from-transparent to-black" ></div>
+      <video autoplay loop muted 
+        class="absolute top-0 left-0 w-full h-full object-contain md:object-cover opacity-60 z-10" 
+        src="./assets/video/banner-board.mp4"></video> -->
+
+    <!-- Overlay -->
+    <!-- <div class="absolute inset-0 bg-black/40 md:bg-black/70 z-10"></div> -->
+
+    <!-- Content -->
+    <!-- <div class="relative z-20 flex flex-col items-center justify-center min-h-screen text-center"> -->
+      <!-- Subheading -->
+      <!-- <p class="text-sm sm:text-base text-white/80 leading-tight">
+        <span class="font-semibold text-white">Your message</span> deserves more than static screens.
+      </p>
+      <p class="text-sm sm:text-base mt-1 text-white/80">
+        Connect With Pagon Now.
+      </p> -->
+
+      <!-- Heading -->
+      <!-- <h1 class="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+        Connect With Pagon,<br class="sm:hidden" />
+        Now.
+      </h1> -->
+
+      <!-- CTA Button -->
+      <!-- <button
+        class="mt-6 px-12 py-1  rounded-full border border-white/30 bg-white/20 text-white font-semibold hover:bg-white/30 transition-all text-sm sm:text-base backdrop-blur-md shadow">
+        Buy
+      </button>
+    </div>
+  </section> -->
+
+
+  <section class="relative w-full min-h-screen bg-black text-white overflow-hidden mt-16">
+
+  <!-- Video Background -->
+  <video autoplay loop muted playsinline
+    class="absolute top-0 left-0 w-full h-full object-cover opacity-60 z-10">
+    <source src="./assets/video/banner-board.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/40 md:bg-black/70 z-20"></div>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black z-30"></div>
+
+  <!-- Content -->
+  <div class="relative z-40 flex flex-col items-center justify-center min-h-screen px-4 text-center">
+    
+    <!-- Subheadings -->
+    <p class="text-sm sm:text-base text-white/80 leading-tight">
+      <span class="font-semibold text-white">Your message</span> deserves more than static screens.
+    </p>
+    <p class="text-sm sm:text-base mt-1 text-white/80">
+      Connect With Pagon Now.
+    </p>
+
+    <!-- Heading -->
+    <h1 class="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+      Connect With Pagon,<br class="sm:hidden" />
+      Now.
+    </h1>
+
+    <!-- Call to Action -->
+    <button
+      class="mt-6 px-12 py-2 rounded-full border border-white/30 bg-white/20 text-white font-semibold hover:bg-white/30 transition-all text-sm sm:text-base backdrop-blur-md shadow">
+      Buy
+    </button>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <div data-include="./components/footer.html"></div>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    // grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    // coverflowEffect: {
+    //   rotate: 0,
+    //   stretch: 0,
+    //   depth: 120,
+    //   modifier: 2.5,
+    //   slideShadows: false,
+    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+      },
+  });
+});
+
+  </script>
+
+
+<script>
+  AOS.init();
+</script>
+
+  <script src="./assets/js/injecting.js"></script>
 
 </body>
+
+
+
 </html>
