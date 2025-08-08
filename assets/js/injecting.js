@@ -69,6 +69,19 @@
     });
   }
 
+  
+  const maintenance = true;  
+
+  const maintenancePage = "/maintenance.html";
+
+  if (maintenance && !location.pathname.includes("maintenance.html")) {
+    location.href = maintenancePage;
+  }
+
+  if (maintenance && !location.pathname.includes("maintenance.html")) {
+    window.location.replace(maintenancePage); 
+  }
+
 
 
 
