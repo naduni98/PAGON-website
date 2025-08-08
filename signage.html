@@ -96,51 +96,71 @@
         .scroll-zoom.in-view {
             transform: scale(1.05);
         }
-           .flip-card {
-    perspective: 1000px;
-  }
 
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-  }
+        .flip-card {
+            perspective: 1000px;
+        }
 
-  .flip-card:hover .flip-card-inner {
-    transform: rotateX(180deg);
-  }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
 
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 1.5rem; /* match Tailwind's rounded-3xl */
-  }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateX(180deg);
+        }
 
-  .flip-card-back {
-    transform: rotateX(180deg);
-  }
-  @media (prefers-reduced-motion: reduce) {
-  .animate-fade-in-up, .animate-fade-in-right { animation: none !important; }
-}
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5rem;
+            /* match Tailwind's rounded-3xl */
+        }
 
-/* Slide/fade from the right */
-@keyframes fade-in-right {
-  from { opacity: 0; transform: translateX(24px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.animate-fade-in-right {
-  animation: fade-in-right .7s ease-out both;
-}
+        .flip-card-back {
+            transform: rotateX(180deg);
+        }
 
-/* start hidden to avoid flash */
-.reveal { opacity: 0; }
-.reveal.show { opacity: 1; }
+        @media (prefers-reduced-motion: reduce) {
+
+            .animate-fade-in-up,
+            .animate-fade-in-right {
+                animation: none !important;
+            }
+        }
+
+        /* Slide/fade from the right */
+        @keyframes fade-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-right {
+            animation: fade-in-right 10s ease-out both;
+        }
+
+        /* start hidden to avoid flash */
+        .reveal {
+            opacity: 0;
+        }
+
+        .reveal.show {
+            opacity: 4;
+        }
     </style>
 </head>
 
@@ -162,79 +182,71 @@
     <!-- Fullscreen Hero Section with Overlapping Navbar -->
 
 
-<section class="relative w-full min-h-screen text-white overflow-hidden">
-  <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
-    <source src="./assets/images/new/new-38.mp4" type="video/mp4" />
-  </video>
+    <section class="relative w-full min-h-screen text-white overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+            <source src="./assets/images/new/new-38.mp4" type="video/mp4" />
+        </video>
 
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black z-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black z-30"></div>
 
-  <div class="relative z-40 flex flex-col justify-center items-end min-h-screen px-8 text-right">
-    <h2
-      class="reveal text-4xl md:text-5xl font-bold leading-tight
+        <div class="relative z-40 flex flex-col justify-center items-end min-h-screen px-16 text-left">
+            <h2 class="reveal text-4xl md:text-5xl font-bold leading-tight
              animate-fade-in-right [animation-delay:100ms] will-change-transform">
-      Digital Signage System
-    </h2>
+                Digital Signage System
+            </h2>
 
-    <p
-      class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-8
-             animate-fade-in-up [animation-delay:280ms] will-change-transform">
-      PAGON’s <strong class="font-semibold">Digital Signage System</strong> is a reliable solution
-      designed to deliver scheduled multimedia content across multiple displays.
-    </p>
+            <p class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-8
+             animate-fade-in-right [animation-delay:100ms] will-change-transform">
+                PAGON’s <strong class="font-semibold">Digital Signage System</strong> is a reliable solution
+                designed to deliver scheduled multimedia content across multiple displays.
+            </p>
 
-    <p
-      class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-6
-             animate-fade-in-up [animation-delay:460ms] will-change-transform">
-      Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one central system.
-    </p>
-  </div>
-</section>
+            <p class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-6
+             animate-fade-in-right [animation-delay:100ms] will-change-transform">
+                Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one central
+                system.
+            </p>
+        </div>
+    </section>
 
 
-    <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
-    <section class="relative w-full h-[calc(100vh-64px)]">
-        <div class="swiper heroSwiper w-full h-full">
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <!-- <div class="swiper-slide">
-                    <img src="./assets/images/screen-page-img/hero-20.png" alt="Hero Image 2" />
-                </div> -->
-                <!-- <div class="swiper-slide">
-                    <img src="./assets/images/screen-page-img/collage.png" alt="Hero Image 4" />
-                </div> -->
-                                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-27.png" alt="Hero Image 2" />
+    <section class="mt-24 mb-24  overflow-hidden">
+        <div class="flip-card max-w-7xl mx-auto w-full h-[350px] md:h-[350px]">
+            <div class="flip-card-inner w-full h-full">
+
+                <!-- Front -->
+                <div
+                    class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+                    <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
+                        Discover how the Digital Signage System
+                        <strong> bridges devices and displays</strong><br />
+                        with unmatched simplicity and versatility
+                    </h3>
+                    <a href="#"
+                        class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
+                        Buy a Demo Unit
+                    </a>
                 </div>
-                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-22.png" alt="Hero Image 4" />
+
+                <!-- Back -->
+                <div
+                    class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+                    <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
+                        Discover how the Digital Signage System
+                        <strong> bridges devices and displays</strong><br />
+                        with unmatched simplicity and versatility
+                    </h3>
+                    <a href="contact.html"
+                        class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
+                        Buy a Demo Unit
+                    </a>
                 </div>
-                              
-                                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-2.jpg" alt="Hero Image 2" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-24.png" alt="Hero Image 4" />
-                </div>
-                                             
-                                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-25.png" alt="Hero Image 2" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./assets/images/new/new-26.png" alt="Hero Image 4" />
-                </div>
-                <!-- <div class="swiper-slide">
-                    <img src="./assets/images/screen-page-img/ctp-9.png" alt="Hero Image 4"  class="object-contain max-w-full max-h-full"/>
-                </div> -->
-                <!-- <div class="swiper-slide">
-                    <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 3" />
-                </div> -->
+
             </div>
         </div>
     </section>
 
 
-    <!-- Features Section -->
     <!-- Features Section with Connect 3 CTA -->
     <section class="bg-gray-100 py-16 px-4 md:px-8">
         <div class="max-w-7xl mx-auto text-center">
@@ -298,48 +310,87 @@
         </div>
     </section>
 
-    <section class="mt-24 mb-24  overflow-hidden">
-  <div class="flip-card max-w-7xl mx-auto w-full h-[350px] md:h-[350px]">
-    <div class="flip-card-inner w-full h-full">
 
-      <!-- Front -->
-      <div
-        class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-        <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-           Discover how the Digital Signage System
-          <strong> bridges devices and displays</strong><br />
-          with unmatched simplicity and versatility
-        </h3>
-        <a href="#"
-          class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
-         Buy a Demo Unit
-        </a>
-      </div>
+    <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
+    <section class="relative w-full h-[calc(100vh-1px)]">
+        <div class="swiper heroSwiper w-full h-full">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/hero-20.png" alt="Hero Image 2" />
+                </div> -->
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/collage.png" alt="Hero Image 4" />
+                </div> -->
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/new/new-27.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-22.png" alt="Hero Image 4" />
+                </div> -->
 
-      <!-- Back -->
-      <div
-        class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-        <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-           Discover how the Digital Signage System
-          <strong> bridges devices and displays</strong><br />
-          with unmatched simplicity and versatility
-        </h3>
-        <a href="contact.html"
-          class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
-          Buy a Demo Unit
-        </a>
-      </div>
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/new/new-2.jpg" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-24.png" alt="Hero Image 4" />
+                </div>
 
-    </div>
-  </div>
-</section>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-25.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-26.png" alt="Hero Image 4" />
+                </div> -->
+
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/new/new-1.jpg" alt="Hero Image 2" />
+                </div>
+                                     <div class="swiper-slide">
+                    <img src="./assets/images/new/new-7.jpg" alt="Hero Image 2" />
+                </div>
+                                            <div class="swiper-slide">
+                    <img src="./assets/images/new/new-15.jpg" alt="Hero Image 2" />
+                </div>
+                                                            <div class="swiper-slide">
+                    <img src="./assets/images/new/new-20.jpg" alt="Hero Image 2" />
+                </div> -->
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-23.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-55.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-56.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-57.png" alt="Hero Image 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-58.png" alt="Hero Image 2" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./assets/images/new/new-60.png" alt="Hero Image 2" />
+                </div>
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/new/new-53.png" alt="Hero Image 4" />
+                </div> -->
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/ctp-9.png" alt="Hero Image 4"  class="object-contain max-w-full max-h-full"/>
+                </div> -->
+                <!-- <div class="swiper-slide">
+                    <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 3" />
+                </div> -->
+            </div>
+        </div>
+    </section>
 
 
-
-    
 
     <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
-        <div class="max-w-3xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div class="max-w-2xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
 
             <!-- 2x2 Image Grid -->
             <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
@@ -359,11 +410,6 @@
         </div>
     </section>
 
-
-
-
-
-
     <!-- Swiper Container -->
     <section class="bg-neutral-900/80 backdrop-blur-2xl py-16 min-h-screen">
         <div class="container mx-auto px-4 md:px-24">
@@ -378,7 +424,7 @@
                         Easily plan and manage content across multiple screens from one central dashboard.
                         Schedule images, videos, or messages to play at specific times for maximum impact.
                     </p>
-                    <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"
+                    <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
                         class="rounded-2xl shadow-lg w-full mt-24">
                 </div>
 
@@ -443,7 +489,7 @@
                                     maximum impact.</p>
                             </div>
                             <div>
-                                <img src="./assets/images/screen-page-img/site-6.png" alt="Home Assistant UI"
+                                <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
                                     class="rounded-2xl shadow-lg w-full mt-20 pl-24">
                             </div>
                         </div>
@@ -646,19 +692,19 @@
         document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
     </script>
 
-<script>
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('show'); // removes initial opacity
-        obs.unobserve(e.target);        // animate once
-      }
-    });
-  }, { threshold: 0.25 });
+    <script>
+        const els = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('show'); // removes initial opacity
+                    obs.unobserve(e.target);        // animate once
+                }
+            });
+        }, { threshold: 0.25 });
 
-  els.forEach(el => io.observe(el));
-</script>
+        els.forEach(el => io.observe(el));
+    </script>
 
     <script src="./assets/js/injecting.js"></script>
 

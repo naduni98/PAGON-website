@@ -96,35 +96,53 @@
     .scroll-zoom.in-view {
       transform: scale(1.05);
     }
-     .flip-card {
-    perspective: 1000px;
-  }
 
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-  }
+    .flip-card {
+      perspective: 1000px;
+    }
 
-  .flip-card:hover .flip-card-inner {
-    transform: rotateX(180deg);
-  }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
 
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 1.5rem; /* match Tailwind's rounded-3xl */
-  }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateX(180deg);
+    }
 
-  .flip-card-back {
-    transform: rotateX(180deg);
-  }
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.5rem;
+      /* match Tailwind's rounded-3xl */
+    }
+
+    .flip-card-back {
+      transform: rotateX(180deg);
+    }
+
+    @keyframes fade-in-left {
+      from {
+        opacity: 0;
+        transform: translateX(-24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in-left {
+      animation: fade-in-left 0.8s ease-out both;
+    }
   </style>
 </head>
 
@@ -144,130 +162,95 @@
   <div data-include="./components/header.html"></div>
 
 
-  <section
-    class="relative w-full h-screen bg-gradient-to-r from-white/90 via-white/70 to-white/60 backdrop-blur-lg flex items-center px-4  md:px-10 py-20">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200"></div>
+  <section class="relative w-full min-h-screen text-white overflow-hidden">
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+      <source src="./assets/images/new/new-42.mp4" type="video/mp4" />
+    </video>
 
-    <div
-      class="max-w-7xl mx-auto  flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:mt-0 mt-72">
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black z-30"></div>
 
-      <!-- Text Column -->
-      <div class="flex-1 text-center md:text-left top-0 ">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight animate-fade-in-up">
-          Simple, wireless screen sharing for classrooms and meeting rooms.
-        </h2>
-        <p class="text-lg text-gray-700 max-w-md mx-auto md:mx-0 mt-8">
-          PAGON Connect makes it easy to <strong class="font-semibold">share your screen</strong> from a laptop or
-          device to a large display.
-          Ideal for interactive presentations, lessons, and meetings.
-        </p>
-      </div>
+    <!-- Content -->
+    <div class="relative z-40 flex flex-col justify-center items-start min-h-screen px-28 text-left">
+      <h2
+        class="animate-fade-in-left [animation-delay:100ms] text-4xl md:text-5xl font-bold text-gray-100 leading-tight max-w-xl">
+        Simple, wireless screen sharing for classrooms and meeting rooms.
+      </h2>
 
-
-      <!-- Device Image -->
-      <div class="flex justify-center">
-        <img src="./assets/images/new//new-3.jpg" alt="PAGON Device"
-          class="w-[300px] md:w-[700px] object-contain rounded-xl shadow-md" />
-      </div>
-
+      <p class="animate-fade-in-left [animation-delay:300ms] text-lg text-gray-100 max-w-md mt-8">
+        PAGON Connect makes it easy to <strong class="font-semibold">share your screen</strong> from a laptop or
+        device to a large display. Ideal for interactive presentations, lessons, and meetings.
+      </p>
     </div>
   </section>
 
 
 
-  <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
-  <section class="relative w-full h-[calc(100vh-64px)]">
+
+  <section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 overflow-hidden">
+    <div class="flip-card max-w-7xl mx-auto w-full h-[350px] md:h-[350px]">
+      <div class="flip-card-inner w-full h-full">
+
+        <!-- Front -->
+        <div
+          class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
+            Discover how PAGON Connect
+            <strong> bridges devices and displays</strong><br />
+            with unmatched simplicity and versatility
+          </h3>
+          <a href="#"
+            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
+            Coming soon
+          </a>
+        </div>
+
+        <!-- Back -->
+        <div
+          class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+          <h3 class="text-xl md:text-xl font-semibold text-white tracking-widest mb-4">
+            Ready to get in touch?
+          </h3>
+          <a href="contact.html"
+            class="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
+            Contact Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
+  <section class="relative w-full h-[calc(100vh-0px)]">
     <div class="swiper heroSwiper w-full h-full">
       <div class="swiper-wrapper">
         <!-- Slides -->
-    <div class="swiper-slide">
+        <div class="swiper-slide">
           <img src="./assets/images/new/new-31.png" alt="Hero Image 3" />
         </div>
         <div class="swiper-slide">
           <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 4" />
         </div>
-                <div class="swiper-slide">
-          <img src="./assets/images/new/new-30.png" alt="Hero Image 4" />
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-54.png" alt="Hero Image 4" />
         </div>
 
-               <div class="swiper-slide">
+        <div class="swiper-slide">
           <img src="./assets/images/new/new-11.jpg" alt="Hero Image 2" />
         </div>
- 
+
         <div class="swiper-slide">
           <img src="./assets/images/new/new-28.png" alt="Hero Image 3" />
         </div>
-                       <div class="swiper-slide">
+        <div class="swiper-slide">
           <img src="./assets/images/new/new-29.png" alt="Hero Image 2" />
-        </div>
-
-           <div class="swiper-slide">
-          <img src="./assets/images/new/new-16.jpg" alt="Hero Image 4" />
         </div>
 
       </div>
     </div>
   </section>
-
-
-  <!-- Features Section -->
-  <!-- Features Section with Connect 3 CTA -->
-  <!-- <section class="bg-gray-100 py-16 px-4 md:px-8">
-    <div class="max-w-7xl mx-auto text-center"> -->
-
-
-      <!-- Connect 3 Description + CTA -->
-      <!-- <div class="max-w-3xl mx-auto text-center">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">PAGON Connect</h3>
-        <p class="text-gray-700 text-lg mb-8">
-          Discover how PAGON Connect<strong> bridges devices and displays</strong> with unmatched simplicity and
-          versatility
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#"
-            class="bg-gray-800 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-900 transition">
-            Coming soon
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section> -->
-
-<section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 overflow-hidden">
-  <div class="flip-card max-w-7xl mx-auto w-full h-[350px] md:h-[350px]">
-    <div class="flip-card-inner w-full h-full">
-
-      <!-- Front -->
-      <div
-        class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-        <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-          Discover how PAGON Connect
-          <strong> bridges devices and displays</strong><br />
-          with unmatched simplicity and versatility
-        </h3>
-        <a href="#"
-          class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
-          Coming soon
-        </a>
-      </div>
-
-      <!-- Back -->
-      <div
-        class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-        <h3 class="text-xl md:text-xl font-semibold text-white tracking-widest mb-4">
-          Ready to get in touch?
-        </h3>
-        <a href="contact.html"
-          class="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
-          Contact Us
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
 
   <div class="overflow-x-hidden">
@@ -339,7 +322,7 @@
   </div>
 
   <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
-    <div class="max-w-3xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
+    <div class="max-w-2xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
 
       <!-- 2x2 Image Grid -->
       <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
@@ -622,6 +605,20 @@
     );
 
     document.querySelectorAll('.scroll-zoom').forEach(img => observer.observe(img));
+  </script>
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    els.forEach(el => io.observe(el));
+
   </script>
   <script src="./assets/js/injecting.js"></script>
 </body>
