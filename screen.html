@@ -128,6 +128,171 @@
       transform: rotateX(180deg);
     }
 
+
+    
+        /* only applies inside #flip-showcase */
+        /* Existing Flip Effect */
+        /* Gradient background for the flip showcase only */
+        #flip-showcase {
+            background: radial-gradient(circle at bottom left,
+                    rgba(255, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at top right,
+                    rgba(255, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                linear-gradient(145deg, #111111, #1a1a1a);
+            background-color: #0e0e0e;
+            /* fallback */
+        }
+
+        #flip-showcase .flip-card {
+            perspective: 1200px;
+            /* slightly deeper perspective */
+        }
+
+        #flip-showcase .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            /* smooth ease */
+        }
+
+        #flip-showcase .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front::before,
+        .flip-card-front::after {
+            content: "";
+            position: absolute;
+            border-color: rgba(239, 68, 68, 0.3);
+            /* red-500/30 */
+            border-style: solid;
+            z-index: 2;
+            box-shadow:
+                0 0 8px rgba(239, 68, 68, 0.6),
+                0 0 16px rgba(239, 68, 68, 0.4),
+                0 0 24px rgba(239, 68, 68, 0.2);
+            border-radius: 4px;
+            /* smooth glow corners */
+        }
+
+        /* Top-right corner */
+        /* Top-right glowing accent */
+        .flip-card-front::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            /* move it up so glow spreads out */
+            right: -40px;
+            /* move it out so glow spreads out */
+            width: 140px;
+            height: 0px;
+            background: radial-gradient(circle at top right,
+                    rgba(239, 68, 68, 0.8) 0%,
+                    rgba(239, 68, 68, 0.3) 40%,
+                    transparent 80%);
+            z-index: 2;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Bottom-left glowing accent */
+        .flip-card-front::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -20px;
+            width: 120px;
+            height: 80px;
+            background: radial-gradient(circle at bottom left,
+                    rgba(239, 68, 68, 0.8) 0%,
+                    rgba(239, 68, 68, 0.3) 40%,
+                    transparent 80%);
+            z-index: 2;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+
+        #flip-showcase .flip-card-front,
+        #flip-showcase .flip-card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5rem;
+            /* match rounded-3xl */
+        }
+
+        /* Back Side Rotation */
+        #flip-showcase .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* --------------------------- */
+        /* Front Card Styling Updates  */
+        /* --------------------------- */
+        #flip-showcase .flip-card-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            transition: box-shadow 0.4s ease;
+        }
+
+        #flip-showcase .flip-card-front img {
+            width: 80px;
+            /* smaller, balanced logo size */
+            margin-bottom: 1.5rem;
+        }
+
+        #flip-showcase .flip-card-front h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        #flip-showcase .flip-card-front p {
+            font-size: 0.875rem;
+            color: #b0b0b0;
+            /* light gray tagline */
+        }
+
+        /* Hover Glow Effect */
+        #flip-showcase .flip-card:hover .flip-card-front {
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+        }
+
+        /* --------------------------- */
+        /* Back Card Styling Updates   */
+        /* --------------------------- */
+        #flip-showcase .flip-card-back {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #flip-showcase .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #flip-showcase .flip-card-back::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            /* dark overlay */
+        }
+
+
     @keyframes fade-in-left {
       from {
         opacity: 0;
@@ -321,10 +486,8 @@
     </section>
   </div>
 
-  <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
+  <!-- <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
     <div class="max-w-2xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
-
-      <!-- 2x2 Image Grid -->
       <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
         <div class="bg-gray-800 rounded-xl overflow-hidden">
           <img src="assets/images/device/device-6.png" alt="Feature 1" class="w-full h-full object-cover" />
@@ -340,7 +503,78 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
+      <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
+
+            <!-- Card Component -->
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Connect with</h3>
+                        <p class="text-sm text-gray-400">High-Performance I/O</p>
+                    </div>
+                    <!-- Back -->
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat for other cards -->
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Display output</h3>
+                        <p class="text-sm text-gray-400">Crystal-clear visuals</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Built-in</h3>
+                        <p class="text-sm text-gray-400">Integrated technology</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">For power</h3>
+                        <p class="text-sm text-gray-400">Reliable energy supply</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 
 
   <section class="relative bg-gray-100 text-white py-32 overflow-hidden">
@@ -527,7 +761,7 @@
 
       <!-- Left Tilted Image -->
       <div class="z-0 transform">
-        <img src="./assets/images/screen-page-img/site-2.png" alt="Side App 1"
+        <img src="./assets/images/new/new-82.png" alt="Side App 1"
           class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
       </div>
 
@@ -540,7 +774,7 @@
       <!-- Right Tilted Image -->
       <div class="z-0 transform">
         <img src="./assets/images/screen-page-img/site-4.png" alt="Side App 2"
-          class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
+          class="w-[280px] sm:w-[320px] lg:w-[360px] h-[250px] shadow-xl rounded-xl border border-gray-800" />
       </div>
 
     </div>

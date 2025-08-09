@@ -128,6 +128,168 @@
             transform: rotateX(180deg);
         }
 
+        /* only applies inside #flip-showcase */
+        /* Existing Flip Effect */
+        /* Gradient background for the flip showcase only */
+        #flip-showcase {
+            background: radial-gradient(circle at bottom left,
+                    rgba(255, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at top right,
+                    rgba(255, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                linear-gradient(145deg, #111111, #1a1a1a);
+            background-color: #0e0e0e;
+            /* fallback */
+        }
+
+        #flip-showcase .flip-card {
+            perspective: 1200px;
+            /* slightly deeper perspective */
+        }
+
+        #flip-showcase .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            /* smooth ease */
+        }
+
+        #flip-showcase .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front::before,
+        .flip-card-front::after {
+            content: "";
+            position: absolute;
+            border-color: rgba(239, 68, 68, 0.3);
+            /* red-500/30 */
+            border-style: solid;
+            z-index: 2;
+            box-shadow:
+                0 0 8px rgba(239, 68, 68, 0.6),
+                0 0 16px rgba(239, 68, 68, 0.4),
+                0 0 24px rgba(239, 68, 68, 0.2);
+            border-radius: 4px;
+            /* smooth glow corners */
+        }
+
+        /* Top-right corner */
+        /* Top-right glowing accent */
+        .flip-card-front::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            /* move it up so glow spreads out */
+            right: -40px;
+            /* move it out so glow spreads out */
+            width: 140px;
+            height: 0px;
+            background: radial-gradient(circle at top right,
+                    rgba(239, 68, 68, 0.8) 0%,
+                    rgba(239, 68, 68, 0.3) 40%,
+                    transparent 80%);
+            z-index: 2;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Bottom-left glowing accent */
+        .flip-card-front::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -20px;
+            width: 120px;
+            height: 80px;
+            background: radial-gradient(circle at bottom left,
+                    rgba(239, 68, 68, 0.8) 0%,
+                    rgba(239, 68, 68, 0.3) 40%,
+                    transparent 80%);
+            z-index: 2;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+
+        #flip-showcase .flip-card-front,
+        #flip-showcase .flip-card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5rem;
+            /* match rounded-3xl */
+        }
+
+        /* Back Side Rotation */
+        #flip-showcase .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* --------------------------- */
+        /* Front Card Styling Updates  */
+        /* --------------------------- */
+        #flip-showcase .flip-card-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            transition: box-shadow 0.4s ease;
+        }
+
+        #flip-showcase .flip-card-front img {
+            width: 80px;
+            /* smaller, balanced logo size */
+            margin-bottom: 1.5rem;
+        }
+
+        #flip-showcase .flip-card-front h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        #flip-showcase .flip-card-front p {
+            font-size: 0.875rem;
+            color: #b0b0b0;
+            /* light gray tagline */
+        }
+
+        /* Hover Glow Effect */
+        #flip-showcase .flip-card:hover .flip-card-front {
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+        }
+
+        /* --------------------------- */
+        /* Back Card Styling Updates   */
+        /* --------------------------- */
+        #flip-showcase .flip-card-back {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #flip-showcase .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #flip-showcase .flip-card-back::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            /* dark overlay */
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             .animate-fade-in-up,
@@ -189,28 +351,34 @@
 
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black z-30"></div>
 
-        <div class="relative z-40 flex flex-col justify-center items-end min-h-screen md:px-16 px-8 text-left">
-            <h2 class="reveal text-4xl md:text-5xl font-bold leading-tight
+        <div class="relative z-40 flex flex-col justify-center items-end min-h-screen md:px-16 px-8">
+            <div class="text-left">
+                <h2 class="reveal text-4xl md:text-5xl font-bold leading-tight
              animate-fade-in-right [animation-delay:100ms] will-change-transform">
-                Digital Signage System
-            </h2>
+                    Digital Signage System
+                </h2>
 
-            <p class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-8
+                <p class="reveal text-lg text-gray-200 max-w-md mx-auto md:mx-0 mt-8
              animate-fade-in-right [animation-delay:100ms] will-change-transform">
-                PAGON’s <strong class="font-semibold">Digital Signage System</strong> is a reliable solution
-                designed to deliver scheduled multimedia content across multiple displays.
-            </p>
+                    PAGON’s <strong class="font-semibold">Digital Signage System</strong> is a reliable solution
+                    designed to deliver scheduled multimedia content across multiple displays.
+                </p>
 
-            <p class="reveal text-lg text-gray-100 max-w-md mx-auto md:mx-0 mt-6
+                <p class="reveal text-lg text-gray-200 max-w-md mx-auto md:mx-0 mt-6
              animate-fade-in-right [animation-delay:100ms] will-change-transform">
-                Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one central
-                system.
-            </p>
+                    Whether it's school campuses or corporate spaces, keep everyone informed and engaged through one
+                    central
+                    system.
+                </p>
+            </div>
+
         </div>
     </section>
 
 
-    <section class="mt-24 mb-24 p-4 md:p-0 overflow-hidden">
+
+
+    <section class="flip-showcase mt-24 mb-24 p-4 md:p-0 overflow-hidden">
         <div class="flip-card max-w-7xl mx-auto w-full h-[300px] md:h-[350px]">
             <div class="flip-card-inner w-full h-full">
 
@@ -389,87 +557,157 @@
 
 
 
-    <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
-        <div class="max-w-2xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
 
-            <!-- 2x2 Image Grid -->
-            <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
-                <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/device/device-6.png" alt="Feature 1" class="w-full h-full object-cover" />
-                </div>
-                <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/device/device-5.png" alt="Feature 2" class="w-full h-full object-cover" />
-                </div>
-                <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/device/device-4.png" alt="Feature 3" class="w-full h-full object-cover" />
-                </div>
-                <div class="bg-gray-800 rounded-xl overflow-hidden">
-                    <img src="assets/images/device/device-7.png" alt="Feature 4" class="w-full h-full object-cover" />
+
+
+
+    <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
+
+            <!-- Card Component -->
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <!-- Front -->
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Connect with</h3>
+                        <p class="text-sm text-gray-400">High-Performance I/O</p>
+                    </div>
+                    <!-- Back -->
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Repeat for other cards -->
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Display output</h3>
+                        <p class="text-sm text-gray-400">Crystal-clear visuals</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Built-in</h3>
+                        <p class="text-sm text-gray-400">Integrated technology</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">For power</h3>
+                        <p class="text-sm text-gray-400">Reliable energy supply</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Swiper Container -->
-    <section class="bg-neutral-950/90 backdrop-blur-2xl py-16 min-h-screen">
-        <div class="container mx-auto px-4 md:px-24">
+
+
+
+    <section class="relative bg-gradient-to-br from-black via-[#0a0f1f] to-black py-20 min-h-screen overflow-hidden">
+
+        <!-- 🔥 Background Animated Blobs -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[150px] animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[150px] animate-pulse delay-500">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 md:px-24 relative z-10">
 
             <!-- ✅ Mobile Grid View -->
             <div class="grid gap-6 md:hidden">
                 <!-- Slide 1 -->
                 <div
-                    class="bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4">Centralised content scheduling.</h3>
-                    <p class="text-sm mb-4 mt-8">
+                    class="bg-gradient-to-br from-[#1a1a1a] via-[#0f172a] to-[#1e293b] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[500px]">
+                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">Centralised content scheduling.</h3>
+                    <p class="text-sm mb-4 mt-8 text-gray-300">
                         Easily plan and manage content across multiple screens from one central dashboard.
                         Schedule images, videos, or messages to play at specific times for maximum impact.
                     </p>
                     <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
-                        class="rounded-2xl shadow-lg w-full mt-24">
+                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl shadow-xl p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4">Real-time device status.</h3>
-                    <p class="text-sm mb-4 mt-8">
+                <div
+                    class="bg-gradient-to-br from-[#0f172a] via-[#172554] to-[#1e293b] text-white rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-white/5 p-8 h-[500px]">
+                    <h3 class="text-lg font-bold mb-2 mt-4 text-blue-400">Real-time device status.</h3>
+                    <p class="text-sm mb-4 mt-8 text-gray-300">
                         Instantly see whether your connected devices are online or offline.
                         Stay in control with live updates to ensure all screens are functioning as expected.
                     </p>
-                    <img src="./assets/images/device11.jpg" alt="Plex UI" class="rounded-2xl shadow-lg w-full mt-24">
+                    <img src="./assets/images/device11.jpg" alt="Plex UI"
+                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
                 </div>
 
                 <!-- Slide 3 -->
-                <div class="bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl p-8 h-[450px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4">Device diagnostics and alerts.</h3>
-                    <p class="text-sm mb-4 mt-8">
+                <div
+                    class="bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#0f172a] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[450px]">
+                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">Device diagnostics and alerts.</h3>
+                    <p class="text-sm mb-4 mt-8 text-gray-300">
                         Get notified about any device issues such as disconnections or hardware faults.
                         Diagnostic tools help you troubleshoot and maintain system health remotely.
                     </p>
                     <img src="./assets/images/screen-page-img/device10.png" alt="Device UI"
-                        class="rounded-2xl shadow-lg w-full mt-24">
+                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
                 </div>
 
                 <!-- Slide 4 -->
                 <div
-                    class="bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl shadow-xl p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4">User-friendly interface and dashboard.</h3>
-                    <p class="text-sm mb-4 mt-8">
+                    class="bg-gradient-to-br from-[#1e293b] via-[#172554] to-[#0f172a] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[500px]">
+                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">User-friendly interface and dashboard.</h3>
+                    <p class="text-sm mb-4 mt-8 text-gray-300">
                         The intuitive dashboard is designed for all users - no technical skills required.
                         Navigate, monitor, and manage everything with just a few clicks.
                     </p>
-                    <img src="./assets/images/screen-page-img/site-3.png" alt="Pi-hole UI"
-                        class="rounded-2xl shadow-lg w-full mt-24">
+                    <img src="./assets/images/new/new-80.png" alt="Pi-hole UI"
+                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
                 </div>
 
                 <!-- Slide 5 -->
-                <div class="bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-8">Date, Time, and Weather Widgets.</h3>
-                    <p class="text-sm mb-4 mt-4">
+                <div
+                    class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#111827] text-white rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-white/5 p-8 h-[500px]">
+                    <h3 class="text-lg font-bold mb-2 mt-8 text-blue-400">Date, Time, and Weather Widgets.</h3>
+                    <p class="text-sm mb-4 mt-4 text-gray-300">
                         Enhance screen utility with dynamic widgets showing current time, date, and local weather.
                         These update automatically to keep your content informative and timely.
                     </p>
                     <img src="./assets/images/screen-page-img/new-15.jpeg" alt="Weather UI"
-                        class="rounded-2xl shadow-lg w-full mt-24">
+                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
                 </div>
             </div>
 
@@ -477,96 +715,115 @@
             <div class="hidden md:block">
                 <div class="swiper featureSwiper">
                     <div class="swiper-wrapper">
+
                         <!-- Slide 1 -->
-                        <div
-                            class="swiper-slide bg-gradient-to-br from-orange-600 to-purple-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
-                            <div class="p-16">
-                                <h3 class="text-lg font-bold mb-2 mt-8">Centralised content scheduling.</h3>
-                                <p class="text-sm mb-8 mt-16">Easily plan and manage content across multiple screens
-                                    from one
-                                    central dashboard. Schedule images, videos, or messages to play at specific times
-                                    for
-                                    maximum impact.</p>
+                        <div class="swiper-slide bg-gradient-to-br from-[#1a1a1a] via-[#0f172a] to-[#1e293b] 
+                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
+                        border border-white/5 w-[300px] h-[550px] 
+                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
+                        transition-all duration-300 relative overflow-hidden">
+                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
+                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Centralised content scheduling.
+                                </h3>
+                                <p class="text-sm mb-8 mt-8 text-gray-300">
+                                    Easily plan and manage content across multiple screens from one central dashboard.
+                                    Schedule images, videos, or messages to play at specific times for maximum impact.
+                                </p>
                             </div>
-                            <div>
+                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
                                 <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
-                                    class="rounded-2xl shadow-lg w-full mt-20 pl-24">
+                                    class="object-cover w-full h-full rounded-2xl">
                             </div>
                         </div>
 
                         <!-- Slide 2 -->
-                        <div
-                            class="swiper-slide bg-gradient-to-br from-cyan-700 to-blue-900 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
-                            <div class="p-16">
-                                <h3 class="text-lg font-bold mb-2 mt-8">Real-time device status.</h3>
-                                <p class="text-sm mb-8 mt-16">Instantly see whether your connected devices are online or
-                                    offline.
+                        <div class="swiper-slide bg-gradient-to-br from-[#0f172a] via-[#172554] to-[#1e293b] 
+                        text-white rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.35)] 
+                        border border-white/5 w-[300px] h-[550px] 
+                        hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] 
+                        transition-all duration-300 relative overflow-hidden">
+                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
+                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Real-time device status.</h3>
+                                <p class="text-sm mb-8 mt-8 text-gray-300">
+                                    Instantly see whether your connected devices are online or offline.
                                     Stay in control with live updates to ensure all screens are functioning as expected.
                                 </p>
                             </div>
-                            <div>
+                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
                                 <img src="./assets/images/screen-page-img/device-11.png" alt="Plex UI"
-                                    class="rounded-2xl shadow-lg w-full mt-16 pl-12 mb-0">
+                                    class="object-cover w-full h-full rounded-2xl">
                             </div>
                         </div>
 
                         <!-- Slide 3 -->
-                        <div
-                            class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
-                            <div class="p-16">
-                                <h3 class="text-lg font-bold mb-2 mt-8">Device diagnostics and alerts.</h3>
-                                <p class="text-sm mb-8 mt-16">Get notified about any device issues such as
-                                    disconnections or
-                                    hardware faults. Diagnostic tools help you troubleshoot and maintain system health
-                                    remotely.</p>
+                        <div class="swiper-slide bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#0f172a] 
+                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
+                        border border-white/5 w-[300px] h-[550px] 
+                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
+                        transition-all duration-300 relative overflow-hidden">
+                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
+                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Device diagnostics and alerts.</h3>
+                                <p class="text-sm mb-8 mt-8 text-gray-300">
+                                    Get notified about any device issues such as disconnections or hardware faults.
+                                    Diagnostic tools help you troubleshoot and maintain system health remotely.
+                                </p>
                             </div>
-                            <div>
+                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
                                 <img src="./assets/images/screen-page-img/device10.png" alt="Device UI"
-                                    class="rounded-2xl shadow-lg w-full mt-24 pl-24">
-                            </div>
+                                    class="object-cover w-full h-full rounded-2xl">
+                            </div> 
                         </div>
 
                         <!-- Slide 4 -->
-                        <div
-                            class="swiper-slide bg-gradient-to-br from-amber-600 to-orange-800 text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
-                            <div class="p-16">
-                                <h3 class="text-lg font-bold mb-2 mt-8">User-friendly interface and dashboard.</h3>
-                                <p class="text-sm mb-8 mt-16">The intuitive dashboard is designed for all users - no
-                                    technical
-                                    skills required. Navigate, monitor, and manage everything with just a few clicks.
+                        <div class="swiper-slide bg-gradient-to-br from-[#1e293b] via-[#172554] to-[#0f172a] 
+                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
+                        border border-white/5 w-[300px] h-[550px] 
+                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
+                        transition-all duration-300 relative overflow-hidden">
+                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
+                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">User-friendly interface and
+                                    dashboard.</h3>
+                                <p class="text-sm mb-8 mt-8 text-gray-300">
+                                    The intuitive dashboard is designed for all users - no technical skills required.
+                                    Navigate, monitor, and manage everything with just a few clicks.
                                 </p>
                             </div>
-                            <div>
-                                <img src="./assets/images/screen-page-img/site-3.png" alt="Pi-hole UI"
-                                    class="rounded-2xl shadow-lg w-full mt-16 pl-24">
+                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
+                                <img src="./assets/images/new/new-80.png" alt="Pi-hole UI"
+                                    class="object-cover w-full h-full rounded-2xl">
                             </div>
                         </div>
 
                         <!-- Slide 5 -->
-                        <div
-                            class="swiper-slide bg-gradient-to-br from-zinc-700 to-black text-white rounded-2xl shadow-xl w-[300px] h-[600px]">
-                            <div class="p-16">
-                                <h3 class="text-lg font-bold mb-2 mt-8">Date, Time, and Weather Widgets.</h3>
-                                <p class="text-sm mb-8 mt-16">Enhance screen utility with dynamic widgets showing
-                                    current
-                                    time, date, and local weather. These update automatically to keep your content
-                                    informative and timely.</p>
+                        <div class="swiper-slide bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#111827] 
+                        text-white rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.35)] 
+                        border border-white/5 w-[300px] h-[550px] 
+                        hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] 
+                        transition-all duration-300 relative overflow-hidden">
+                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
+                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Date, Time, and Weather Widgets.
+                                </h3>
+                                <p class="text-sm mb-8 mt-8 text-gray-300">
+                                    Enhance screen utility with dynamic widgets showing current time, date, and local
+                                    weather.
+                                    These update automatically to keep your content informative and timely.
+                                </p>
                             </div>
-                            <div>
+                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
                                 <img src="./assets/images/screen-page-img/new-15.jpeg" alt="Weather UI"
-                                    class="rounded-2xl shadow-lg w-full mt-20 pl-24">
+                                    class="object-cover w-full h-full rounded-2xl">
                             </div>
                         </div>
+
                     </div>
 
                     <!-- Swiper Arrows -->
-                    <div class="swiper-button-prev !text-gray-700"></div>
-                    <div class="swiper-button-next !text-gray-700"></div>
+                    <div class="swiper-button-prev !text-red-400 hover:!text-blue-400 transition"></div>
+                    <div class="swiper-button-next !text-red-400 hover:!text-blue-400 transition"></div>
                 </div>
             </div>
         </div>
     </section>
-
 
 
     <section
@@ -587,7 +844,7 @@
 
             <!-- Left Tilted Image -->
             <div class="z-0 transform">
-                <img src="./assets/images/screen-page-img/site-2.png" alt="Side App 1"
+                <img src="./assets/images/new/new-82.png" alt="Side App 1"
                     class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
             </div>
 
@@ -600,7 +857,7 @@
             <!-- Right Tilted Image -->
             <div class="z-0 transform">
                 <img src="./assets/images/screen-page-img/site-4.png" alt="Side App 2"
-                    class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
+                    class="w-[280px] sm:w-[320px] lg:w-[360px] lg:h-[250px] shadow-xl rounded-xl border border-gray-800" />
             </div>
 
         </div>
