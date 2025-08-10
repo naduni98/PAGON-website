@@ -10,6 +10,8 @@
     <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/tailwind.js"></script>
     <script>
@@ -28,8 +30,18 @@
     </script>
 
     <style>
+        :root {
+            --pagon-primary: #000000;
+            /* primary */
+            --pagon-cyan: #d80000;
+            /* cyanish */
+        }
+
         body {
-            background-color: #ffffff;
+            background: radial-gradient(circle at top right, rgba(42, 5, 7, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at bottom left, rgba(237, 28, 36, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+                linear-gradient(145deg, #111111, #1A1A1A);
+
         }
 
         .swiper {
@@ -39,6 +51,12 @@
 
         .swiper-slide img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .display-swiper-slide img {
+            width: 200px;
             height: 100%;
             object-fit: cover;
         }
@@ -143,6 +161,13 @@
             /* fallback */
         }
 
+        #flip-showcase-1 {
+            background: radial-gradient(circle at top right, rgba(237, 28, 36, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at bottom left, rgba(237, 28, 36, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+                linear-gradient(145deg, #111111, #1A1A1A);
+            /* fallback */
+        }
+
         #flip-showcase .flip-card {
             perspective: 1200px;
             /* slightly deeper perspective */
@@ -159,59 +184,6 @@
 
         #flip-showcase .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
-        }
-
-        .flip-card-front::before,
-        .flip-card-front::after {
-            content: "";
-            position: absolute;
-            border-color: rgba(239, 68, 68, 0.3);
-            /* red-500/30 */
-            border-style: solid;
-            z-index: 2;
-            box-shadow:
-                0 0 8px rgba(239, 68, 68, 0.6),
-                0 0 16px rgba(239, 68, 68, 0.4),
-                0 0 24px rgba(239, 68, 68, 0.2);
-            border-radius: 4px;
-            /* smooth glow corners */
-        }
-
-        /* Top-right corner */
-        /* Top-right glowing accent */
-        .flip-card-front::before {
-            content: "";
-            position: absolute;
-            top: -80px;
-            /* move it up so glow spreads out */
-            right: -40px;
-            /* move it out so glow spreads out */
-            width: 140px;
-            height: 0px;
-            background: radial-gradient(circle at top right,
-                    rgba(239, 68, 68, 0.8) 0%,
-                    rgba(239, 68, 68, 0.3) 40%,
-                    transparent 80%);
-            z-index: 2;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        /* Bottom-left glowing accent */
-        .flip-card-front::after {
-            content: "";
-            position: absolute;
-            bottom: -80px;
-            left: -20px;
-            width: 120px;
-            height: 80px;
-            background: radial-gradient(circle at bottom left,
-                    rgba(239, 68, 68, 0.8) 0%,
-                    rgba(239, 68, 68, 0.3) 40%,
-                    transparent 80%);
-            z-index: 2;
-            border-radius: 50%;
-            pointer-events: none;
         }
 
 
@@ -323,6 +295,125 @@
         .reveal.show {
             opacity: 4;
         }
+
+        /* Bigger, isolated display carousel */
+        .pagonDisplaySection {
+            position: relative;
+            isolation: isolate;
+            /* soft brandy accents + dark gradient base */
+            background:
+                radial-gradient(900px 420px at 12% 12%, color-mix(in oklab, var(--pagon-primary) 16%, transparent) 0%, transparent 60%),
+                radial-gradient(900px 420px at 88% 8%, color-mix(in oklab, var(--pagon-cyan) 16%, transparent) 0%, transparent 60%),
+                linear-gradient(180deg, #15171c 0%, #0d0f14 100%);
+        }
+
+        .pagonDisplayCard {
+            position: relative;
+            margin-inline: auto;
+            width: min(92vw, 1280px);
+            padding: 36px 70px;
+            /* space for arrows */
+            border-radius: 24px;
+            background: radial-gradient(circle at bottom left,
+                    rgba(255, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at top right,
+                    rgba(234, 24, 24, 0.08) 0%,
+                    rgba(0, 0, 0, 0) 40%),
+                linear-gradient(180deg, #f4f5f7 0%, #0e0e0e 100%);
+            border: 1px solid rgba(255, 255, 255, .06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+            overflow: hidden;
+            /* clip slides to the box */
+        }
+
+        /* make the slider tall inside the card */
+        .pagonDisplaySwiper {
+            height: clamp(420px, 50vh, 560px);
+        }
+
+        /* wider slides so center image looks big, but still fits the card */
+        .pagonDisplaySwiper .swiper-slide {
+            width: clamp(320px, 68%, 1100px);
+            display: flex;
+            justify-content: center;
+        }
+
+        /* image sizing + letterbox fill color */
+        .pagonDisplaySwiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* don’t crop UI screenshots */
+            background:
+                radial-gradient(120% 120% at 50% 50%, #151923, #0b0d12);
+            /* fill empty space */
+            border-radius: 16px;
+            border: 1px solid rgba(63, 63, 70, .6);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, .35);
+        }
+
+        /* arrows/pagination placed INSIDE the box */
+        .pagonDisplayCard .swiper-button-prev,
+        .pagonDisplayCard .swiper-button-next {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+        }
+
+        .pagonDisplayCard .swiper-button-prev {
+            left: 16px;
+        }
+
+        .pagonDisplayCard .swiper-button-next {
+            right: 16px;
+        }
+
+        .pagonDisplayCard .swiper-button-prev::after,
+        .pagonDisplayCard .swiper-button-next::after {
+            font-size: 16px;
+        }
+
+        .pagonDisplayCard .swiper-pagination {
+            bottom: 12px !important;
+        }
+
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 1s ease forwards;
+        }
     </style>
 </head>
 
@@ -378,13 +469,21 @@
 
 
 
-    <section class="flip-showcase mt-24 mb-24 p-4 md:p-0 overflow-hidden">
+
+    <section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 p-4 md:p-0 overflow-hidden">
         <div class="flip-card max-w-7xl mx-auto w-full h-[300px] md:h-[350px]">
             <div class="flip-card-inner w-full h-full">
 
                 <!-- Front -->
-                <div
-                    class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+                <div class="flip-card-front px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
+        radial-gradient(circle at bottom left,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at top right,
+            rgba(15, 14, 14, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1a1a1a);
+        background-color: #0e0e0e;">
                     <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
                         Discover how the Digital Signage System
                         <strong> bridges devices and displays</strong><br />
@@ -397,15 +496,22 @@
                 </div>
 
                 <!-- Back -->
-                <div
-                    class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
+                <div class="flip-card-back  px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
+        radial-gradient(circle at bottom left,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at top right,
+            rgba(15, 14, 14, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1a1a1a);
+        background-color: #0e0e0e;">
                     <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
                         Discover how the Digital Signage System
                         <strong> bridges devices and displays</strong><br />
                         with unmatched simplicity and versatility
                     </h3>
                     <a href="contact.html"
-                        class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
+                        class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#333232] transition mt-4">
                         Buy a Demo Unit
                     </a>
                 </div>
@@ -415,68 +521,9 @@
     </section>
 
 
-    <!-- Features Section with Connect 3 CTA -->
-    <section class="bg-gray-100 py-16 px-4 md:px-8">
-        <div class="max-w-7xl mx-auto text-center">
 
-            <!-- Section Title -->
-            <h2 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-12">
-                Our Digital Signage System Solutions
-            </h2>
 
-            <!-- Features -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
 
-                <!-- Feature 1 -->
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <div
-                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
-                        <img src="./assets/images/screen-page-img/ctp-8.png" alt="Compact Icon"
-                            class="w-64 h-64 rounded-full object-cover" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800">Uses in Schools</h3>
-                    <p class="text-gray-600 max-w-xs">
-                        Display timetables, alerts, news, and event updates in classrooms, libraries, and reception
-                        areas.
-                    </p>
-                    <p class="text-gray-600 max-w-xs">
-                        Schedule bell times or emergency messages from one dashboard.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <div
-                        class="bg-gradient-to-r from-white/90 via-white/70 to-white/90 backdrop-blur-lg p-2 rounded-full">
-                        <img src="./assets/images/new/new-17.jpg" alt="Efficient Icon"
-                            class="w-64 h-64 object-fit rounded-full" />
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800">Uses in Offices</h3>
-                    <p class="text-gray-600 max-w-xs">
-                        Update meeting room signage, welcome messages, or corporate announcements across multiple office
-                        locations instantly.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Connect 3 Description + CTA -->
-            <!-- <div class="max-w-3xl mx-auto text-center">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Signage System</h3>
-                <p class="text-gray-700 text-lg mb-8">
-                    Discover how the Digital Signage System<strong> bridges devices and displays</strong> with unmatched
-                    simplicity and versatility.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="contact.html"
-                        class="bg-gray-800 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-900 transition">
-                        Buy a Demo Unit
-                    </a>
-                </div>
-            </div> -->
-
-        </div>
-    </section>
 
 
     <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
@@ -555,14 +602,204 @@
         </div>
     </section>
 
+    <section class="py-16 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+
+            <!-- Section Title -->
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-100 mb-12">
+                Our Digital Signage System Solutions
+            </h2>
+
+            <!-- Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+
+                <!-- Feature 1 -->
+                <div class="card-left flex flex-col items-center text-center space-y-4">
+                    <div class="p-2 rounded-full shadow-lg"
+                        style="background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(255,255,255,0));">
+                        <img src="./assets/images/new/new-76.png" alt="Compact Icon"
+                            class="w-64 h-64 rounded-full object-cover border-4 border-gray-700 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] transition duration-300" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">Uses in Schools</h3>
+                    <p class="text-gray-300 max-w-xs">
+                        Display timetables, alerts, news, and event updates in classrooms, libraries, and reception
+                        areas.
+                    </p>
+                    <p class="text-gray-300 max-w-xs">
+                        Schedule bell times or emergency messages from one dashboard.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-right flex flex-col items-center text-center space-y-4">
+                    <div class="p-2 rounded-full shadow-lg"
+                        style="background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(255,255,255,0));">
+                        <img src="./assets/images/new/new-77.png" alt="Efficient Icon"
+                            class="w-64 h-64 rounded-full object-cover border-4 border-gray-700 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] transition duration-300" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">Uses in Offices</h3>
+                    <p class="text-gray-300 max-w-xs">
+                        Update meeting room signage, welcome messages, or corporate announcements across multiple office
+                        locations instantly.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
 
+
+    <!-- <section class="py-16 relative  overflow-hidden">
+    Soft red corner glow
+    <div class="absolute inset-0 pointer-events-none"
+         style="background:
+            radial-gradient(circle at bottom left, rgba(255,0,0,0.08) 0%, transparent 40%),
+            radial-gradient(circle at top right, rgba(255,0,0,0.08) 0%, transparent 40%);
+         ">
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-gray-100 mb-12">
+            Our Digital Signage System Solutions
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-10 justify-center">
+            Card 1
+            <div class="card-left bg-black/40 border border-white/5 rounded-3xl shadow-lg p-16 backdrop-blur-md hover:shadow-red-500/20 transition w-full max-w-md mx-auto">
+                <img src="./assets/images/new/new-76.png" alt="Uses in Schools"
+                    class="w-56 h-56 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-lg">
+                <h3 class="text-xl font-bold text-gray-100">Uses in Schools</h3>
+                <p class="text-gray-300 mt-4">
+                    Display timetables, alerts, news, and event updates in classrooms, libraries, and reception areas.
+                </p>
+                <p class="text-gray-300 mt-4">
+                    Schedule bell times or emergency messages from one dashboard.
+                </p>
+            </div>
+
+            Card 2
+            <div class="card-right bg-black/40 border border-white/5 rounded-3xl shadow-lg p-16 backdrop-blur-md hover:shadow-red-500/20 transition w-full max-w-md mx-auto">
+                <img src="./assets/images/new/new-77.png" alt="Uses in Offices"
+                    class="w-56 h-56 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-lg">
+                <h3 class="text-xl font-bold text-gray-100">Uses in Offices</h3>
+                <p class="text-gray-300 mt-4">
+                    Update meeting room signage, welcome messages, or corporate announcements across multiple office locations instantly.
+                </p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+    <!-- <section class="relative w-full text-white py-24 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl sm:text-4xl md:text-4xl font-bold leading-tight mb-4">
+      Centralised management and monitoring of devices via the Pagon Dashboard.
+    </h2>
+  </div>
+
+  <div class="max-w-7xl mx-auto mt-12 px-4 sm:px-8">
+<div class="swiper pagonDisplaySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="./assets/images/new/new-91.png" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/images/new/new-88.png" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/images/new/new-89.png" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/images/new/new-90.png" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/images/screen-page-img/site-4.png" alt=""></div>
+  
+
+  </div>
+
+  <div class="swiper-button-prev !text-white/70 hover:!text-white"></div>
+  <div class="swiper-button-next !text-white/70 hover:!text-white"></div>
+  <div class="swiper-pagination !bottom-0"></div>
+</div>
+
+  </div>
+</section> -->
+
+
+    <section class="relative w-full text-white py-24 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-4xl font-bold leading-tight mb-4">
+                Centralised management and monitoring of devices via the Pagon Dashboard.
+            </h2>
+        </div>
+
+        <div class="max-w-8xl mx-auto mt-12 px-4 sm:px-8">
+            <!-- BOX / CARD -->
+            <div class="pagonDisplayCard">
+                <div class="swiper pagonDisplaySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./assets/images/new/new-91.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./assets/images/new/new-88.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./assets/images/new/new-89.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./assets/images/new/new-90.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./assets/images/screen-page-img/site-4.png" alt=""></div>
+                    </div>
+
+                    <!-- controls INSIDE the box -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="text-gray-100 min-h-screen flex items-center justify-center py-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
+
+            <!-- Card Component -->
+            <div class="aspect-square group">
+                <div class="flip-card-inner">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-square group">
+                <div class="flip-card-inner">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-square group">
+                <div class="flip-card-inner">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-square group">
+                <div class="flip-card-inner">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="assets/images/new/new-66.png" alt="Feature Back"
+                            class="w-full h-[300px] object-cover" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
 
     <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl w-full">
 
             <!-- Card Component -->
             <div class="flip-card aspect-square group">
@@ -571,12 +808,13 @@
                     <div
                         class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
                         <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Connect with</h3>
-                        <p class="text-sm text-gray-400">High-Performance I/O</p>
+                        <h3 class="text-2xl font-bold mb-2">Centralised</h3>
+                        <p class="text-sm text-gray-400">content scheduling.</p>
                     </div>
                     <!-- Back -->
                     <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <img src="./assets/images/new/new-79.png" alt="Feature Back"
+                            class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
@@ -588,11 +826,12 @@
                     <div
                         class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
                         <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Display output</h3>
-                        <p class="text-sm text-gray-400">Crystal-clear visuals</p>
+                        <h3 class="text-2xl font-bold mb-2">Real-time</h3>
+                        <p class="text-sm text-gray-400">device status.</p>
                     </div>
                     <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <img src="./assets/images/screen-page-img/device-11.png" alt="Feature Back"
+                            class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
@@ -603,11 +842,12 @@
                     <div
                         class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
                         <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Built-in</h3>
-                        <p class="text-sm text-gray-400">Integrated technology</p>
+                        <h3 class="text-2xl font-bold mb-2">Device</h3>
+                        <p class="text-sm text-gray-400">diagnostics and alerts.</p>
                     </div>
                     <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <img src="./assets/images/new/new-85.png" alt="Feature Back"
+                            class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
@@ -618,11 +858,26 @@
                     <div
                         class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
                         <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">For power</h3>
-                        <p class="text-sm text-gray-400">Reliable energy supply</p>
+                        <h3 class="text-2xl font-bold mb-2">User-friendly</h3>
+                        <p class="text-sm text-gray-400">interface and dashboard.</p>
                     </div>
                     <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
+                        <img src="./assets/images/new/new-80.png" alt="Feature Back" class=" object-left-bottom" />
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card aspect-square group">
+                <div class="flip-card-inner">
+                    <div
+                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+                        <h3 class="text-2xl font-bold mb-2">Date, Time,</h3>
+                        <p class="text-sm text-gray-400">and Weather Widgets.</p>
+                    </div>
+                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+                        <img src="./assets/images/new/new-95.png" alt="Feature Back"
+                            class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
@@ -630,244 +885,6 @@
 
         </div>
     </section>
-
-
-
-
-    <section class="relative bg-gradient-to-br from-black via-[#0a0f1f] to-black py-20 min-h-screen overflow-hidden">
-
-        <!-- 🔥 Background Animated Blobs -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div
-                class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[150px] animate-pulse">
-            </div>
-            <div
-                class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[150px] animate-pulse delay-500">
-            </div>
-        </div>
-
-        <div class="container mx-auto px-4 md:px-24 relative z-10">
-
-            <!-- ✅ Mobile Grid View -->
-            <div class="grid gap-6 md:hidden">
-                <!-- Slide 1 -->
-                <div
-                    class="bg-gradient-to-br from-[#1a1a1a] via-[#0f172a] to-[#1e293b] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">Centralised content scheduling.</h3>
-                    <p class="text-sm mb-4 mt-8 text-gray-300">
-                        Easily plan and manage content across multiple screens from one central dashboard.
-                        Schedule images, videos, or messages to play at specific times for maximum impact.
-                    </p>
-                    <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
-                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
-                </div>
-
-                <!-- Slide 2 -->
-                <div
-                    class="bg-gradient-to-br from-[#0f172a] via-[#172554] to-[#1e293b] text-white rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-white/5 p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4 text-blue-400">Real-time device status.</h3>
-                    <p class="text-sm mb-4 mt-8 text-gray-300">
-                        Instantly see whether your connected devices are online or offline.
-                        Stay in control with live updates to ensure all screens are functioning as expected.
-                    </p>
-                    <img src="./assets/images/device11.jpg" alt="Plex UI"
-                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
-                </div>
-
-                <!-- Slide 3 -->
-                <div
-                    class="bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#0f172a] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[450px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">Device diagnostics and alerts.</h3>
-                    <p class="text-sm mb-4 mt-8 text-gray-300">
-                        Get notified about any device issues such as disconnections or hardware faults.
-                        Diagnostic tools help you troubleshoot and maintain system health remotely.
-                    </p>
-                    <img src="./assets/images/screen-page-img/device10.png" alt="Device UI"
-                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
-                </div>
-
-                <!-- Slide 4 -->
-                <div
-                    class="bg-gradient-to-br from-[#1e293b] via-[#172554] to-[#0f172a] text-white rounded-2xl shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-white/5 p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-4 text-red-400">User-friendly interface and dashboard.</h3>
-                    <p class="text-sm mb-4 mt-8 text-gray-300">
-                        The intuitive dashboard is designed for all users - no technical skills required.
-                        Navigate, monitor, and manage everything with just a few clicks.
-                    </p>
-                    <img src="./assets/images/new/new-80.png" alt="Pi-hole UI"
-                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
-                </div>
-
-                <!-- Slide 5 -->
-                <div
-                    class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#111827] text-white rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-white/5 p-8 h-[500px]">
-                    <h3 class="text-lg font-bold mb-2 mt-8 text-blue-400">Date, Time, and Weather Widgets.</h3>
-                    <p class="text-sm mb-4 mt-4 text-gray-300">
-                        Enhance screen utility with dynamic widgets showing current time, date, and local weather.
-                        These update automatically to keep your content informative and timely.
-                    </p>
-                    <img src="./assets/images/screen-page-img/new-15.jpeg" alt="Weather UI"
-                        class="rounded-2xl shadow-lg w-full mt-24 border border-white/10">
-                </div>
-            </div>
-
-            <!-- ✅ Desktop Swiper View -->
-            <div class="hidden md:block">
-                <div class="swiper featureSwiper">
-                    <div class="swiper-wrapper">
-
-                        <!-- Slide 1 -->
-                        <div class="swiper-slide bg-gradient-to-br from-[#1a1a1a] via-[#0f172a] to-[#1e293b] 
-                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
-                        border border-white/5 w-[300px] h-[550px] 
-                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
-                        transition-all duration-300 relative overflow-hidden">
-                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
-                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Centralised content scheduling.
-                                </h3>
-                                <p class="text-sm mb-8 mt-8 text-gray-300">
-                                    Easily plan and manage content across multiple screens from one central dashboard.
-                                    Schedule images, videos, or messages to play at specific times for maximum impact.
-                                </p>
-                            </div>
-                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
-                                <img src="./assets/images/new/new-59.png" alt="Home Assistant UI"
-                                    class="object-cover w-full h-full rounded-2xl">
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="swiper-slide bg-gradient-to-br from-[#0f172a] via-[#172554] to-[#1e293b] 
-                        text-white rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.35)] 
-                        border border-white/5 w-[300px] h-[550px] 
-                        hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] 
-                        transition-all duration-300 relative overflow-hidden">
-                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
-                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Real-time device status.</h3>
-                                <p class="text-sm mb-8 mt-8 text-gray-300">
-                                    Instantly see whether your connected devices are online or offline.
-                                    Stay in control with live updates to ensure all screens are functioning as expected.
-                                </p>
-                            </div>
-                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
-                                <img src="./assets/images/screen-page-img/device-11.png" alt="Plex UI"
-                                    class="object-cover w-full h-full rounded-2xl">
-                            </div>
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="swiper-slide bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#0f172a] 
-                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
-                        border border-white/5 w-[300px] h-[550px] 
-                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
-                        transition-all duration-300 relative overflow-hidden">
-                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
-                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Device diagnostics and alerts.</h3>
-                                <p class="text-sm mb-8 mt-8 text-gray-300">
-                                    Get notified about any device issues such as disconnections or hardware faults.
-                                    Diagnostic tools help you troubleshoot and maintain system health remotely.
-                                </p>
-                            </div>
-                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
-                                <img src="./assets/images/screen-page-img/device10.png" alt="Device UI"
-                                    class="object-cover w-full h-full rounded-2xl">
-                            </div> 
-                        </div>
-
-                        <!-- Slide 4 -->
-                        <div class="swiper-slide bg-gradient-to-br from-[#1e293b] via-[#172554] to-[#0f172a] 
-                        text-white rounded-2xl shadow-[0_0_25px_rgba(239,68,68,0.35)] 
-                        border border-white/5 w-[300px] h-[550px] 
-                        hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] 
-                        transition-all duration-300 relative overflow-hidden">
-                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
-                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">User-friendly interface and
-                                    dashboard.</h3>
-                                <p class="text-sm mb-8 mt-8 text-gray-300">
-                                    The intuitive dashboard is designed for all users - no technical skills required.
-                                    Navigate, monitor, and manage everything with just a few clicks.
-                                </p>
-                            </div>
-                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
-                                <img src="./assets/images/new/new-80.png" alt="Pi-hole UI"
-                                    class="object-cover w-full h-full rounded-2xl">
-                            </div>
-                        </div>
-
-                        <!-- Slide 5 -->
-                        <div class="swiper-slide bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#111827] 
-                        text-white rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.35)] 
-                        border border-white/5 w-[300px] h-[550px] 
-                        hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] 
-                        transition-all duration-300 relative overflow-hidden">
-                            <div class="p-10 min-h-[220px] flex flex-col justify-start z-20 relative">
-                                <h3 class="text-lg font-bold mb-2 mt-4 text-gray-300">Date, Time, and Weather Widgets.
-                                </h3>
-                                <p class="text-sm mb-8 mt-8 text-gray-300">
-                                    Enhance screen utility with dynamic widgets showing current time, date, and local
-                                    weather.
-                                    These update automatically to keep your content informative and timely.
-                                </p>
-                            </div>
-                            <div class="absolute bottom-0 right-0  w-[350px] h-[200px] z-10 overflow-hidden">
-                                <img src="./assets/images/screen-page-img/new-15.jpeg" alt="Weather UI"
-                                    class="object-cover w-full h-full rounded-2xl">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Swiper Arrows -->
-                    <div class="swiper-button-prev !text-red-400 hover:!text-blue-400 transition"></div>
-                    <div class="swiper-button-next !text-red-400 hover:!text-blue-400 transition"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section
-        class="relative w-full bg-gradient-to-br from-[#111827] via-[#302b63] to-[#24243e] text-white py-24 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <!-- <p class="text-sm text-gray-300 mb-2">That's all. Except not.</p> -->
-            <h2 class="text-3xl sm:text-4xl md:text-4xl font-bold leading-tight mb-4">
-                Centralised management and monitoring of devices via the Pagon Dashboard.
-            </h2>
-
-            <!-- <p class="text-lg text-gray-300">
-                Discover amazing self-hosted apps in the Umbrel App Store and install them in one click on umbrelOS.
-            </p> -->
-        </div>
-
-        <!-- Image Layer -->
-        <div class="relative mt-20 flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8">
-
-            <!-- Left Tilted Image -->
-            <div class="z-0 transform">
-                <img src="./assets/images/new/new-82.png" alt="Side App 1"
-                    class="w-[280px] sm:w-[320px] lg:w-[360px] shadow-xl rounded-xl border border-gray-800" />
-            </div>
-
-            <!-- Center Main Image -->
-            <div class="z-10 -mt-10 lg:-mt-0 lg:-ml-12 lg:-mr-12">
-                <img src="./assets/images/screen-page-img/site-3.png" alt="Main App"
-                    class="w-[320px] sm:w-[500px] lg:w-[600px] shadow-2xl rounded-2xl border border-gray-700" />
-            </div>
-
-            <!-- Right Tilted Image -->
-            <div class="z-0 transform">
-                <img src="./assets/images/screen-page-img/site-4.png" alt="Side App 2"
-                    class="w-[280px] sm:w-[320px] lg:w-[360px] lg:h-[250px] shadow-xl rounded-xl border border-gray-800" />
-            </div>
-
-        </div>
-    </section>
-
-
-
-
-
-
 
     <!-- Footer -->
     <div data-include="./components/footer.html"></div>
@@ -961,6 +978,62 @@
         }, { threshold: 0.25 });
 
         els.forEach(el => io.observe(el));
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".pagonDisplaySwiper", {
+                effect: "coverflow",
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: "auto",     // the slide width comes from CSS
+                spaceBetween: 28,
+                autoplay: { delay: 3500, disableOnInteraction: false },
+                coverflowEffect: {
+                    rotate: 8,
+                    stretch: -20,
+                    depth: 220,
+                    modifier: 1,
+                    slideShadows: false,
+                },
+                navigation: {
+                    nextEl: ".pagonDisplayCard .swiper-button-next",
+                    prevEl: ".pagonDisplayCard .swiper-button-prev",
+                },
+                pagination: { el: ".pagonDisplayCard .swiper-pagination", clickable: true },
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const leftCard = document.querySelector(".card-left");
+            const rightCard = document.querySelector(".card-right");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            if (entry.target.classList.contains("card-left")) {
+                                entry.target.classList.add("animate-slide-left");
+                                entry.target.classList.remove("opacity-0");
+                            } else if (entry.target.classList.contains("card-right")) {
+                                entry.target.classList.add("animate-slide-right");
+                                entry.target.classList.remove("opacity-0");
+                            }
+                        } else {
+                            // Remove animation classes when out of view (so it can replay)
+                            entry.target.classList.remove("animate-slide-left", "animate-slide-right");
+                            entry.target.classList.add("opacity-0");
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+
+            observer.observe(leftCard);
+            observer.observe(rightCard);
+        });
     </script>
 
     <script src="./assets/js/injecting.js"></script>

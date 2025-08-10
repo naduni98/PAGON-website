@@ -29,7 +29,9 @@
 
   <style>
     body {
-      background-color: #ffffff;
+      background: radial-gradient(circle at top right, rgba(42, 5, 7, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at bottom left, rgba(237, 28, 36, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1A1A1A);
     }
 
     .swiper {
@@ -97,6 +99,8 @@
       transform: scale(1.05);
     }
 
+    /* Plain Flip Card    */
+    /* ------------------ */
     .flip-card {
       perspective: 1000px;
     }
@@ -121,7 +125,6 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       border-radius: 1.5rem;
-      /* match Tailwind's rounded-3xl */
     }
 
     .flip-card-back {
@@ -129,169 +132,132 @@
     }
 
 
-    
-        /* only applies inside #flip-showcase */
-        /* Existing Flip Effect */
-        /* Gradient background for the flip showcase only */
-        #flip-showcase {
-            background: radial-gradient(circle at bottom left,
-                    rgba(255, 0, 0, 0.08) 0%,
-                    rgba(0, 0, 0, 0) 40%),
-                radial-gradient(circle at top right,
-                    rgba(255, 0, 0, 0.08) 0%,
-                    rgba(0, 0, 0, 0) 40%),
-                linear-gradient(145deg, #111111, #1a1a1a);
-            background-color: #0e0e0e;
-            /* fallback */
-        }
+    /* --------------------------- */
+    /* Flip Showcase (Special)     */
+    /* --------------------------- */
+    #flip-showcase {
+      background: radial-gradient(circle at bottom left,
+          rgba(255, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at top right,
+          rgba(255, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1a1a1a);
+      background-color: #0e0e0e;
+      /* fallback */
+    }
 
-        #flip-showcase .flip-card {
-            perspective: 1200px;
-            /* slightly deeper perspective */
-        }
+    #flip-showcase .flip-card:hover .flip-card-front {
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.7),
+        0 0 35px rgba(59, 130, 246, 0.5);
+    }
 
-        #flip-showcase .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
-            /* smooth ease */
-        }
+    #flip-showcase .flip-card-inner {
+      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
 
-        #flip-showcase .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
+    #flip-showcase .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-        .flip-card-front::before,
-        .flip-card-front::after {
-            content: "";
-            position: absolute;
-            border-color: rgba(239, 68, 68, 0.3);
-            /* red-500/30 */
-            border-style: solid;
-            z-index: 2;
-            box-shadow:
-                0 0 8px rgba(239, 68, 68, 0.6),
-                0 0 16px rgba(239, 68, 68, 0.4),
-                0 0 24px rgba(239, 68, 68, 0.2);
-            border-radius: 4px;
-            /* smooth glow corners */
-        }
+    /* Glow accents */
+    #flip-showcase .flip-card-front::before,
+    #flip-showcase .flip-card-front::after {
+      position: absolute;
+      z-index: 2;
+      border-radius: 50%;
+      pointer-events: none;
+    }
 
-        /* Top-right corner */
-        /* Top-right glowing accent */
-        .flip-card-front::before {
-            content: "";
-            position: absolute;
-            top: -80px;
-            /* move it up so glow spreads out */
-            right: -40px;
-            /* move it out so glow spreads out */
-            width: 140px;
-            height: 0px;
-            background: radial-gradient(circle at top right,
-                    rgba(239, 68, 68, 0.8) 0%,
-                    rgba(239, 68, 68, 0.3) 40%,
-                    transparent 80%);
-            z-index: 2;
-            border-radius: 50%;
-            pointer-events: none;
-        }
+    /* Top-right glow */
+    #flip-showcase .flip-card-front::before {
+      top: -80px;
+      right: -40px;
+      width: 140px;
+      height: 0px;
+      background: radial-gradient(circle at top right,
+          rgba(239, 68, 68, 0.8) 0%,
+          rgba(239, 68, 68, 0.3) 40%,
+          transparent 80%);
+    }
 
-        /* Bottom-left glowing accent */
-        .flip-card-front::after {
-            content: "";
-            position: absolute;
-            bottom: -80px;
-            left: -20px;
-            width: 120px;
-            height: 80px;
-            background: radial-gradient(circle at bottom left,
-                    rgba(239, 68, 68, 0.8) 0%,
-                    rgba(239, 68, 68, 0.3) 40%,
-                    transparent 80%);
-            z-index: 2;
-            border-radius: 50%;
-            pointer-events: none;
-        }
+    /* Bottom-left glow */
+    #flip-showcase .flip-card-front::after {
+      bottom: -80px;
+      left: -20px;
+      width: 120px;
+      height: 80px;
+      background: radial-gradient(circle at bottom left,
+          rgba(239, 68, 68, 0.8) 0%,
+          rgba(239, 68, 68, 0.3) 40%,
+          transparent 80%);
+    }
 
+    #flip-showcase .flip-card-front,
+    #flip-showcase .flip-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.5rem;
+    }
 
-        #flip-showcase .flip-card-front,
-        #flip-showcase .flip-card-back {
-            position: absolute;
-            inset: 0;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            border-radius: 1.5rem;
-            /* match rounded-3xl */
-        }
+    #flip-showcase .flip-card-back {
+      transform: rotateY(180deg);
+    }
 
-        /* Back Side Rotation */
-        #flip-showcase .flip-card-back {
-            transform: rotateY(180deg);
-        }
+    /* Front styling */
+    #flip-showcase .flip-card-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      transition: box-shadow 0.4s ease;
+    }
 
-        /* --------------------------- */
-        /* Front Card Styling Updates  */
-        /* --------------------------- */
-        #flip-showcase .flip-card-front {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            transition: box-shadow 0.4s ease;
-        }
+    #flip-showcase .flip-card-front img {
+      width: 80px;
+      margin-bottom: 1.5rem;
+    }
 
-        #flip-showcase .flip-card-front img {
-            width: 80px;
-            /* smaller, balanced logo size */
-            margin-bottom: 1.5rem;
-        }
+    #flip-showcase .flip-card-front h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
 
-        #flip-showcase .flip-card-front h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+    #flip-showcase .flip-card-front p {
+      font-size: 0.875rem;
+      color: #b0b0b0;
+    }
 
-        #flip-showcase .flip-card-front p {
-            font-size: 0.875rem;
-            color: #b0b0b0;
-            /* light gray tagline */
-        }
+    /* Hover glow */
+    #flip-showcase .flip-card:hover .flip-card-front {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    }
 
-        /* Hover Glow Effect */
-        #flip-showcase .flip-card:hover .flip-card-front {
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
-        }
+    /* Back styling */
+    #flip-showcase .flip-card-back {
+      overflow: hidden;
+      position: relative;
+    }
 
-        /* --------------------------- */
-        /* Back Card Styling Updates   */
-        /* --------------------------- */
-        #flip-showcase .flip-card-back {
-            overflow: hidden;
-            position: relative;
-        }
+    #flip-showcase .flip-card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        #flip-showcase .flip-card-back img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        #flip-showcase .flip-card-back::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            /* dark overlay */
-        }
-
+    #flip-showcase .flip-card-back::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
 
     @keyframes fade-in-left {
       from {
@@ -349,232 +315,6 @@
       </p>
     </div>
   </section>
-
-
-
-
-  <section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 p-4 md:p-0 overflow-hidden">
-    <div class="flip-card max-w-7xl mx-auto w-full h-[300px] md:h-[350px]">
-      <div class="flip-card-inner w-full h-full">
-
-        <!-- Front -->
-        <div
-          class="flip-card-front bg-gradient-to-b from-slate-950 via-gray-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-            Discover how PAGON Connect
-            <strong> bridges devices and displays</strong><br />
-            with unmatched simplicity and versatility
-          </h3>
-          <a href="#"
-            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
-            Coming soon
-          </a>
-        </div>
-
-        <!-- Back -->
-        <div
-          class="flip-card-back bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 backdrop-blur-2xl px-6 py-16 text-center flex flex-col justify-center items-center">
-          <h3 class="text-xl md:text-xl font-semibold text-white tracking-widest mb-4">
-            Ready to get in touch?
-          </h3>
-          <a href="contact.html"
-            class="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-700 transition mt-4">
-            Contact Us
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-    <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
-  <section class="relative w-full h-[calc(100vh-0px)]">
-    <div class="swiper heroSwiper w-full h-full">
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <img src="./assets/images/new/new-31.png" alt="Hero Image 3" />
-        </div>
-        <div class="swiper-slide">
-          <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 4" />
-        </div>
-        <div class="swiper-slide">
-          <img src="./assets/images/new/new-54.png" alt="Hero Image 4" />
-        </div>
-
-        <div class="swiper-slide">
-          <img src="./assets/images/new/new-11.jpg" alt="Hero Image 2" />
-        </div>
-
-        <div class="swiper-slide">
-          <img src="./assets/images/new/new-28.png" alt="Hero Image 3" />
-        </div>
-        <div class="swiper-slide">
-          <img src="./assets/images/new/new-29.png" alt="Hero Image 2" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <div class="overflow-x-hidden">
-    <section class="bg-gray-100 py-20">
-      <div
-        class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
-
-        <!-- Left Content -->
-        <div class="w-full md:w-1/2 animate-fade-in z-10">
-          <div class="flex items-center mb-4">
-            <!-- <img src="assets/images/logo/logo.png" alt="Logo" class="w-40 h-16 mr-3 object-contain"> -->
-          </div>
-          <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
-            Uses in Schools
-          </h2>
-          <p class="text-gray-600 text-lg">
-            Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
-          </p>
-          <p class="text-gray-600 text-lg mt-4">
-            Use whiteboard mode to write or draw interactively during lessons.
-          </p>
-          <p class="text-gray-600 text-lg mt-4">
-            Use the clock for classroom activities, exams, and tests.
-          </p>
-        </div>
-
-        <!-- Right Image -->
-        <div class="w-full h-[450px] relative">
-          <img src="./assets/images/new/new-16.jpg" alt="Dashboard Screenshot"
-            class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0 -right-40 rounded-2xl" />
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-
-
-  <div class="overflow-x-hidden">
-    <section class="bg-gray-100 border-2 md:border-2 border-gray-200 shadow-2xl py-20">
-      <div
-        class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 relative">
-
-        <!-- Right Image -->
-        <div class="w-full h-[450px] relative">
-          <img src="./assets/images/new/new-17.jpg" alt="Dashboard Screenshot"
-            class="h-[450px] object-cover transform -translate-x-16 ease-linear scroll-zoom absolute top-0  rounded-2xl " />
-        </div>
-        <!-- Left Content -->
-        <div class="w-full md:w-1/2 animate-fade-in z-10 ">
-          <div class="flex items-center mb-4">
-            <!-- <img src="./assets/images/logo/logo.png" alt="Logo" class="w-40 h-16 mr-3 object-contain"> -->
-          </div>
-          <h2 class="text-4xl font-bold text-gray-900 leading-tight mb-4">
-            Uses in Offices
-          </h2>
-          <p class="text-gray-600 text-lg">
-            Seamless presentations during meetings.
-          </p>
-          <p class="text-gray-600 text-lg mt-4">
-            Collaborative whiteboard for brainstorming sessions.
-          </p>
-        </div>
-
-
-
-      </div>
-    </section>
-  </div>
-
-  <!-- <section class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center py-24">
-    <div class="max-w-2xl w-full px-6 flex flex-col lg:flex-row items-center justify-center gap-12">
-      <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
-        <div class="bg-gray-800 rounded-xl overflow-hidden">
-          <img src="assets/images/device/device-6.png" alt="Feature 1" class="w-full h-full object-cover" />
-        </div>
-        <div class="bg-gray-800 rounded-xl overflow-hidden">
-          <img src="assets/images/device/device-5.png" alt="Feature 2" class="w-full h-full object-cover" />
-        </div>
-        <div class="bg-gray-800 rounded-xl overflow-hidden">
-          <img src="assets/images/device/device-4.png" alt="Feature 3" class="w-full h-full object-cover" />
-        </div>
-        <div class="bg-gray-800 rounded-xl overflow-hidden">
-          <img src="assets/images/device/device-7.png" alt="Feature 4" class="w-full h-full object-cover" />
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-      <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
-
-            <!-- Card Component -->
-            <div class="flip-card aspect-square group">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div
-                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Connect with</h3>
-                        <p class="text-sm text-gray-400">High-Performance I/O</p>
-                    </div>
-                    <!-- Back -->
-                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
-                        <div class="absolute inset-0 bg-black/30"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Repeat for other cards -->
-            <div class="flip-card aspect-square group">
-                <div class="flip-card-inner">
-                    <div
-                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Display output</h3>
-                        <p class="text-sm text-gray-400">Crystal-clear visuals</p>
-                    </div>
-                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
-                        <div class="absolute inset-0 bg-black/30"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card aspect-square group">
-                <div class="flip-card-inner">
-                    <div
-                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">Built-in</h3>
-                        <p class="text-sm text-gray-400">Integrated technology</p>
-                    </div>
-                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
-                        <div class="absolute inset-0 bg-black/30"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card aspect-square group">
-                <div class="flip-card-inner">
-                    <div
-                        class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-                        <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-                        <h3 class="text-2xl font-bold mb-2">For power</h3>
-                        <p class="text-sm text-gray-400">Reliable energy supply</p>
-                    </div>
-                    <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-                        <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
-                        <div class="absolute inset-0 bg-black/30"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
 
 
   <section class="relative bg-gray-100 text-white py-32 overflow-hidden">
@@ -744,8 +484,214 @@
     </div>
   </section>
 
-  <section
-    class="relative w-full bg-gradient-to-br from-[#111827] via-[#302b63] to-[#24243e] text-white py-24 overflow-hidden">
+
+  <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
+  <section class="relative w-full h-[calc(100vh-0px)]">
+    <div class="swiper heroSwiper w-full h-full">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-31.png" alt="Hero Image 3" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/images/screen-page-img/school.jpg" alt="Hero Image 4" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-54.png" alt="Hero Image 4" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-11.jpg" alt="Hero Image 2" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-28.png" alt="Hero Image 3" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/images/new/new-29.png" alt="Hero Image 2" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 p-4 md:p-0 overflow-hidden">
+    <div class="flip-card max-w-7xl mx-auto w-full h-[300px] md:h-[350px]">
+      <div class="flip-card-inner w-full h-full">
+
+        <!-- Front -->
+        <div class="flip-card-front px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
+        radial-gradient(circle at bottom left,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at top right,
+            rgba(15, 14, 14, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1a1a1a);
+        background-color: #0e0e0e;">
+          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
+            Discover how PAGON Connect
+            <strong> bridges devices and displays</strong><br />
+            with unmatched simplicity and versatility
+          </h3>
+          <a href="#"
+            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
+            Coming soon
+          </a>
+        </div>
+
+        <!-- Back -->
+        <div class="flip-card-back  px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
+        radial-gradient(circle at bottom left,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at top right,
+            rgba(15, 14, 14, 0.04) 0%,
+            rgba(0, 0, 0, 0) 40%),
+        linear-gradient(145deg, #111111, #1a1a1a);
+        background-color: #0e0e0e;">
+          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
+            Ready to get in touch?
+          </h3>
+          <a href="contact.html"
+            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#333232] transition mt-4">
+            Contact Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl grid grid-cols-1 mx-auto px-4 gap-10">
+
+      <!-- Uses in Schools -->
+      <div
+        class="grid md:grid-cols-2 gap-8 h-[450px] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-8 shadow-lg border border-orange-500/30 hover:scale-105 transition-transform duration-500">
+        <div class="overflow-hidden rounded-3xl border-2 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.5)]">
+          <img src="./assets/images/new/new-16.jpg" alt="Uses in Schools" class="w-full h-[385px] object-cover">
+        </div>
+        <div class="p-16">
+          <h3 class="text-2xl font-bold text-white mt-6 mb-4">Uses in Schools</h3>
+          <p class="text-gray-200 text-md">
+            Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
+          </p>
+          <p class="text-gray-200 text-md mt-4">
+            Use whiteboard mode to write or draw interactively during lessons.
+          </p>
+          <p class="text-gray-200 text-md mt-4">
+            Use the clock for classroom activities, exams, and tests.
+          </p>
+        </div>
+
+      </div>
+
+      <div
+        class="grid md:grid-cols-2 gap-8 h-[450px] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-8 shadow-lg border border-orange-500/30 hover:scale-105 transition-transform duration-500">
+        <div class="p-24">
+          <h3 class="text-2xl font-bold text-white mt-6 mb-4"> Uses in Offices</h3>
+          <p class="text-gray-200 text-md">
+            Seamless presentations during meetings.
+          </p>
+          <p class="text-gray-200 text-md mt-4">
+            Collaborative whiteboard for brainstorming sessions.
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-3xl border-2 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.5)]">
+          <img src="./assets/images/new/new-62.png" alt="Uses in Schools" class="w-full h-[380px] object-cover">
+        </div>
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
+
+      <!-- Card Component -->
+      <div class="flip-card aspect-square group">
+        <div class="flip-card-inner">
+          <!-- Front -->
+          <div
+            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+            <h3 class="text-2xl font-bold mb-2">Connect with</h3>
+            <p class="text-sm text-gray-400">High-Performance I/O</p>
+          </div>
+          <!-- Back -->
+          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+            <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/30"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat for other cards -->
+      <div class="flip-card aspect-square group">
+        <div class="flip-card-inner">
+          <div
+            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+            <h3 class="text-2xl font-bold mb-2">Display output</h3>
+            <p class="text-sm text-gray-400">Crystal-clear visuals</p>
+          </div>
+          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+            <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/30"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card aspect-square group">
+        <div class="flip-card-inner">
+          <div
+            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+            <h3 class="text-2xl font-bold mb-2">Built-in</h3>
+            <p class="text-sm text-gray-400">Integrated technology</p>
+          </div>
+          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+            <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/30"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card aspect-square group">
+        <div class="flip-card-inner">
+          <div
+            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
+            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
+            <h3 class="text-2xl font-bold mb-2">For power</h3>
+            <p class="text-sm text-gray-400">Reliable energy supply</p>
+          </div>
+          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
+            <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/30"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+  <section class="relative w-full  text-white py-24 overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <!-- <p class="text-sm text-gray-300 mb-2">That's all. Except not.</p> -->
       <h2 class="text-3xl sm:text-4xl md:text-4xl font-bold leading-tight mb-4">
