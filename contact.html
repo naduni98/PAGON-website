@@ -28,9 +28,7 @@
   </script>
   <style>
     body {
-       background: radial-gradient(circle at top right, rgba(42, 5, 7, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
-                radial-gradient(circle at bottom left, rgba(237, 28, 36, 0.08) 0%, rgba(0, 0, 0, 0) 40%),
-                linear-gradient(145deg, #111111, #1A1A1A);
+      background: black;
     }
 
     @property --border-angle {
@@ -76,49 +74,45 @@
 
 
 
-  <section class="w-full py-20 px-4"
-   
->
+  <section class="w-full py-20 px-4">
     <div class="max-w-xl mx-auto">
-        <div class="backdrop-blur-lg bg-black/40 rounded-3xl p-10 border border-[#2B2B2B] shadow-lg">
-            <h2 class="text-2xl font-bold text-center mb-2 text-white">Contact Us</h2>
-            <p class="text-center text-gray-400 mb-8">We’d love to hear from you. Fill out the form below.</p>
+      <div class="backdrop-blur-lg bg-black/40 rounded-3xl p-10 border border-[#2B2B2B] shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-2 text-white">Contact Us</h2>
+        <p class="text-center text-gray-400 mb-8">We’d love to hear from you. Fill out the form below.</p>
 
-            <form id="contact-form" class="space-y-6">
-                <div>
-                    <label for="from_name" class="block mb-1 text-sm font-semibold text-white">Name</label>
-                    <input type="text" name="from_name" placeholder="Your name"
-                        class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] transition"
-                        required />
-                </div>
-                <div>
-                    <label for="from_email" class="block mb-1 text-sm font-semibold text-white">Email</label>
-                    <input type="email" name="from_email" placeholder="you@example.com"
-                        class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] transition"
-                        required />
-                </div>
-                <div>
-                    <label for="message" class="block mb-1 text-sm font-semibold text-white">Message</label>
-                    <textarea name="message" rows="4" placeholder="Your message here..."
-                        class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] transition"
-                        required></textarea>
-                </div>
-                <div class="text-center pt-4">
-<button type="submit"
-    class="px-6 py-2 rounded-full text-white font-medium transition duration-300"
-    style="background: linear-gradient(135deg, #992226, #7A1A1E);
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="from_name" class="block mb-1 text-sm font-semibold text-white">Name</label>
+            <input type="text" name="from_name" placeholder="Your name"
+              class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#323030] focus:border-[#181616] transition"
+              required />
+          </div>
+          <div>
+            <label for="from_email" class="block mb-1 text-sm font-semibold text-white">Email</label>
+            <input type="email" name="from_email" placeholder="you@example.com"
+              class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#323030] focus:border-[#181616]  transition"
+              required />
+          </div>
+          <div>
+            <label for="message" class="block mb-1 text-sm font-semibold text-white">Message</label>
+            <textarea name="message" rows="4" placeholder="Your message here..."
+              class="w-full px-4 py-2 rounded-md bg-[#1A1A1A]/80 text-white border border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#323030] focus:border-[#181616]  transition"
+              required></textarea>
+          </div>
+          <div class="text-center pt-4">
+            <button type="submit" class="px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background: linear-gradient(135deg, #992226, #7A1A1E);
            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);"
-    onmouseover="this.style.background='linear-gradient(135deg, #B32B30, #8C2024)'"
-    onmouseout="this.style.background='linear-gradient(135deg, #992226, #7A1A1E)'">
-    Send Message
-</button>
+              onmouseover="this.style.background='linear-gradient(135deg, #B32B30, #8C2024)'"
+              onmouseout="this.style.background='linear-gradient(135deg, #992226, #7A1A1E)'">
+              Send Message
+            </button>
 
 
-                </div>
-            </form>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
-</section>
+  </section>
 
 
 

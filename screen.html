@@ -270,10 +270,41 @@
         transform: translateX(0);
       }
     }
+     @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
 
     .animate-fade-in-left {
       animation: fade-in-left 0.8s ease-out both;
     }
+            .animate-slide-left {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 1s ease forwards;
+        }
   </style>
 </head>
 
@@ -486,10 +517,9 @@
 
 
   <!-- Fullscreen Hero Carousel (adjusted for navbar height) -->
-  <section class="relative w-full h-[calc(100vh-0px)]">
+  <!-- <section class="relative w-full h-[calc(100vh-0px)]">
     <div class="swiper heroSwiper w-full h-full">
       <div class="swiper-wrapper">
-        <!-- Slides -->
         <div class="swiper-slide">
           <img src="./assets/images/new/new-31.png" alt="Hero Image 3" />
         </div>
@@ -513,100 +543,218 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="bg-cover bg-center bg-no-repeat mt-24 mb-24 p-4 md:p-0 overflow-hidden">
-    <div class="flip-card max-w-7xl mx-auto w-full h-[300px] md:h-[350px]">
-      <div class="flip-card-inner w-full h-full">
 
-        <!-- Front -->
-        <div class="flip-card-front px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
-        radial-gradient(circle at bottom left,
-            rgba(0, 0, 0, 0.04) 0%,
-            rgba(0, 0, 0, 0) 40%),
-        radial-gradient(circle at top right,
-            rgba(15, 14, 14, 0.04) 0%,
-            rgba(0, 0, 0, 0) 40%),
-        linear-gradient(145deg, #111111, #1a1a1a);
-        background-color: #0e0e0e;">
-          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-            Discover how PAGON Connect
-            <strong> bridges devices and displays</strong><br />
-            with unmatched simplicity and versatility
-          </h3>
-          <a href="#"
-            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition mt-4">
-            Coming soon
-          </a>
+
+      <section class="py-16 px-4 md:px-8 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+
+            <!-- Section Title -->
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-100 mb-12">
+                Our PAGON Connect Solutions
+            </h2>
+
+            <!-- Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-60 mb-20">
+
+                <!-- Feature 1 -->
+                <div class="card-left flex flex-col  text-center space-y-4 ">
+                    <img src="./assets/images/new/new-16.jpg" alt="Compact Icon"
+                        class="w-72 h-72 object-cover rounded-3xl  shadow-lg transition duration-300" />
+
+                    <h3 class="text-md text-left pl-1 font-semibold text-white">Uses in Schools</h3>
+                    <p class="text-gray-300 text-[12px] text-left max-w-xs">
+                        Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
+                    </p>
+                    <p class="text-gray-300 text-[12px] text-left max-w-xs">
+                        Use whiteboard mode to write or draw interactively during lessons.
+                    </p>
+                    <p class="text-gray-300 text-[12px] text-left max-w-xs">
+                        Use the clock for classroom activities, exams, and tests.
+                    </p>
+                    <!-- <p class="text-gray-300 max-w-xs text-[12px]">
+                        Schedule bell times or emergency messages from one dashboard.
+                    </p>
+                     -->
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-right flex flex-col  space-y-4 mt-12">
+                    <div class="p-2 rounded-full shadow-lg"></div>
+                    <img src="./assets/images/new/new-62.png" alt="Efficient Icon"
+                        class="w-72 h-72 rounded-3xl object-cover  shadow-lg transition duration-300" />
+
+                    <h3 class="text-md text-left pl-1 font-semibold text-white">Uses in Offices</h3>
+                    <p class="text-gray-300 max-w-xs text-left text-[12px]">
+                         Seamless presentations during meetings and Collaborative whiteboard for brainstorming sessions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Connect With Unlimited Features Section -->
+    <section class="relative min-h-screen py-20 px-4 md:px-8 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style="background-image: url('assets/images/new/background.jpg');">
         </div>
 
-        <!-- Back -->
-        <div class="flip-card-back  px-6 py-16 text-center flex flex-col justify-center items-center" style="background:
-        radial-gradient(circle at bottom left,
-            rgba(0, 0, 0, 0.04) 0%,
-            rgba(0, 0, 0, 0) 40%),
-        radial-gradient(circle at top right,
-            rgba(15, 14, 14, 0.04) 0%,
-            rgba(0, 0, 0, 0) 40%),
-        linear-gradient(145deg, #111111, #1a1a1a);
-        background-color: #0e0e0e;">
-          <h3 class="text-xl md:text-xl font-semibold text-gray-100 tracking-widest mb-4">
-            Ready to get in touch?
-          </h3>
-          <a href="contact.html"
-            class="bg-gray-700 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#333232] transition mt-4">
-            Contact Us
-          </a>
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-xl md:text-xl lg:text-[32px] font-bold text-white mb-4">
+                    Connect With Unlimited Features
+                </h2>
+                <p class="text-[12px] text-gray-300">
+                    Signage device features
+                </p>
+            </div>
+
+            <!-- Features List -->
+            <div class="space-y-6 max-w-2xl mx-auto">
+
+                <!-- HDMI Feature -->
+                <div class="feature-item opacity-0 translate-x-8 transition-all duration-700 ease-out">
+                    <div
+                        class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <!-- Left side - Icon and content -->
+                            <div class="flex items-center space-x-4 flex-1">
+                                <!-- HDMI Icon -->
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="w-10 h-10 bg-gradient-to-b from-[#5C5F61] via-[#C3C3C5] to-[#EFE0CB] rounded-xl flex items-center justify-center">
+                                        <img src="assets/images/features/feature1.png" alt="PAGON logo" />
+                                    </div>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="flex-1">
+                                    <h3 class="text-[12px] font-bold text-white mb-1">HDMI</h3>
+                                    <p class="text-gray-300 text-[10px]">Connect Via HDMI Cable</p>
+                                </div>
+                            </div>
+
+                            <!-- Right side - Check mark -->
+                            <div class="flex-shrink-0">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Network Feature -->
+                <div class="feature-item opacity-0 translate-x-8 transition-all duration-700 ease-out">
+                    <div
+                        class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <!-- WiFi Icon -->
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 bg-[#D9D9D9] rounded-xl flex items-center justify-center">
+                                        <img src="assets/images/features/feature2.png" alt="PAGON logo" />
+                                    </div>
+                                </div>
+
+                                <div class="flex-1">
+                                    <h3 class="text-[12px] font-bold text-white mb-1">Network</h3>
+                                    <p class="text-gray-300 text-[10px]">Built in WiFi and Ethernet Connection</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-shrink-0">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type C Feature 1 -->
+                <div class="feature-item opacity-0 translate-x-8 transition-all duration-700 ease-out">
+                    <div
+                        class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <!-- USB-C Icon -->
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 bg-[#D9D9D9] rounded-xl flex items-center justify-center">
+                                        <img src="assets/images/features/feature3.png" alt="PAGON logo" />
+                                    </div>
+                                </div>
+
+                                <div class="flex-1">
+                                    <h3 class="text-[12px] font-bold text-white mb-1">Type C</h3>
+                                    <p class="text-gray-300 text-[10px]">Power Up With 5V, 2A Type C Input Easy</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-shrink-0">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type C Feature 2 -->
+                <div class="feature-item opacity-0 translate-x-8 transition-all duration-700 ease-out">
+                    <div
+                        class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <!-- USB-C Icon -->
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 bg-[#D9D9D9] rounded-xl flex items-center justify-center">
+                                        <img src="assets/images/features/feature3.png" alt="PAGON logo" />
+                                    </div>
+                                </div>
+
+                                <div class="flex-1">
+                                    <h3 class="text-[12px] font-bold text-white mb-1">Type C</h3>
+                                    <p class="text-gray-300 text-[10px]">Power Up With 5V, 2A Type C Input Easy</p>
+                                </div>
+                            </div>
+
+                            <div class="flex-shrink-0">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16">
-    <div class="max-w-6xl grid grid-cols-1 mx-auto px-4 gap-10">
-
-      <!-- Uses in Schools -->
-      <div
-        class="grid md:grid-cols-2 gap-8 h-[450px] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-8 shadow-lg border border-orange-500/30 hover:scale-105 transition-transform duration-500">
-        <div class="overflow-hidden rounded-3xl border-2 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.5)]">
-          <img src="./assets/images/new/new-16.jpg" alt="Uses in Schools" class="w-full h-[385px] object-cover">
-        </div>
-        <div class="p-16">
-          <h3 class="text-2xl font-bold text-white mt-6 mb-4">Uses in Schools</h3>
-          <p class="text-gray-200 text-md">
-            Teachers can instantly cast lessons, videos, or documents onto the classroom screen.
-          </p>
-          <p class="text-gray-200 text-md mt-4">
-            Use whiteboard mode to write or draw interactively during lessons.
-          </p>
-          <p class="text-gray-200 text-md mt-4">
-            Use the clock for classroom activities, exams, and tests.
-          </p>
-        </div>
-
-      </div>
-
-      <div
-        class="grid md:grid-cols-2 gap-8 h-[450px] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-8 shadow-lg border border-orange-500/30 hover:scale-105 transition-transform duration-500">
-        <div class="p-24">
-          <h3 class="text-2xl font-bold text-white mt-6 mb-4"> Uses in Offices</h3>
-          <p class="text-gray-200 text-md">
-            Seamless presentations during meetings.
-          </p>
-          <p class="text-gray-200 text-md mt-4">
-            Collaborative whiteboard for brainstorming sessions.
-          </p>
-        </div>
-        <div class="overflow-hidden rounded-3xl border-2 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.5)]">
-          <img src="./assets/images/new/new-62.png" alt="Uses in Schools" class="w-full h-[380px] object-cover">
-        </div>
-
-
-      </div>
-
-    </div>
-  </section>
+    </section>
 
 
 
@@ -617,81 +765,9 @@
 
 
 
-  <section id="flip-showcase" class=" text-gray-100 min-h-screen flex items-center justify-center py-24">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl w-full">
-
-      <!-- Card Component -->
-      <div class="flip-card aspect-square group">
-        <div class="flip-card-inner">
-          <!-- Front -->
-          <div
-            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-            <h3 class="text-2xl font-bold mb-2">Connect with</h3>
-            <p class="text-sm text-gray-400">High-Performance I/O</p>
-          </div>
-          <!-- Back -->
-          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-            <img src="assets/images/new/new-70.png" alt="Feature Back" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/30"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Repeat for other cards -->
-      <div class="flip-card aspect-square group">
-        <div class="flip-card-inner">
-          <div
-            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-            <h3 class="text-2xl font-bold mb-2">Display output</h3>
-            <p class="text-sm text-gray-400">Crystal-clear visuals</p>
-          </div>
-          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-            <img src="assets/images/new/new-68.png" alt="Feature Back" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/30"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card aspect-square group">
-        <div class="flip-card-inner">
-          <div
-            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-            <h3 class="text-2xl font-bold mb-2">Built-in</h3>
-            <p class="text-sm text-gray-400">Integrated technology</p>
-          </div>
-          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-            <img src="assets/images/new/new-71.png" alt="Feature Back" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/30"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card aspect-square group">
-        <div class="flip-card-inner">
-          <div
-            class="flip-card-front bg-gradient-to-br from-neutral-900 to-neutral-950/90 backdrop-blur-xl shadow-3xl rounded-xl overflow-hidden flex flex-col items-center justify-center p-8 transition-all duration-500 group-hover:shadow-red-500/30">
-            <img src="../assets/images/Pagon-logo-white.png" alt="PAGON logo" class="w-[80px] mb-6" />
-            <h3 class="text-2xl font-bold mb-2">For power</h3>
-            <p class="text-sm text-gray-400">Reliable energy supply</p>
-          </div>
-          <div class="flip-card-back bg-gray-800 rounded-xl overflow-hidden relative">
-            <img src="assets/images/new/new-66.png" alt="Feature Back" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/30"></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
 
-
-
-
-  <section class="relative w-full  text-white py-24 overflow-hidden">
+  <section class="relative w-full  text-white py-24 bg-black overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <!-- <p class="text-sm text-gray-300 mb-2">That's all. Except not.</p> -->
       <h2 class="text-3xl sm:text-4xl md:text-4xl font-bold leading-tight mb-4">
@@ -800,6 +876,120 @@
     els.forEach(el => io.observe(el));
 
   </script>
+    <script>
+        // Enhanced scroll-triggered animation
+        document.addEventListener("DOMContentLoaded", function () {
+            // For regular banner
+            const buyDemoBanner = document.querySelector('.buy-demo-banner');
+
+            // For floating banner (choose one)
+            const floatingBanner = document.querySelector('.buy-demo-floating');
+
+            if (buyDemoBanner) {
+                const buyDemoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0', 'translate-y-8');
+                            entry.target.classList.add('opacity-100', 'translate-y-0');
+                            buyDemoObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+
+                buyDemoObserver.observe(buyDemoBanner);
+            }
+
+            // For floating banner - appears after scrolling past hero section
+            if (floatingBanner) {
+                const heroSection = document.querySelector('section'); // First section (hero)
+
+                const floatingObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+                            // Hero section has been scrolled past - show floating banner
+                            floatingBanner.classList.remove('opacity-0', 'translate-y-8');
+                            floatingBanner.classList.add('opacity-100', 'translate-y-0');
+                        } else if (entry.isIntersecting) {
+                            // Hero section is visible - hide floating banner
+                            floatingBanner.classList.remove('opacity-100', 'translate-y-0');
+                            floatingBanner.classList.add('opacity-0', 'translate-y-8');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                if (heroSection) {
+                    floatingObserver.observe(heroSection);
+                }
+            }
+        });
+    </script>
+    <script>
+        // One-by-one animation for feature items
+        document.addEventListener("DOMContentLoaded", function () {
+            const featureItems = document.querySelectorAll('.feature-item');
+
+            const featuresObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Find index of this feature item
+                        const index = Array.from(featureItems).indexOf(entry.target);
+
+                        // Animate with staggered delay
+                        setTimeout(() => {
+                            entry.target.classList.remove('opacity-0', 'translate-x-8');
+                            entry.target.classList.add('opacity-100', 'translate-x-0');
+                        }, index * 300); // 300ms delay between each item
+
+                        // Stop observing once animated
+                        featuresObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            // Observe all feature items
+            featureItems.forEach(item => {
+                featuresObserver.observe(item);
+            });
+        });
+    </script>
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const leftCard = document.querySelector(".card-left");
+            const rightCard = document.querySelector(".card-right");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            if (entry.target.classList.contains("card-left")) {
+                                entry.target.classList.add("animate-slide-left");
+                                entry.target.classList.remove("opacity-0");
+                            } else if (entry.target.classList.contains("card-right")) {
+                                entry.target.classList.add("animate-slide-right");
+                                entry.target.classList.remove("opacity-0");
+                            }
+                        } else {
+                            // Remove animation classes when out of view (so it can replay)
+                            entry.target.classList.remove("animate-slide-left", "animate-slide-right");
+                            entry.target.classList.add("opacity-0");
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+
+            observer.observe(leftCard);
+            observer.observe(rightCard);
+        });
+    </script>
   <script src="./assets/js/injecting.js"></script>
 </body>
 
