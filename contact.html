@@ -142,7 +142,7 @@
           form.reset();
           setTimeout(() => toast.classList.add("hidden"), 3000);
         })
-        .catch((error) => {
+        .catch(error => {
           alert("Message failed: " + JSON.stringify(error));
         });
     });
